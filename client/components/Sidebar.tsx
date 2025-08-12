@@ -21,12 +21,12 @@ const Sidebar = ({ activeItem: propActiveItem }: SidebarProps) => {
   const activeItem = getActiveItem();
 
   const menuItems = [
-    { id: 'tv', icon: Tv, tooltip: 'TV', opacity: 0.3 },
-    { id: 'explore', icon: Layers, tooltip: 'Explore', opacity: 1 },
-    { id: 'library', icon: Image, tooltip: 'Library', opacity: 0.3 },
-    { id: 'community', icon: Globe, tooltip: 'Community', opacity: 0.3 },
-    { id: 'characters', icon: User, tooltip: 'Characters', opacity: 0.3 },
-    { id: 'sets', icon: MapPin, tooltip: 'Sets', opacity: 0.3 },
+    { id: 'tv', icon: Tv, tooltip: 'TV', path: '/tv' },
+    { id: 'explore', icon: Layers, tooltip: 'Explore', path: '/' },
+    { id: 'library', icon: Image, tooltip: 'Library', path: '/library' },
+    { id: 'community', icon: Globe, tooltip: 'Community', path: '/community' },
+    { id: 'characters', icon: User, tooltip: 'Characters', path: '/characters' },
+    { id: 'sets', icon: MapPin, tooltip: 'Sets', path: '/sets' },
   ];
 
   return (
