@@ -1,8 +1,24 @@
-import { useState } from 'react';
 import { Tv, Layers, Image, Globe, User, MapPin } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
-const Sidebar = () => {
-  const [activeItem, setActiveItem] = useState('explore');
+interface SidebarProps {
+  activeItem?: string;
+}
+
+const Sidebar = ({ activeItem: propActiveItem }: SidebarProps) => {
+  const location = useLocation();
+
+  // Determine active item from prop or current route
+  const getActiveItem = () => {
+    if (propActiveItem) return propActiveItem;
+
+    const path = location.pathname;
+    if (path === '/tv') return 'tv';
+    if (path === '/') return 'explore';
+    return 'explore';
+  };
+
+  const activeItem = getActiveItem();
 
   const menuItems = [
     { id: 'tv', icon: Tv, tooltip: 'TV', opacity: 0.3 },
