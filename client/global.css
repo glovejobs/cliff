@@ -111,15 +111,22 @@
   }
 }
 
-/* Utilities for glassmorphism effect */
+/* Utilities for glassmorphism effect and text truncation */
 @layer utilities {
   .glass {
     backdrop-filter: blur(8px);
     background: rgba(255, 255, 255, 0.1);
   }
-  
+
   .glass-dark {
     backdrop-filter: blur(4px);
     background: rgba(0, 0, 0, 0.1);
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 }
