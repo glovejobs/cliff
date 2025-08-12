@@ -62,23 +62,24 @@ const Sidebar = ({ activeItem: propActiveItem }: SidebarProps) => {
         {menuItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeItem === item.id;
-          
+          const opacity = isActive ? 1 : 0.3;
+
           return (
             <div key={item.id} className="group relative">
-              <button
-                onClick={() => setActiveItem(item.id)}
+              <Link
+                to={item.path}
                 className={`
                   flex items-center justify-center w-12 h-12 rounded-lg transition-all duration-200
-                  ${isActive 
-                    ? 'bg-nav-hover' 
+                  ${isActive
+                    ? 'bg-nav-hover'
                     : 'hover:bg-nav-hover'
                   }
                 `}
-                style={{ opacity: item.opacity }}
+                style={{ opacity }}
               >
                 <Icon size={20} className="text-text-primary" />
-              </button>
-              
+              </Link>
+
               {/* Tooltip */}
               <div className="absolute left-14 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg rounded text-xs text-text-primary whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
                 {item.tooltip}
