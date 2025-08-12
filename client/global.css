@@ -40,20 +40,25 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Design system variables */
+    --app-bg: #171717;
+    --nav-bg: #232424;
+    --nav-hover: #434343;
+    --text-primary: #F3F3F3;
+    --text-secondary: #B3B3B3;
+    --text-dark: #1E1E1E;
+    --border-neutral: #767676;
+    --surface-neutral: #E3E3E3;
+    --brand-primary: #2C2C2C;
+    --brand-text: #F5F5F5;
   }
 
   .dark {
@@ -101,6 +106,20 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-app-bg text-text-primary;
+    font-family: 'Inter', -apple-system, 'Roboto', 'Helvetica', sans-serif;
+  }
+}
+
+/* Utilities for glassmorphism effect */
+@layer utilities {
+  .glass {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-dark {
+    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.1);
   }
 }
