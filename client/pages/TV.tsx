@@ -72,55 +72,85 @@ const TV = () => {
 
             {/* Controls Section - Centered */}
             <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full">
-              {/* Main Controller - CSS Grid Layout */}
-              <div className="grid gap-3 bg-nav-bg border border-brand-primary rounded-2xl p-5 backdrop-blur-sm" style={{
-                gridTemplateColumns: 'repeat(8, minmax(40px, 1fr))',
-                gridTemplateRows: 'repeat(2, 40px)'
-              }}>
-                {/* TV Icon - 1x2 grid area (same as previous/next video) */}
-                <div className="col-span-1 row-span-2 group relative">
-                  <button className="flex items-center justify-center w-full h-full bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+              {/* Main Controller - Horizontal Flexbox Layout */}
+              <div className="flex items-center gap-3 bg-nav-bg border border-brand-primary rounded-2xl p-5 backdrop-blur-sm">
+                {/* TV Icon - Far left */}
+                <div className="group relative">
+                  <button className="flex items-center justify-center w-[80px] h-[84px] bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <svg className="w-[34.4px] h-[34.4px]" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M25.167 3.66699L18.0003 10.8337L10.8337 3.66699M6.53366 10.8337H29.467C31.0502 10.8337 32.3337 12.1171 32.3337 13.7003V29.467C32.3337 31.0502 31.0502 32.3337 29.467 32.3337H6.53366C4.95044 32.3337 3.66699 31.0502 3.66699 29.467V13.7003C3.66699 12.1171 4.95044 10.8337 6.53366 10.8337Z" stroke="#F5F5F5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
-                  <div className="absolute bottom-16 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                  <div className="absolute bottom-20 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                     TV off
                   </div>
                 </div>
 
-                {/* Skip back - 1x1 */}
-                <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <SkipBack size={16} className="text-text-primary" strokeWidth={1.6} />
-                  </button>
-                  <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    Skip back
+                {/* Media Controls Column */}
+                <div className="flex flex-col gap-3">
+                  {/* Top Row: Skip back, Pause, Skip forward */}
+                  <div className="flex gap-3">
+                    <div className="group relative">
+                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                        <SkipBack size={16} className="text-text-primary" strokeWidth={1.6} />
+                      </button>
+                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                        Skip back
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                        <Pause size={16} className="text-text-primary" strokeWidth={1.6} />
+                      </button>
+                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                        Pause
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                        <SkipForward size={16} className="text-text-primary" strokeWidth={1.6} />
+                      </button>
+                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                        Skip forward
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Row: Repeat, Mute, Maximize */}
+                  <div className="flex gap-3">
+                    <div className="group relative">
+                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                        <Repeat size={16} className="text-text-primary" strokeWidth={1.2} />
+                      </button>
+                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                        Repeat
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                        <VolumeX size={16} className="text-text-primary" strokeWidth={1.2} />
+                      </button>
+                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                        Mute
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                        <Maximize2 size={16} className="text-text-primary" strokeWidth={1.6} />
+                      </button>
+                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                        Maximize
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Pause - 1x1 */}
-                <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <Pause size={16} className="text-text-primary" strokeWidth={1.6} />
-                  </button>
-                  <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    Pause
-                  </div>
-                </div>
-
-                {/* Skip forward - 1x1 */}
-                <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <SkipForward size={16} className="text-text-primary" strokeWidth={1.6} />
-                  </button>
-                  <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    Skip forward
-                  </div>
-                </div>
-
-                {/* Previous/Next Video Section - 2 rows height */}
-                <div className="col-span-1 row-span-2 flex flex-col justify-center items-center bg-brand-primary rounded-lg p-2.5 gap-2.5">
+                {/* Previous/Next Video Section */}
+                <div className="flex flex-col justify-center items-center bg-brand-primary rounded-lg p-2.5 gap-2.5 h-[84px]">
                   <div className="flex items-center gap-2.5">
                     <div className="group relative">
                       <button>
@@ -152,69 +182,37 @@ const TV = () => {
                   </div>
                 </div>
 
-                {/* Repeat - 1x1 */}
-                <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <Repeat size={16} className="text-text-primary" strokeWidth={1.2} />
-                  </button>
-                  <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    Repeat
-                  </div>
-                </div>
-
-                {/* Mute - 1x1 */}
-                <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <VolumeX size={16} className="text-text-primary" strokeWidth={1.2} />
-                  </button>
-                  <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    Mute
-                  </div>
-                </div>
-
-                {/* Maximize - 1x1 */}
-                <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <Maximize2 size={16} className="text-text-primary" strokeWidth={1.6} />
-                  </button>
-                  <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    Maximize
-                  </div>
-                </div>
-
-                {/* Like button - 2 columns */}
-                <div className="col-span-2 row-span-1">
+                {/* Like and Comment Buttons - Vertical Stack */}
+                <div className="flex flex-col gap-3">
                   <button className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
                     <Heart size={16} className="text-text-primary" strokeWidth={1.6} />
                     89
                   </button>
-                </div>
 
-                {/* Comment button - 2 columns */}
-                <div className="col-span-2 row-span-1">
                   <button className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
                     <MessageCircle size={16} className="text-text-primary" strokeWidth={1.6} />
                     1
                   </button>
                 </div>
 
-                {/* Share - 1x1 */}
-                <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <Share2 size={16} className="text-text-primary" strokeWidth={1.6} />
-                  </button>
-                  <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    Share
+                {/* Share and Details - Vertical Stack */}
+                <div className="flex flex-col gap-3">
+                  <div className="group relative">
+                    <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                      <Share2 size={16} className="text-text-primary" strokeWidth={1.6} />
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Share
+                    </div>
                   </div>
-                </div>
 
-                {/* Details - 1x1 */}
-                <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <FileText size={16} className="text-text-primary" strokeWidth={1.6} />
-                  </button>
-                  <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    Details
+                  <div className="group relative">
+                    <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                      <FileText size={16} className="text-text-primary" strokeWidth={1.6} />
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Details
+                    </div>
                   </div>
                 </div>
               </div>
