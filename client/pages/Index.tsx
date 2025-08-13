@@ -18,8 +18,8 @@ export default function Index() {
       </div>
 
       {/* Main Scrollable Content */}
-      <main className="ml-20 px-6 min-h-screen" style={{ paddingTop: '88px' }}>
-        <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 88px)' }}>
+      <main className="ml-20 px-6 min-h-screen" style={{ paddingTop: '106px' }}>
+        <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 106px)' }}>
           <div className="max-w-[1320px] mx-auto">
             {/* Welcome Section */}
             <WelcomeSection />
