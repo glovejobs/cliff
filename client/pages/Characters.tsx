@@ -101,7 +101,7 @@ const Characters = () => {
       <Sidebar activeItem="characters" />
       
       {/* Main Content */}
-      <main className="ml-20 p-6 min-h-screen">
+      <main className="ml-20 px-6 pt-3 pb-6 min-h-screen">
         <div className="max-w-[1320px] mx-auto">
           {/* Header */}
           <div className="flex justify-between items-center w-full mb-10">
