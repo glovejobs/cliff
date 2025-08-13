@@ -184,7 +184,7 @@ const TV = () => {
 
                 {/* Like button - 2 columns */}
                 <div className="col-span-2 row-span-1">
-                  <button className="flex items-center justify-center gap-2 w-full h-full bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
                     <Heart size={16} className="text-text-primary" strokeWidth={1.6} />
                     89
                   </button>
@@ -192,7 +192,7 @@ const TV = () => {
 
                 {/* Comment button - 2 columns */}
                 <div className="col-span-2 row-span-1">
-                  <button className="flex items-center justify-center gap-2 w-full h-full bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
                     <MessageCircle size={16} className="text-text-primary" strokeWidth={1.6} />
                     1
                   </button>
