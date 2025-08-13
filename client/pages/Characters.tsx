@@ -102,8 +102,8 @@ const Characters = () => {
       <Sidebar activeItem="characters" />
       
       {/* Fixed Header */}
-      <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg">
-        <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-4">
+      <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg px-6">
+        <div className="max-w-[1320px] mx-auto pt-6 pb-4">
           <div className="flex justify-between items-center w-full">
             {/* Search Bar */}
             <div className="flex items-center gap-2 bg-nav-bg rounded-full px-4 py-3 w-[360px]">
