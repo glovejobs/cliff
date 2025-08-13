@@ -296,7 +296,7 @@ const Community = () => {
       <ExpandedSidebar activeItem="community" />
       
       {/* Main Content */}
-      <main className="ml-[252px] p-6 min-h-screen">
+      <main className="ml-[252px] px-6 pt-3 pb-6 min-h-screen">
         <div className="flex flex-col items-center gap-12 flex-1">
           {/* Header Section */}
           <div className="flex flex-col justify-center items-start gap-2.5 max-w-[600px] w-full">
