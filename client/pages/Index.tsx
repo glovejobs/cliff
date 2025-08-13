@@ -9,19 +9,23 @@ export default function Index() {
     <div className="min-h-screen bg-app-bg relative">
       {/* Sidebar */}
       <Sidebar />
-      
-      {/* Main Content */}
-      <main className="ml-20 px-6 pt-6 pb-6 min-h-screen">
-        <ScrollableContainer className="h-screen">
-          <div className="max-w-[1320px] mx-auto">
-          {/* Header */}
+
+      {/* Fixed Header */}
+      <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg">
+        <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-4">
           <Header />
-          
-          {/* Welcome Section */}
-          <WelcomeSection />
-          
-          {/* Explore Section */}
-          <ExploreSection />
+        </div>
+      </div>
+
+      {/* Main Scrollable Content */}
+      <main className="ml-20 px-6 min-h-screen" style={{ paddingTop: '120px' }}>
+        <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 120px)' }}>
+          <div className="max-w-[1320px] mx-auto">
+            {/* Welcome Section */}
+            <WelcomeSection />
+
+            {/* Explore Section */}
+            <ExploreSection />
           </div>
         </ScrollableContainer>
       </main>
