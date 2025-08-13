@@ -25,7 +25,7 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
       className="fixed right-3 w-2 z-50 pointer-events-none"
       style={{
         right: '12px', // Position within the 24px right padding
-        top: '120px', // Start below fixed header
+        top: '88px', // Start below fixed header
         bottom: '0px',
       }}
     >
