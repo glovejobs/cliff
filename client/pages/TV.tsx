@@ -91,7 +91,7 @@ const TV = () => {
 
                 {/* Skip back - 1x1 */}
                 <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-full h-full aspect-square p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <SkipBack size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
                   <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
@@ -101,7 +101,7 @@ const TV = () => {
 
                 {/* Pause - 1x1 */}
                 <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-full h-full aspect-square p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <Pause size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
                   <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
@@ -111,7 +111,7 @@ const TV = () => {
 
                 {/* Skip forward - 1x1 */}
                 <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-full h-full aspect-square p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <SkipForward size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
                   <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
@@ -154,7 +154,7 @@ const TV = () => {
 
                 {/* Repeat - 1x1 */}
                 <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-full h-full aspect-square p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <Repeat size={16} className="text-text-primary" strokeWidth={1.2} />
                   </button>
                   <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
@@ -164,7 +164,7 @@ const TV = () => {
 
                 {/* Mute - 1x1 */}
                 <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-full h-full aspect-square p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <VolumeX size={16} className="text-text-primary" strokeWidth={1.2} />
                   </button>
                   <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
@@ -174,7 +174,7 @@ const TV = () => {
 
                 {/* Maximize - 1x1 */}
                 <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-full h-full aspect-square p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <Maximize2 size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
                   <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
@@ -200,7 +200,7 @@ const TV = () => {
 
                 {/* Share - 1x1 */}
                 <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-full h-full aspect-square p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <Share2 size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
                   <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
@@ -210,7 +210,7 @@ const TV = () => {
 
                 {/* Details - 1x1 */}
                 <div className="col-span-1 row-span-1 group relative">
-                  <button className="flex items-center justify-center w-full h-full aspect-square p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                  <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <FileText size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
                   <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
