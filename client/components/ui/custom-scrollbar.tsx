@@ -22,9 +22,11 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
 
   return (
     <div
-      className="fixed right-3 top-0 bottom-0 w-2 z-50 pointer-events-none"
+      className="fixed right-3 w-2 z-50 pointer-events-none"
       style={{
         right: '12px', // Position within the 24px right padding
+        top: '120px', // Start below fixed header
+        bottom: '0px',
       }}
     >
       {/* Scrollbar track */}
