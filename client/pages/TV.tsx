@@ -18,22 +18,22 @@ import Header from '../components/Header';
 
 const TV = () => {
   return (
-    <div className="min-h-screen bg-app-bg relative">
+    <div className="h-screen bg-app-bg relative overflow-hidden">
       {/* Sidebar */}
       <Sidebar activeItem="tv" />
-      
+
       {/* Main Content */}
-      <main className="ml-20 px-6 pt-3 pb-6 min-h-screen">
+      <main className="ml-20 px-6 pt-3 pb-6 h-screen flex flex-col">
         <div className="max-w-[1200px] mx-auto flex flex-col h-full">
           {/* Header */}
           <Header />
-          
+
           {/* Video Player Content */}
-          <div className="flex-1 flex flex-col justify-end items-center gap-3">
+          <div className="flex-1 flex flex-col gap-3 min-h-0">
             {/* Video Player Area */}
-            <div className="flex items-center gap-3 flex-1 w-full">
+            <div className="flex items-center gap-3 flex-1 w-full min-h-0">
               {/* Left Side Video */}
-              <div className="w-[114px] h-[754px] relative rounded-lg overflow-hidden">
+              <div className="w-[60px] flex-shrink-0 h-full relative rounded-lg overflow-hidden">
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/74d4309d658b5e8b28f5b3150c6dd3db871e721c?width=228"
                   alt="Side video"
@@ -48,14 +48,14 @@ const TV = () => {
               </div>
 
               {/* Main Video Player */}
-              <div className="flex-1 flex justify-center items-center bg-gray-300 rounded-lg relative" style={{ height: '754px' }}>
+              <div className="flex-1 h-full flex justify-center items-center bg-gray-300 rounded-lg relative">
                 <button className="w-[120px] h-[120px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-opacity-40 transition-colors">
                   <Play size={48} className="text-white ml-2" fill="white" />
                 </button>
               </div>
 
               {/* Right Side Video */}
-              <div className="w-[114px] h-[754px] relative rounded-lg overflow-hidden">
+              <div className="w-[60px] flex-shrink-0 h-full relative rounded-lg overflow-hidden">
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/1e810018ba559b80ef3bd7b4264ac0910600e3d3?width=228"
                   alt="Side video"
@@ -71,7 +71,7 @@ const TV = () => {
             </div>
 
             {/* Controls Section */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-shrink-0">
               {/* Remix Button */}
               <div className="flex justify-end items-center">
                 <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
