@@ -16,8 +16,8 @@ const Sets = () => {
       </div>
 
       {/* Main Scrollable Content */}
-      <main className="ml-20 px-6 min-h-screen" style={{ paddingTop: '120px' }}>
-        <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 120px)' }}>
+      <main className="ml-20 px-6 min-h-screen" style={{ paddingTop: '88px' }}>
+        <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 88px)' }}>
           <div className="max-w-[1320px] mx-auto">
           
           {/* Content */}
