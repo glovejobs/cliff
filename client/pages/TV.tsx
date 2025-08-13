@@ -80,6 +80,9 @@ const TV = () => {
 
             {/* Controls Section - Centered */}
             <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full">
+              {/* Invisible balancing div on the left */}
+              <div className="w-[86px] h-[86px] flex-shrink-0"></div>
+
               {/* Main Controller - Horizontal Flexbox Layout */}
               <div className="flex items-center gap-3 bg-nav-bg border border-brand-primary rounded-2xl p-5 backdrop-blur-sm">
                 {/* TV Icon - Far left */}
