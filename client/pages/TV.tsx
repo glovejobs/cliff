@@ -73,7 +73,7 @@ const TV = () => {
             {/* Controls Section - Centered */}
             <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full">
               {/* Main Controller */}
-              <div className="flex items-center gap-12 bg-nav-bg border border-brand-primary rounded-2xl p-5 backdrop-blur-sm">
+              <div className="flex items-start gap-12 bg-nav-bg border border-brand-primary rounded-2xl p-5 backdrop-blur-sm">
                 {/* TV Icon */}
                 <div className="flex items-center gap-3">
                   <div className="group relative">
