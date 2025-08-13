@@ -55,8 +55,8 @@ const WelcomeSection = () => {
 
                 {/* 16:9 button */}
                 <button className="flex p-2 justify-center items-center gap-2 rounded-lg bg-black bg-opacity-10 backdrop-blur-sm hover:bg-opacity-20 transition-colors">
-                  <div className="flex w-4 h-4 p-1 justify-center items-center">
-                    <div className="w-4 h-[9px] border-[1.67px] border-text-primary rounded-sm"></div>
+                  <div className="flex w-4 h-4 py-1 px-0 justify-center items-center relative">
+                    <div className="w-4 h-[9px] border-[1.67px] border-text-primary rounded-sm absolute left-0 top-1"></div>
                   </div>
                   <span className="text-text-primary text-base font-normal leading-[100%]">16:9</span>
                 </button>
