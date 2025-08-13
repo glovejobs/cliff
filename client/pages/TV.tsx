@@ -23,7 +23,7 @@ const TV = () => {
       <Sidebar activeItem="tv" />
 
       {/* Main Content */}
-      <main className="ml-20 px-6 pt-3 pb-6 h-screen flex flex-col">
+      <main className="ml-20 px-6 pt-6 pb-6 h-screen flex flex-col">
         <div className="flex flex-col h-full w-full">
           {/* Header */}
           <Header />
