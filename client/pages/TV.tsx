@@ -74,11 +74,11 @@ const TV = () => {
             <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full">
               {/* Main Controller - CSS Grid Layout */}
               <div className="grid gap-3 bg-nav-bg border border-brand-primary rounded-2xl p-5 backdrop-blur-sm" style={{
-                gridTemplateColumns: 'repeat(6, 1fr)',
+                gridTemplateColumns: 'repeat(8, 1fr)',
                 gridTemplateRows: 'repeat(2, 1fr)'
               }}>
-                {/* TV Icon - 2x2 grid area */}
-                <div className="col-span-2 row-span-2 group relative">
+                {/* TV Icon - 1x2 grid area (same as previous/next video) */}
+                <div className="col-span-1 row-span-2 group relative">
                   <button className="flex items-center justify-center w-full h-full bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
                     <svg className="w-[34.4px] h-[34.4px]" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M25.167 3.66699L18.0003 10.8337L10.8337 3.66699M6.53366 10.8337H29.467C31.0502 10.8337 32.3337 12.1171 32.3337 13.7003V29.467C32.3337 31.0502 31.0502 32.3337 29.467 32.3337H6.53366C4.95044 32.3337 3.66699 31.0502 3.66699 29.467V13.7003C3.66699 12.1171 4.95044 10.8337 6.53366 10.8337Z" stroke="#F5F5F5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
