@@ -297,8 +297,8 @@ const Community = () => {
       <ExpandedSidebar activeItem="community" />
 
       {/* Fixed Header Section */}
-      <div className="fixed top-0 left-[252px] right-0 z-40 bg-app-bg">
-        <div className="px-6 pt-6 pb-4">
+      <div className="fixed top-0 left-[252px] right-0 z-40 bg-app-bg px-6">
+        <div className="pt-6 pb-4">
           <div className="flex flex-col justify-center items-start gap-2.5 max-w-[600px] w-full mx-auto">
             <h1 className="text-text-primary text-3xl font-normal leading-tight w-full text-center">
               Rooms
