@@ -109,7 +109,7 @@ const TV = () => {
                 </div>
 
                 {/* Media Controls Column */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-1.5">
                   {/* Top Row: Skip back, Pause, Skip forward */}
                   <div className="flex gap-3">
                     <div className="group relative">
