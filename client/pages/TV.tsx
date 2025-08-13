@@ -24,7 +24,7 @@ const TV = () => {
 
       {/* Main Content */}
       <main className="ml-20 px-6 pt-6 pb-6 h-screen flex flex-col">
-        <div className="flex flex-col h-full w-full">
+        <div className="flex flex-col h-full w-full max-w-[1320px]">
           {/* Header */}
           <Header />
 
