@@ -9,8 +9,8 @@ const Sets = () => {
       <Sidebar activeItem="sets" />
 
       {/* Fixed Header */}
-      <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg">
-        <div className="max-w-[1320px] mx-auto px-6 pt-6 pb-4">
+      <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg px-6">
+        <div className="max-w-[1320px] mx-auto pt-6 pb-4">
           <Header />
         </div>
       </div>
