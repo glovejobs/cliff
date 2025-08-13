@@ -2,7 +2,7 @@ import { Search, Plus } from 'lucide-react';
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center w-full mb-10">
+    <header className="flex justify-between items-center w-full mb-10 mt-3">
       {/* Search Bar */}
       <div className="flex items-center gap-2 bg-nav-bg rounded-full px-4 py-3 w-[360px]">
         <span className="text-text-secondary flex-1 text-base font-normal">
