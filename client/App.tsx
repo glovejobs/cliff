@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import TV from "./pages/TV";
 import Library from "./pages/Library";
 import Community from "./pages/Community";
+import Characters from "./pages/Characters";
+import Sets from "./pages/Sets";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
