@@ -1,5 +1,6 @@
 import { Tv, Layers, Image, Globe, User, MapPin } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { ScrollableContainer } from '../components/ui/scrollable-container';
 
 const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
   const location = useLocation();
@@ -297,7 +298,8 @@ const Community = () => {
       
       {/* Main Content */}
       <main className="ml-[252px] px-6 pt-6 pb-6 min-h-screen">
-        <div className="flex flex-col items-center gap-12 flex-1">
+        <ScrollableContainer className="h-screen">
+          <div className="flex flex-col items-center gap-12 flex-1">
           {/* Header Section */}
           <div className="flex flex-col justify-center items-start gap-2.5 max-w-[600px] w-full">
             <h1 className="text-text-primary text-3xl font-normal leading-tight w-full text-center">
@@ -367,7 +369,8 @@ const Community = () => {
             {/* Spacer */}
             <div className="h-6"></div>
           </div>
-        </div>
+          </div>
+        </ScrollableContainer>
       </main>
     </div>
   );
