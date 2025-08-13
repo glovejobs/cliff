@@ -22,12 +22,16 @@ const TV = () => {
       {/* Sidebar */}
       <Sidebar activeItem="tv" />
 
-      {/* Main Content */}
-      <main className="ml-20 px-6 pt-6 pb-6 h-screen flex flex-col justify-start items-center">
-        <div className="flex flex-col h-full w-full max-w-[1320px]">
-          {/* Header */}
+      {/* Fixed Header */}
+      <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg px-6">
+        <div className="max-w-[1320px] mx-auto pt-6 pb-4">
           <Header />
+        </div>
+      </div>
 
+      {/* Main Content */}
+      <main className="ml-20 px-6 pb-6 h-screen flex flex-col justify-start items-center" style={{ paddingTop: '106px' }}>
+        <div className="flex flex-col h-full w-full max-w-[1320px]">
           {/* Video Player Content */}
           <div className="flex-1 flex flex-col gap-3 min-h-0">
             {/* Video Player Area */}
