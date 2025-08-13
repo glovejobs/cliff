@@ -148,7 +148,7 @@ const TV = () => {
                 </div>
 
                 {/* Now Playing Section */}
-                <div className="flex flex-col justify-center items-start gap-2.5 bg-brand-primary rounded-lg p-2.5 backdrop-blur-sm">
+                <div className="flex p-2.5 flex-col justify-center items-start gap-2.5 self-stretch bg-brand-primary rounded-lg backdrop-blur-sm">
                   <div className="flex items-center gap-2.5">
                     <div className="group relative">
                       <button>
