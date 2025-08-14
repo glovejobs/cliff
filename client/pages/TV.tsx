@@ -111,7 +111,10 @@ const TV = () => {
 
                 {/* Play button overlay - only shown when paused */}
                 {!isPlaying && (
-                  <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-20">
+                  <div
+                    className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-20 cursor-pointer"
+                    onClick={handlePlayPause}
+                  >
                     <button
                       className="w-[120px] h-[120px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-opacity-40 transition-colors"
                       onClick={handlePlayPause}
