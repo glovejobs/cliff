@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Play,
   SkipBack,
@@ -17,6 +18,12 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
 const TV = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <div className="h-screen bg-app-bg relative overflow-hidden">
       {/* Sidebar */}
@@ -37,7 +44,11 @@ const TV = () => {
             {/* Video Player Area */}
             <div className="flex items-center gap-3 flex-1 w-full min-h-0">
               {/* Left Side Video */}
-              <div className="w-[60px] flex-shrink-0 h-full relative rounded-lg overflow-hidden">
+              <div 
+                className={`${
+                  isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'
+                } flex-shrink-0 h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out`}
+              >
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/74d4309d658b5e8b28f5b3150c6dd3db871e721c?width=228"
                   alt="Side video"
@@ -57,13 +68,24 @@ const TV = () => {
 
               {/* Main Video Player */}
               <div className="flex-1 h-full flex justify-center items-center bg-gray-300 rounded-lg relative">
-                <button className="w-[120px] h-[120px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-opacity-40 transition-colors">
-                  <Play size={48} className="text-white ml-2" fill="white" />
+                <button 
+                  className="w-[120px] h-[120px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-opacity-40 transition-colors"
+                  onClick={handlePlayPause}
+                >
+                  {isPlaying ? (
+                    <Pause size={48} className="text-white" fill="white" />
+                  ) : (
+                    <Play size={48} className="text-white ml-2" fill="white" />
+                  )}
                 </button>
               </div>
 
               {/* Right Side Video */}
-              <div className="w-[60px] flex-shrink-0 h-full relative rounded-lg overflow-hidden">
+              <div 
+                className={`${
+                  isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'
+                } flex-shrink-0 h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out`}
+              >
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/1e810018ba559b80ef3bd7b4264ac0910600e3d3?width=228"
                   alt="Side video"
@@ -86,7 +108,7 @@ const TV = () => {
             <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full">
               {/* Invisible balancing div on the left - same size as remix button */}
               <div className="w-[86px] h-[46px] flex-shrink-0"></div>
-
+              
               {/* Main Controller - Horizontal Flexbox Layout */}
               <div className="flex items-center gap-3 bg-nav-bg border border-brand-primary rounded-2xl p-5 backdrop-blur-sm">
                 {/* TV Icon - Far left */}
@@ -114,7 +136,7 @@ const TV = () => {
 
                 {/* Media Controls Column */}
                 <div className="flex flex-col gap-1.5">
-                  {/* Top Row: Skip back, Pause, Skip forward */}
+                  {/* Top Row: Skip back, Pause/Play, Skip forward */}
                   <div className="flex gap-3">
                     <div className="group relative">
                       <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
@@ -130,15 +152,27 @@ const TV = () => {
                     </div>
 
                     <div className="group relative">
-                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                        <Pause
-                          size={16}
-                          className="text-text-primary"
-                          strokeWidth={1.6}
-                        />
+                      <button 
+                        className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
+                        onClick={handlePlayPause}
+                      >
+                        {isPlaying ? (
+                          <Play
+                            size={16}
+                            className="text-text-primary ml-0.5"
+                            strokeWidth={1.6}
+                            fill="currentColor"
+                          />
+                        ) : (
+                          <Pause
+                            size={16}
+                            className="text-text-primary"
+                            strokeWidth={1.6}
+                          />
+                        )}
                       </button>
                       <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        Pause
+                        {isPlaying ? 'Play' : 'Pause'}
                       </div>
                     </div>
 
