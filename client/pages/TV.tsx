@@ -108,6 +108,17 @@ const TV = () => {
     setShowDetails(!showDetails);
   };
 
+  const handleCommentsClick = () => {
+    if (showDetails) {
+      // If details panel is open, swap to comments (overlay)
+      setShowDetails(false);
+      setShowComments(true);
+    } else {
+      // If no panel is open, slide out comments
+      setShowComments(!showComments);
+    }
+  };
+
   const handleCopyPrompt = () => {
     // Check if we're in an iframe or restricted environment
     const isIframe = window.self !== window.top;
