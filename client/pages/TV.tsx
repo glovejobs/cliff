@@ -6,6 +6,7 @@ import {
   SkipForward,
   Repeat,
   VolumeX,
+  Volume2,
   Maximize2,
   ChevronLeft,
   ChevronRight,
