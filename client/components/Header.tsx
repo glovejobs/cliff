@@ -1,4 +1,4 @@
-import { Search, Plus, User, Settings, Film, Clock, MapPin } from 'lucide-react';
+import { Search, Plus, User, Settings, Film, Clock, MapPin, Heart, PlusSquare, X } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 interface HeaderProps {
