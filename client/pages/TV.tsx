@@ -414,6 +414,126 @@ const TV = () => {
           </div>
         </div>
       </main>
+
+      {/* Details Panel */}
+      <div
+        className={`fixed top-0 right-0 h-screen w-[516px] bg-app-bg border-l border-brand-primary transform transition-transform duration-500 ease-in-out z-50 ${
+          showDetails ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full p-6 gap-10">
+          {/* Header with profile and close button */}
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3 flex-1">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/1f1a162f3d7a0cbf3d0126cdb330d609b152b836?width=80"
+                alt="Profile"
+                className="w-10 h-10 rounded-full"
+              />
+              <div className="flex items-start gap-4 flex-1">
+                <div className="flex flex-col gap-0.5">
+                  <div className="text-text-primary text-base font-bold leading-snug">
+                    Cody McVie
+                  </div>
+                  <div className="text-text-secondary text-sm leading-relaxed">
+                    1 week ago
+                  </div>
+                </div>
+                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-2 py-1 text-text-dark text-xs font-medium">
+                  Follow
+                </button>
+              </div>
+            </div>
+            <button
+              onClick={handleDetailsClick}
+              className="flex items-center justify-center w-10 h-10 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
+            >
+              <X size={16} className="text-text-primary" strokeWidth={1.6} />
+            </button>
+          </div>
+
+          {/* Content */}
+          <div className="flex flex-col gap-6 flex-1">
+            {/* Prompt Section */}
+            <div className="flex flex-col gap-2.5">
+              <h3 className="text-text-primary text-base font-bold leading-snug">
+                Prompt
+              </h3>
+              <p className="text-text-primary text-base leading-relaxed">
+                Bond and Madeleine sit in a dimly lit safehouse in Morocco. Over a glass of scotch, they argue about trust, betrayal, and whether love has a place in espionage. Bond's phone buzzes with a new mission, but he hesitates — for once, the stakes feel personal.
+              </p>
+            </div>
+
+            {/* Details Grid */}
+            <div className="flex flex-col gap-0">
+              <div className="flex items-start justify-between py-6 border-t border-border-neutral">
+                <span className="text-text-primary text-base font-bold">Title</span>
+                <span className="text-text-primary text-base text-right">No Time to Die</span>
+              </div>
+              <div className="flex items-start justify-between py-6 border-t border-border-neutral">
+                <span className="text-text-primary text-base font-bold">Year</span>
+                <span className="text-text-primary text-base text-right">2025</span>
+              </div>
+              <div className="flex items-start justify-between py-6 border-t border-border-neutral">
+                <span className="text-text-primary text-base font-bold">Views</span>
+                <span className="text-text-primary text-base text-right">5.6k</span>
+              </div>
+              <div className="flex items-start justify-between py-6 border-t border-border-neutral">
+                <span className="text-text-primary text-base font-bold">Credits</span>
+                <span className="text-text-primary text-base text-right">Cody Mcvie</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Actions */}
+          <div className="flex items-center justify-end gap-3 flex-wrap">
+            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
+              <Share2 size={16} className="text-text-primary" strokeWidth={1.6} />
+              Share
+            </button>
+            <button className="flex items-center justify-center bg-brand-primary border border-brand-primary rounded-lg p-3 hover:bg-opacity-90 transition-colors">
+              <Download size={16} className="text-text-primary" strokeWidth={1.6} />
+            </button>
+            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
+              <Heart size={16} className="text-text-primary" strokeWidth={1.6} />
+              89
+            </button>
+            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
+              <MessageCircle size={16} className="text-text-primary" strokeWidth={1.6} />
+              1
+            </button>
+            <button className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 py-3 text-text-dark text-xs font-medium hover:bg-opacity-90 transition-colors">
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.28387 8.51817L7.85167 7.08597C7.65647 6.89077 7.55887 6.79317 7.45353 6.74097C7.2532 6.64168 7.018 6.64168 6.8176 6.74097C6.71233 6.79317 6.61471 6.89077 6.41949 7.08597C6.22425 7.28124 6.12664 7.37884 6.07446 7.4841C5.97518 7.6845 5.97518 7.9197 6.07446 8.12004C6.12664 8.22537 6.22425 8.32297 6.41949 8.51817L7.85167 9.95037M9.28387 8.51817L13.5805 12.8148C13.7757 13.01 13.8733 13.1076 13.9255 13.213C14.0248 13.4133 14.0248 13.6485 13.9255 13.8489C13.8733 13.9542 13.7757 14.0518 13.5805 14.247C13.3853 14.4422 13.2877 14.5398 13.1824 14.592C12.982 14.6913 12.7468 14.6913 12.5465 14.592C12.4411 14.5398 12.3435 14.4422 12.1483 14.247L7.85167 9.95037M9.28387 8.51817L7.85167 9.95037"
+                  stroke="currentColor"
+                  strokeWidth="1.3125"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M11.3332 1.3335L11.5297 1.86456C11.7874 2.56094 11.9162 2.90913 12.1702 3.16313C12.4242 3.41713 12.7724 3.54597 13.4688 3.80365L13.9998 4.00016L13.4688 4.19668C12.7724 4.45436 12.4242 4.5832 12.1702 4.8372C11.9162 5.0912 11.7874 5.43938 11.5297 6.13576L11.3332 6.66683L11.1366 6.13576C10.879 5.43939 10.7501 5.0912 10.4961 4.8372C10.2421 4.5832 9.89397 4.45436 9.19757 4.19668L8.6665 4.00016L9.19757 3.80365C9.89397 3.54597 10.2421 3.41713 10.4961 3.16313C10.7501 2.90913 10.879 2.56094 11.1366 1.86456L11.3332 1.3335Z"
+                  stroke="currentColor"
+                  strokeWidth="1.3125"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 2.6665L4.14739 3.0648C4.34065 3.58708 4.43728 3.84823 4.62778 4.03873C4.81827 4.22922 5.07942 4.32586 5.6017 4.51912L6 4.6665L5.6017 4.81389C5.07942 5.00715 4.81827 5.10378 4.62777 5.29428C4.43728 5.48478 4.34065 5.74592 4.14739 6.2682L4 6.6665L3.85261 6.2682C3.65935 5.74592 3.56272 5.48478 3.37222 5.29428C3.18173 5.10378 2.92058 5.00715 2.3983 4.81389L2 4.6665L2.3983 4.51912C2.92058 4.32586 3.18173 4.22922 3.37222 4.03872C3.56272 3.84823 3.65935 3.58708 3.85261 3.0648L4 2.6665Z"
+                  stroke="currentColor"
+                  strokeWidth="1.3125"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              Remix
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
