@@ -13,6 +13,8 @@ import {
   MessageCircle,
   Share2,
   FileText,
+  X,
+  Download,
 } from "lucide-react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
