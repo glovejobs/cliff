@@ -567,9 +567,18 @@ const TV = () => {
           <div className="flex flex-col gap-6 flex-1">
             {/* Prompt Section */}
             <div className="flex flex-col gap-2.5">
-              <h3 className="text-text-primary text-base font-bold leading-snug">
-                Prompt
-              </h3>
+              <div className="flex items-center justify-between">
+                <h3 className="text-text-primary text-base font-bold leading-snug">
+                  Prompt
+                </h3>
+                <button
+                  onClick={handleCopyPrompt}
+                  className="flex items-center justify-center w-8 h-8 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors group"
+                  title="Copy prompt"
+                >
+                  <Copy size={16} className="text-text-primary" strokeWidth={1.6} />
+                </button>
+              </div>
               <p className="text-text-primary text-base leading-relaxed">
                 {currentVideo.prompt}
               </p>
