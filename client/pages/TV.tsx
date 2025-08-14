@@ -360,7 +360,7 @@ const TV = () => {
                 <div className="flex flex-col justify-center items-center bg-brand-primary rounded-lg p-2.5 gap-2.5 w-[112px] h-[86px]">
                   <div className="flex items-center gap-2.5">
                     <div className="group relative">
-                      <button>
+                      <button onClick={handlePrevVideo}>
                         <ChevronLeft
                           size={16}
                           className="text-text-primary"
