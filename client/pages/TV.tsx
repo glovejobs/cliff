@@ -132,6 +132,21 @@ const TV = () => {
     }
   };
 
+  const handleSubmitComment = () => {
+    if (!commentText.trim()) return;
+
+    const newComment = {
+      id: comments.length + 1,
+      author: 'You',
+      avatar: 'https://api.builder.io/api/v1/image/assets/TEMP/1f1a162f3d7a0cbf3d0126cdb330d609b152b836?width=80',
+      text: commentText.trim(),
+      timestamp: 'now'
+    };
+
+    setComments([...comments, newComment]);
+    setCommentText('');
+  };
+
   const handleCopyPrompt = () => {
     // Check if we're in an iframe or restricted environment
     const isIframe = window.self !== window.top;
