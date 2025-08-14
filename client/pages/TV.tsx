@@ -21,6 +21,7 @@ import Header from "../components/Header";
 
 const TV = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlayPause = () => {
