@@ -1,6 +1,14 @@
-import { Search, Plus } from 'lucide-react';
+import { Search, Plus, User, Settings, Film, Clock } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
 
-const Header = () => {
+interface HeaderProps {
+  currentPage?: 'tv' | 'library' | 'explore' | 'characters' | 'sets' | 'community';
+}
+
+const Header = ({ currentPage = 'explore' }: HeaderProps) => {
+  const [showPromptModal, setShowPromptModal] = useState(false);
+  const [promptText, setPromptText] = useState('');
+  const buttonRef = useRef<HTMLButtonElement>(null);
   return (
     <header className="flex justify-between items-center w-full">
       {/* Search Bar */}
