@@ -26,6 +26,16 @@ const TV = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [commentsOpenedFromDetails, setCommentsOpenedFromDetails] = useState(false);
+  const [commentText, setCommentText] = useState('');
+  const [comments, setComments] = useState([
+    {
+      id: 1,
+      author: 'Johnny Magic',
+      avatar: 'https://api.builder.io/api/v1/image/assets/TEMP/b8e9ff78111840cedbff6e9d6405300c2a42eaa8?width=80',
+      text: 'This is so nice to watch, I love it!! 💖',
+      timestamp: '22h'
+    }
+  ]);
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(89);
   const [isMuted, setIsMuted] = useState(false);
