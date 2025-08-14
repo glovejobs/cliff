@@ -73,10 +73,14 @@ const TV = () => {
     const newLikedState = !isLiked;
     setIsLiked(newLikedState);
 
-    // Update the current video's like count
-    videos[currentVideoIndex].likes = newLikedState
-      ? videos[currentVideoIndex].likes + 1
-      : videos[currentVideoIndex].likes - 1;
+    // Update the like count for current video
+    setVideoLikes(prev => {
+      const newLikes = [...prev];
+      newLikes[currentVideoIndex] = newLikedState
+        ? newLikes[currentVideoIndex] + 1
+        : newLikes[currentVideoIndex] - 1;
+      return newLikes;
+    });
   };
 
   const handleMuteClick = () => {
