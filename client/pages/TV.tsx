@@ -170,14 +170,15 @@ const TV = () => {
               <div className="flex-1 h-full relative rounded-lg overflow-hidden cursor-pointer">
                 <video
                   ref={videoRef}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-opacity duration-500"
                   onClick={handlePlayPause}
-                  muted
+                  muted={isMuted}
                   loop
                   preload="metadata"
+                  key={currentVideo.id}
                 >
                   <source
-                    src="https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2F3bd305393904499f993b2da9a384bde1?alt=media&token=d3c57b20-24ea-4448-b242-2328f26b86c6&apiKey=617016228c9243e3b70f57624716a0e1"
+                    src={currentVideo.src}
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
