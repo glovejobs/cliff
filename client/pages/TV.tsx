@@ -24,6 +24,7 @@ import Header from "../components/Header";
 const TV = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
+  const [showComments, setShowComments] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(89);
   const [isMuted, setIsMuted] = useState(false);
