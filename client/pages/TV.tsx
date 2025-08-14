@@ -655,7 +655,17 @@ const TV = () => {
           className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-500 ease-in-out z-40"
           onClick={() => {
             if (showDetails) handleDetailsClick();
-            if (showComments) setShowComments(false);
+            if (showComments) {
+              if (commentsOpenedFromDetails) {
+                // Return to details panel
+                setShowComments(false);
+                setShowDetails(true);
+                setCommentsOpenedFromDetails(false);
+              } else {
+                // Close comments completely
+                setShowComments(false);
+              }
+            }
           }}
         />
       )}
