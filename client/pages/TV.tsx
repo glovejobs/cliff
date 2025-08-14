@@ -305,7 +305,7 @@ const TV = () => {
               <div
                 className={`
                   h-full relative rounded-lg overflow-hidden cursor-pointer transition-all duration-500 ease-in-out
-                  ${isTransitioning && transitionDirection === 'next' ? 'w-[60px]' : isTransitioning && transitionDirection === 'prev' ? 'w-[60px]' : 'flex-1'}
+                  ${isTransitioning ? 'w-[60px]' : 'flex-1'}
                 `}
               >
                 {/* Current video or transitioning video */}
