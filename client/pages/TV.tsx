@@ -93,17 +93,32 @@ const TV = () => {
               </div>
 
               {/* Main Video Player */}
-              <div
-                className="flex-1 h-full flex justify-center items-center bg-gray-300 rounded-lg relative cursor-pointer"
-                onClick={handlePlayPause}
-              >
+              <div className="flex-1 h-full relative rounded-lg overflow-hidden cursor-pointer">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  onClick={handlePlayPause}
+                  muted
+                  loop
+                  preload="metadata"
+                >
+                  <source
+                    src="https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2F3bd305393904499f993b2da9a384bde1?alt=media&token=d3c57b20-24ea-4448-b242-2328f26b86c6&apiKey=617016228c9243e3b70f57624716a0e1"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+
+                {/* Play button overlay - only shown when paused */}
                 {!isPlaying && (
-                  <button
-                    className="w-[120px] h-[120px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-opacity-40 transition-colors"
-                    onClick={handlePlayPause}
-                  >
-                    <Play size={48} className="text-white ml-2" fill="white" />
-                  </button>
+                  <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-20">
+                    <button
+                      className="w-[120px] h-[120px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-opacity-40 transition-colors"
+                      onClick={handlePlayPause}
+                    >
+                      <Play size={48} className="text-white ml-2" fill="white" />
+                    </button>
+                  </div>
                 )}
               </div>
 
