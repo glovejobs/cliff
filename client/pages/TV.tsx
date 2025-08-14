@@ -322,7 +322,7 @@ const TV = () => {
                     </div>
                   </div>
                   <div className="text-brand-text text-center text-xs font-medium leading-4 tracking-wide">
-                    No Time to Die
+                    Nada Skincare ad
                   </div>
                 </div>
 
@@ -460,7 +460,7 @@ const TV = () => {
                 Prompt
               </h3>
               <p className="text-text-primary text-base leading-relaxed">
-                Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.
+                Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel��good tone.
               </p>
             </div>
 
