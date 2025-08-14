@@ -846,7 +846,17 @@ const TV = () => {
               </div>
             </div>
             <button
-              onClick={() => setShowComments(false)}
+              onClick={() => {
+                if (commentsOpenedFromDetails) {
+                  // Return to details panel
+                  setShowComments(false);
+                  setShowDetails(true);
+                  setCommentsOpenedFromDetails(false);
+                } else {
+                  // Close comments completely
+                  setShowComments(false);
+                }
+              }}
               className="flex items-center justify-center w-10 h-10 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
             >
               <X size={16} className="text-text-primary" strokeWidth={1.6} />
