@@ -914,23 +914,27 @@ const TV = () => {
             <div className="border-t border-border-neutral pt-6"></div>
 
             {/* Comments Section */}
-            <div className="flex flex-col gap-6 flex-1 overflow-y-auto">
-              {comments.map((comment) => (
-                <div key={comment.id} className="flex items-start gap-3">
-                  <img
-                    src={comment.avatar}
-                    alt={comment.author}
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div className="flex flex-col gap-1 flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-text-primary text-base font-bold">{comment.author}</span>
-                      <span className="text-text-primary text-base">{comment.text}</span>
+            <div className="flex flex-col gap-6 flex-1 relative">
+              <ScrollableContainer className="flex-1">
+                <div className="flex flex-col gap-6 pr-6">
+                  {comments.map((comment) => (
+                    <div key={comment.id} className="flex items-start gap-3">
+                      <img
+                        src={comment.avatar}
+                        alt={comment.author}
+                        className="w-10 h-10 rounded-full"
+                      />
+                      <div className="flex flex-col gap-1 flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-text-primary text-base font-bold">{comment.author}</span>
+                          <span className="text-text-primary text-base">{comment.text}</span>
+                        </div>
+                        <span className="text-text-secondary text-sm">{comment.timestamp}</span>
+                      </div>
                     </div>
-                    <span className="text-text-secondary text-sm">{comment.timestamp}</span>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </ScrollableContainer>
             </div>
 
             {/* Comment Input */}
