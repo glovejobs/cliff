@@ -74,10 +74,43 @@ const TV = () => {
 
   const handleCopyPrompt = async () => {
     try {
-      await navigator.clipboard.writeText(currentVideo.prompt);
-      // You could add a toast notification here if desired
+      // Try modern Clipboard API first
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(currentVideo.prompt);
+      } else {
+        // Fallback for restricted environments
+        const textArea = document.createElement('textarea');
+        textArea.value = currentVideo.prompt;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+          document.execCommand('copy');
+        } finally {
+          document.body.removeChild(textArea);
+        }
+      }
     } catch (err) {
       console.error('Failed to copy prompt:', err);
+      // Fallback: Select text method
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = currentVideo.prompt;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      } catch (fallbackErr) {
+        console.error('All copy methods failed:', fallbackErr);
+      }
     }
   };
 
