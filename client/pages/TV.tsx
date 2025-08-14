@@ -72,44 +72,50 @@ const TV = () => {
     setShowDetails(!showDetails);
   };
 
-  const handleCopyPrompt = async () => {
-    try {
-      // Try modern Clipboard API first
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(currentVideo.prompt);
-      } else {
-        // Fallback for restricted environments
-        const textArea = document.createElement('textarea');
-        textArea.value = currentVideo.prompt;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-999999px';
-        textArea.style.top = '-999999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
+  const handleCopyPrompt = () => {
+    // Check if we're in an iframe or restricted environment
+    const isIframe = window.self !== window.top;
+    const hasClipboardPermissions = navigator.clipboard && window.isSecureContext && !isIframe;
 
-        try {
-          document.execCommand('copy');
-        } finally {
-          document.body.removeChild(textArea);
-        }
+    // Use fallback method for iframe environments to avoid permission errors
+    if (!hasClipboardPermissions) {
+      copyToClipboardFallback(currentVideo.prompt);
+      return;
+    }
+
+    // Try modern Clipboard API only if we're confident it will work
+    navigator.clipboard.writeText(currentVideo.prompt).catch(() => {
+      // If it fails, use fallback
+      copyToClipboardFallback(currentVideo.prompt);
+    });
+  };
+
+  const copyToClipboardFallback = (text: string) => {
+    try {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      textArea.style.opacity = '0';
+      textArea.setAttribute('readonly', '');
+      document.body.appendChild(textArea);
+
+      textArea.focus();
+      textArea.select();
+      textArea.setSelectionRange(0, 99999); // For mobile devices
+
+      const successful = document.execCommand('copy');
+      if (!successful) {
+        throw new Error('execCommand copy failed');
       }
     } catch (err) {
-      console.error('Failed to copy prompt:', err);
-      // Fallback: Select text method
-      try {
-        const textArea = document.createElement('textarea');
-        textArea.value = currentVideo.prompt;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-999999px';
-        textArea.style.top = '-999999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-      } catch (fallbackErr) {
-        console.error('All copy methods failed:', fallbackErr);
+      console.error('Copy fallback failed:', err);
+    } finally {
+      // Clean up
+      const textArea = document.querySelector('textarea[readonly]');
+      if (textArea && textArea.parentNode) {
+        textArea.parentNode.removeChild(textArea);
       }
     }
   };
