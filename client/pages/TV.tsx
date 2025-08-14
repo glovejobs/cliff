@@ -509,7 +509,7 @@ const TV = () => {
                     </div>
                     <div className="w-10 h-10 rounded-lg overflow-hidden relative">
                       <img
-                        src={currentVideo.thumbnail}
+                        src={videos[framePositions.center].thumbnail}
                         alt="Now playing"
                         className="w-full h-full object-cover"
                       />
