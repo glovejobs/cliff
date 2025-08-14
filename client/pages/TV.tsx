@@ -188,20 +188,22 @@ const TV = () => {
           {/* Video Player Content */}
           <div className="flex-1 flex flex-col gap-3 min-h-0">
             {/* Video Player Area */}
-            <div className="flex items-center gap-3 flex-1 w-full min-h-0">
-              {/* Left Side Video */}
+            <div className="flex items-center gap-3 flex-1 w-full min-h-0 relative">
+              {/* Left Side Video / Previous */}
               <div
-                className={`${
-                  isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'
-                } flex-shrink-0 h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out`}
+                className={`
+                  ${isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'}
+                  ${isTransitioning && transitionDirection === 'prev' ? 'w-full z-20' : ''}
+                  flex-shrink-0 h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out
+                `}
               >
                 <img
-                  src={videos[(currentVideoIndex + 1) % videos.length].thumbnail}
-                  alt="Next video"
+                  src={videos[(currentVideoIndex - 1 + videos.length) % videos.length].thumbnail}
+                  alt="Previous video"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-                <button className="absolute inset-0 flex items-center justify-center" onClick={handleNextVideo}>
+                <button className="absolute inset-0 flex items-center justify-center" onClick={handlePrevVideo}>
                   <div className="w-[25px] h-[25px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm">
                     <Play
                       size={12}
@@ -210,13 +212,36 @@ const TV = () => {
                     />
                   </div>
                 </button>
+
+                {/* Preview video for transition */}
+                {isTransitioning && transitionDirection === 'prev' && (
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    muted={isMuted}
+                    loop
+                    autoPlay
+                    preload="metadata"
+                  >
+                    <source
+                      src={videos[(currentVideoIndex - 1 + videos.length) % videos.length].src}
+                      type="video/mp4"
+                    />
+                  </video>
+                )}
               </div>
 
               {/* Main Video Player */}
-              <div className="flex-1 h-full relative rounded-lg overflow-hidden cursor-pointer">
+              <div
+                className={`
+                  flex-1 h-full relative rounded-lg overflow-hidden cursor-pointer
+                  ${isTransitioning && transitionDirection === 'next' ? 'w-[60px] flex-shrink-0' : ''}
+                  ${isTransitioning && transitionDirection === 'prev' ? 'w-[60px] flex-shrink-0' : ''}
+                  transition-all duration-500 ease-in-out
+                `}
+              >
                 <video
                   ref={videoRef}
-                  className="w-full h-full object-cover transition-opacity duration-500"
+                  className="w-full h-full object-cover"
                   onClick={handlePlayPause}
                   muted={isMuted}
                   loop
@@ -231,7 +256,7 @@ const TV = () => {
                 </video>
 
                 {/* Play button overlay - only shown when paused */}
-                {!isPlaying && (
+                {!isPlaying && !isTransitioning && (
                   <div
                     className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-20 cursor-pointer"
                     onClick={handlePlayPause}
@@ -246,11 +271,13 @@ const TV = () => {
                 )}
               </div>
 
-              {/* Right Side Video */}
+              {/* Right Side Video / Next */}
               <div
-                className={`${
-                  isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'
-                } flex-shrink-0 h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out`}
+                className={`
+                  ${isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'}
+                  ${isTransitioning && transitionDirection === 'next' ? 'w-full z-20' : ''}
+                  flex-shrink-0 h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out
+                `}
               >
                 <img
                   src={videos[(currentVideoIndex + 1) % videos.length].thumbnail}
@@ -267,6 +294,22 @@ const TV = () => {
                     />
                   </div>
                 </button>
+
+                {/* Preview video for transition */}
+                {isTransitioning && transitionDirection === 'next' && (
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    muted={isMuted}
+                    loop
+                    autoPlay
+                    preload="metadata"
+                  >
+                    <source
+                      src={videos[(currentVideoIndex + 1) % videos.length].src}
+                      type="video/mp4"
+                    />
+                  </video>
+                )}
               </div>
             </div>
 
