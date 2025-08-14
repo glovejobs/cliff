@@ -326,7 +326,10 @@ const TV = () => {
                     </div>
 
                     <div className="group relative">
-                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                      <button
+                        onClick={handleMuteClick}
+                        className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
+                      >
                         <VolumeX
                           size={16}
                           className="text-text-primary"
@@ -334,7 +337,7 @@ const TV = () => {
                         />
                       </button>
                       <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        Mute
+                        {isMuted ? 'Unmute' : 'Mute'}
                       </div>
                     </div>
 
