@@ -28,7 +28,7 @@ const TV = () => {
   const [likeCount, setLikeCount] = useState(89);
   const [isMuted, setIsMuted] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [videoLikes, setVideoLikes] = useState([142, 89, 156]); // Track likes separately
+  const [videoLikes, setVideoLikes] = useState([142, 89, 203, 167, 156]); // Track likes separately
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState<'next' | 'prev' | null>(null);
   const [showCopiedFeedback, setShowCopiedFeedback] = useState(false);
