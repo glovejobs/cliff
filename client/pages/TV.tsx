@@ -909,19 +909,32 @@ const TV = () => {
 
             {/* Comment Input */}
             <div className="mt-auto">
-              <div className="flex flex-col h-[120px] min-h-[80px] p-3 px-4 bg-surface-neutral rounded-lg">
+              <div className="flex flex-col h-[120px] min-h-[80px] p-3 px-4 rounded-lg" style={{ backgroundColor: '#434343' }}>
                 <div className="flex-1">
-                  <span className="text-text-tertiary text-base font-normal leading-relaxed">
-                    Add a comment to join the conversation
-                  </span>
+                  <textarea
+                    placeholder="Add a comment to join the conversation"
+                    className="w-full h-full bg-transparent text-text-primary text-base resize-none border-none outline-none placeholder:text-text-tertiary"
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                  />
                 </div>
                 <div className="flex justify-between items-end">
-                  <button className="flex items-center justify-center p-2 hover:bg-brand-primary rounded-lg transition-colors">
+                  <button
+                    className="flex items-center justify-center p-2 hover:bg-brand-primary rounded-lg transition-colors"
+                    onClick={() => {
+                      // Add emoji or attachment functionality
+                      console.log('Add attachment clicked');
+                    }}
+                  >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M7.99992 3.3335V12.6668M3.33325 8.00016H12.6666" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
-                  <button className="flex items-center justify-center p-2 hover:bg-brand-primary rounded-lg transition-colors">
+                  <button
+                    className="flex items-center justify-center p-2 hover:bg-brand-primary rounded-lg transition-colors disabled:opacity-50"
+                    disabled={!commentText.trim()}
+                    onClick={handleSubmitComment}
+                  >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M7.99992 12.6668V3.3335M7.99992 3.3335L3.33325 8.00016M7.99992 3.3335L12.6666 8.00016" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
