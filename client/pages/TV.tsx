@@ -30,7 +30,13 @@ const TV = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [videoLikes, setVideoLikes] = useState([142, 89, 203, 167, 156]); // Track likes separately
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [transitionDirection, setTransitionDirection] = useState<'next' | 'prev' | null>(null);
+  const [framePositions, setFramePositions] = useState({
+    offLeft: (currentVideoIndex - 2 + videos.length) % videos.length,
+    left: (currentVideoIndex - 1 + videos.length) % videos.length,
+    center: currentVideoIndex,
+    right: (currentVideoIndex + 1) % videos.length,
+    offRight: (currentVideoIndex + 2) % videos.length
+  });
   const [showCopiedFeedback, setShowCopiedFeedback] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
