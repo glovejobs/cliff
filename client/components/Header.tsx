@@ -100,6 +100,7 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
                     <Plus size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
                   <button
+                    onClick={handleCharacterClick}
                     className="flex p-2 justify-center items-center gap-2 rounded-lg transition-colors"
                     style={{
                       background: 'rgba(0, 0, 0, 0.10)',
@@ -210,6 +211,7 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
                     <Plus size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
                   <button
+                    onClick={handleCharacterClick}
                     className="flex p-2 justify-center items-center gap-2 rounded-lg transition-colors"
                     style={{
                       background: 'rgba(0, 0, 0, 0.10)',
