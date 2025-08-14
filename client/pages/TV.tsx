@@ -70,6 +70,15 @@ const TV = () => {
     setShowDetails(!showDetails);
   };
 
+  const handleCopyPrompt = async () => {
+    try {
+      await navigator.clipboard.writeText(currentVideo.prompt);
+      // You could add a toast notification here if desired
+    } catch (err) {
+      console.error('Failed to copy prompt:', err);
+    }
+  };
+
   const handleLikeClick = () => {
     const newLikedState = !isLiked;
     setIsLiked(newLikedState);
