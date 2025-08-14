@@ -29,6 +29,8 @@ const TV = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [videoLikes, setVideoLikes] = useState([142, 89]); // Track likes separately
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [transitionDirection, setTransitionDirection] = useState<'next' | 'prev' | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const videos = [
