@@ -565,7 +565,10 @@ const TV = () => {
                     {videoLikes[currentVideoIndex]}
                   </button>
 
-                  <button className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
+                  <button
+                    onClick={handleCommentsClick}
+                    className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors"
+                  >
                     <MessageCircle
                       size={16}
                       className="text-text-primary"
