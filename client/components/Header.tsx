@@ -64,52 +64,103 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
 
         {/* Prompt Modal for Explore Page (in header) */}
         {showPromptModal && currentPage === 'explore' && (
-          <div className="absolute top-full right-0 mt-1 w-[520px] bg-app-bg border border-brand-primary rounded-lg p-6 z-50 shadow-lg">
-            <div className="flex flex-col gap-4">
+          <div
+            className="absolute top-full mt-1 w-[748px] h-[189px] flex flex-col gap-2 rounded-lg border z-50"
+            style={{
+              right: '52px', // Align to right edge of "New scene" button
+              borderColor: 'rgba(118, 118, 118, 1)',
+              backdropFilter: 'blur(2px)'
+            }}
+          >
+            <div
+              className="flex min-h-20 p-3 px-4 flex-col gap-2 flex-1 rounded-lg relative"
+              style={{ backgroundColor: 'rgba(67, 67, 67, 1)' }}
+            >
               <textarea
                 value={promptText}
                 onChange={(e) => setPromptText(e.target.value)}
                 placeholder="Start typing or paste your script"
-                className="w-full h-32 bg-surface-neutral rounded-lg p-4 text-text-primary text-base resize-none border-none outline-none placeholder:text-text-tertiary"
+                className="flex-1 w-full bg-transparent text-text-tertiary text-base resize-none border-none outline-none placeholder:text-text-tertiary"
               />
 
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <button className="flex items-center gap-2 px-3 py-2 bg-brand-primary rounded-lg text-text-primary text-sm hover:bg-opacity-90 transition-colors">
-                    <User size={14} />
-                    Character
+              <div className="flex justify-between items-end">
+                <div className="flex items-center gap-1.5">
+                  <button
+                    className="flex p-2 justify-center items-center gap-2 rounded-lg transition-colors hover:bg-brand-primary"
+                  >
+                    <Plus size={16} className="text-text-primary" strokeWidth={1.6} />
                   </button>
-                  <button className="flex items-center gap-2 px-3 py-2 bg-brand-primary rounded-lg text-text-primary text-sm hover:bg-opacity-90 transition-colors">
-                    <Settings size={14} />
-                    Set
+                  <button
+                    className="flex p-2 justify-center items-center gap-2 rounded-lg transition-colors"
+                    style={{
+                      background: 'rgba(0, 0, 0, 0.10)',
+                      backdropFilter: 'blur(2px)'
+                    }}
+                  >
+                    <User size={16} className="text-text-primary" strokeWidth={1.6} />
+                    <span className="text-text-primary text-base font-normal leading-none">Character</span>
                   </button>
-                  <button className="flex items-center gap-2 px-3 py-2 bg-brand-primary rounded-lg text-text-primary text-sm hover:bg-opacity-90 transition-colors">
-                    <Film size={14} />
-                    16:9
+                  <button
+                    className="flex p-2 justify-center items-center gap-2 rounded-lg transition-colors"
+                    style={{
+                      background: 'rgba(0, 0, 0, 0.10)',
+                      backdropFilter: 'blur(2px)'
+                    }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <g clipPath="url(#clip0_3589_2387)">
+                        <path d="M14 6.6665C14 11.3332 8 15.3332 8 15.3332C8 15.3332 2 11.3332 2 6.6665C2 5.0752 2.63214 3.54908 3.75736 2.42386C4.88258 1.29864 6.4087 0.666504 8 0.666504C9.5913 0.666504 11.1174 1.29864 12.2426 2.42386C13.3679 3.54908 14 5.0752 14 6.6665Z" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M8 8.6665C9.10457 8.6665 10 7.77107 10 6.6665C10 5.56193 9.10457 4.6665 8 4.6665C6.89543 4.6665 6 5.56193 6 6.6665C6 7.77107 6.89543 8.6665 8 8.6665Z" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_3589_2387">
+                          <rect width="16" height="16" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <span className="text-text-primary text-base font-normal leading-none">Set</span>
                   </button>
-                  <button className="flex items-center gap-2 px-3 py-2 bg-brand-primary rounded-lg text-text-primary text-sm hover:bg-opacity-90 transition-colors">
-                    <Clock size={14} />
-                    1m
+                  <button
+                    className="flex p-2 justify-center items-center gap-2 rounded-lg transition-colors"
+                    style={{
+                      background: 'rgba(0, 0, 0, 0.10)',
+                      backdropFilter: 'blur(2px)'
+                    }}
+                  >
+                    <div className="flex w-4 h-4 px-0 py-1 justify-center items-center relative">
+                      <div
+                        className="w-4 h-2.25 flex-shrink-0 rounded-sm border absolute"
+                        style={{
+                          borderWidth: '1.67px',
+                          borderColor: 'rgba(245, 245, 245, 1)',
+                          top: '4px',
+                          left: '0px'
+                        }}
+                      ></div>
+                    </div>
+                    <span className="text-text-primary text-base font-normal leading-none">16:9</span>
+                  </button>
+                  <button
+                    className="flex p-2 justify-center items-center gap-2 rounded-lg transition-colors"
+                    style={{
+                      background: 'rgba(0, 0, 0, 0.10)',
+                      backdropFilter: 'blur(2px)'
+                    }}
+                  >
+                    <Clock size={16} className="text-text-primary" strokeWidth={1.6} />
+                    <span className="text-text-primary text-base font-normal leading-none">1m</span>
                   </button>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={handleCloseModal}
-                    className="flex items-center justify-center p-2 hover:bg-brand-primary rounded-lg transition-colors"
-                  >
-                    <Plus size={16} className="text-text-primary rotate-45" />
-                  </button>
-                  <button
-                    onClick={handleSubmitPrompt}
-                    disabled={!promptText.trim()}
-                    className="flex items-center justify-center p-2 hover:bg-brand-primary rounded-lg transition-colors disabled:opacity-50"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M7.99992 12.6668V3.3335M7.99992 3.3335L3.33325 8.00016M7.99992 3.3335L12.6666 8.00016" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </button>
-                </div>
+                <button
+                  onClick={handleSubmitPrompt}
+                  disabled={!promptText.trim()}
+                  className="flex p-2 justify-center items-center gap-2 rounded-lg transition-colors hover:bg-brand-primary disabled:opacity-50"
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8.00004 12.6668V3.3335M8.00004 3.3335L3.33337 8.00016M8.00004 3.3335L12.6667 8.00016" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
