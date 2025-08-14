@@ -127,16 +127,8 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
                       backdropFilter: 'blur(2px)'
                     }}
                   >
-                    <div className="flex w-4 h-4 px-0 py-1 justify-center items-center relative">
-                      <div
-                        className="w-4 h-2.25 flex-shrink-0 rounded-sm border absolute"
-                        style={{
-                          borderWidth: '1.67px',
-                          borderColor: 'rgba(245, 245, 245, 1)',
-                          top: '4px',
-                          left: '0px'
-                        }}
-                      ></div>
+                    <div className="flex w-4 h-4 justify-center items-center">
+                      <div className="w-4 h-2.5 border border-text-primary rounded-sm"></div>
                     </div>
                     <span className="text-text-primary text-base font-normal leading-none">16:9</span>
                   </button>
@@ -245,16 +237,8 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
                       backdropFilter: 'blur(2px)'
                     }}
                   >
-                    <div className="flex w-4 h-4 px-0 py-1 justify-center items-center relative">
-                      <div
-                        className="w-4 h-2.25 flex-shrink-0 rounded-sm border absolute"
-                        style={{
-                          borderWidth: '1.67px',
-                          borderColor: 'rgba(245, 245, 245, 1)',
-                          top: '4px',
-                          left: '0px'
-                        }}
-                      ></div>
+                    <div className="flex w-4 h-4 justify-center items-center">
+                      <div className="w-4 h-2.5 border border-text-primary rounded-sm"></div>
                     </div>
                     <span className="text-text-primary text-base font-normal leading-none">16:9</span>
                   </button>
