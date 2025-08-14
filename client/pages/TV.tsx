@@ -290,6 +290,15 @@ const TV = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+                    <button className="absolute inset-0 flex items-center justify-center" onClick={handlePlayPause}>
+                      <div className="w-[25px] h-[25px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <Play
+                          size={12}
+                          className="text-white ml-0.5"
+                          fill="white"
+                        />
+                      </div>
+                    </button>
                   </>
                 ) : (
                   <>
