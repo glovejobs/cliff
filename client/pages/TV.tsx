@@ -434,6 +434,14 @@ const TV = () => {
         </div>
       </main>
 
+      {/* Dark Overlay Background */}
+      {showDetails && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-500 ease-in-out z-40"
+          onClick={handleDetailsClick}
+        />
+      )}
+
       {/* Details Panel */}
       <div
         className={`fixed top-0 right-0 h-screen w-[516px] bg-app-bg border-l border-brand-primary transform transition-transform duration-500 ease-in-out z-50 ${
