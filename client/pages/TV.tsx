@@ -468,7 +468,7 @@ const TV = () => {
             <div className="flex flex-col gap-0">
               <div className="flex items-start justify-between py-6 border-t border-border-neutral">
                 <span className="text-text-primary text-base font-bold">Title</span>
-                <span className="text-text-primary text-base text-right">No Time to Die</span>
+                <span className="text-text-primary text-base text-right">Nada Skincare ad</span>
               </div>
               <div className="flex items-start justify-between py-6 border-t border-border-neutral">
                 <span className="text-text-primary text-base font-bold">Year</span>
