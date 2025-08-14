@@ -555,15 +555,15 @@ const TV = () => {
             <div className="flex flex-col gap-0">
               <div className="flex items-start justify-between py-6 border-t border-border-neutral">
                 <span className="text-text-primary text-base font-bold">Title</span>
-                <span className="text-text-primary text-base text-right">Nada Skincare ad</span>
+                <span className="text-text-primary text-base text-right">{currentVideo.title}</span>
               </div>
               <div className="flex items-start justify-between py-6 border-t border-border-neutral">
                 <span className="text-text-primary text-base font-bold">Year</span>
-                <span className="text-text-primary text-base text-right">2025</span>
+                <span className="text-text-primary text-base text-right">{currentVideo.year}</span>
               </div>
               <div className="flex items-start justify-between py-6 border-t border-border-neutral">
                 <span className="text-text-primary text-base font-bold">Views</span>
-                <span className="text-text-primary text-base text-right">5.6k</span>
+                <span className="text-text-primary text-base text-right">{currentVideo.views}</span>
               </div>
               <div className="flex items-start justify-between py-6 border-t border-border-neutral">
                 <span className="text-text-primary text-base font-bold">Credits</span>
