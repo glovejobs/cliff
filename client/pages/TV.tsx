@@ -165,16 +165,12 @@ const TV = () => {
     setIsTransitioning(true);
     setTransitionDirection('next');
 
-    // Start the transition animation
+    // Complete the transition animation
     setTimeout(() => {
       setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
-
-      // End transition after animation completes
-      setTimeout(() => {
-        setIsTransitioning(false);
-        setTransitionDirection(null);
-      }, 500);
-    }, 250);
+      setIsTransitioning(false);
+      setTransitionDirection(null);
+    }, 500);
   };
 
   const handlePrevVideo = () => {
@@ -190,16 +186,12 @@ const TV = () => {
     setIsTransitioning(true);
     setTransitionDirection('prev');
 
-    // Start the transition animation
+    // Complete the transition animation
     setTimeout(() => {
       setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
-
-      // End transition after animation completes
-      setTimeout(() => {
-        setIsTransitioning(false);
-        setTransitionDirection(null);
-      }, 500);
-    }, 250);
+      setIsTransitioning(false);
+      setTransitionDirection(null);
+    }, 500);
   };
 
   // Sync video state with our controls
@@ -242,8 +234,8 @@ const TV = () => {
               <div
                 className={`
                   h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out
-                  ${isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'}
-                  ${isTransitioning && transitionDirection === 'prev' ? 'flex-1' : 'flex-shrink-0'}
+                  ${isTransitioning && transitionDirection === 'prev' ? 'flex-1' : 'w-[60px]'}
+                  ${isTransitioning && transitionDirection === 'next' ? 'w-0 opacity-0' : 'opacity-100'}
                 `}
               >
                 {/* Previous video content */}
@@ -286,7 +278,7 @@ const TV = () => {
               <div
                 className={`
                   h-full relative rounded-lg overflow-hidden cursor-pointer transition-all duration-500 ease-in-out
-                  ${isTransitioning ? 'w-[60px] flex-shrink-0' : 'flex-1'}
+                  ${isTransitioning && transitionDirection === 'next' ? 'w-[60px]' : isTransitioning && transitionDirection === 'prev' ? 'w-[60px]' : 'flex-1'}
                 `}
               >
                 {/* Current video or transitioning video */}
@@ -339,8 +331,8 @@ const TV = () => {
               <div
                 className={`
                   h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out
-                  ${isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'}
-                  ${isTransitioning && transitionDirection === 'next' ? 'flex-1' : 'flex-shrink-0'}
+                  ${isTransitioning && transitionDirection === 'next' ? 'flex-1' : 'w-[60px]'}
+                  ${isTransitioning && transitionDirection === 'prev' ? 'w-0 opacity-0' : 'opacity-100'}
                 `}
               >
                 {/* Next video content */}
