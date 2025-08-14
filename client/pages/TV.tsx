@@ -387,7 +387,7 @@ const TV = () => {
                     </div>
                     <div className="w-10 h-10 rounded-lg overflow-hidden relative">
                       <img
-                        src="https://api.builder.io/api/v1/image/assets/TEMP/ae4e8c13075e64b7209a5f67540fbb6b82c43f26?width=82"
+                        src={currentVideo.thumbnail}
                         alt="Now playing"
                         className="w-full h-full object-cover"
                       />
