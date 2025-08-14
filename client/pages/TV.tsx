@@ -695,10 +695,20 @@ const TV = () => {
                 </h3>
                 <button
                   onClick={handleCopyPrompt}
-                  className="flex items-center justify-center w-8 h-8 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors group"
-                  title="Copy prompt"
+                  className={`flex items-center justify-center w-8 h-8 border rounded-lg transition-colors group ${
+                    showCopiedFeedback
+                      ? 'bg-green-500 border-green-500'
+                      : 'bg-brand-primary border-brand-primary hover:bg-opacity-90'
+                  }`}
+                  title={showCopiedFeedback ? 'Copied!' : 'Copy prompt'}
                 >
-                  <Copy size={16} className="text-text-primary" strokeWidth={1.6} />
+                  {showCopiedFeedback ? (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                      <polyline points="20,6 9,17 4,12"></polyline>
+                    </svg>
+                  ) : (
+                    <Copy size={16} className="text-text-primary" strokeWidth={1.6} />
+                  )}
                 </button>
               </div>
               <p className="text-text-primary text-base leading-relaxed">
