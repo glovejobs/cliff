@@ -1,5 +1,6 @@
 import { Search, Plus, User, Settings, Film, Clock, MapPin, Heart, PlusSquare, X } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
+import { ScrollableContainer } from '../components/ui/scrollable-container';
 
 interface HeaderProps {
   currentPage?: 'tv' | 'library' | 'explore' | 'characters' | 'sets' | 'community';
