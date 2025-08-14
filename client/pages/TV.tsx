@@ -898,22 +898,22 @@ const TV = () => {
             </div>
 
             {/* Comment Input */}
-            <div className="flex flex-col gap-3 mt-auto">
-              <div className="flex flex-col gap-3 p-4 bg-surface-neutral rounded-lg">
-                <textarea
-                  placeholder="Add a comment to join the conversation"
-                  className="w-full bg-transparent text-text-tertiary text-base resize-none border-none outline-none placeholder:text-text-tertiary"
-                  rows={3}
-                />
-                <div className="flex justify-between items-center">
-                  <button className="flex items-center justify-center w-8 h-8 hover:bg-brand-primary rounded-lg transition-colors">
+            <div className="mt-auto">
+              <div className="flex flex-col h-[120px] min-h-[80px] p-3 px-4 bg-surface-neutral rounded-lg">
+                <div className="flex-1">
+                  <span className="text-text-tertiary text-base font-normal leading-relaxed">
+                    Add a comment to join the conversation
+                  </span>
+                </div>
+                <div className="flex justify-between items-end">
+                  <button className="flex items-center justify-center p-2 hover:bg-brand-primary rounded-lg transition-colors">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M8 3.33333V12.6667M3.33333 8H12.6667" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M7.99992 3.3335V12.6668M3.33325 8.00016H12.6666" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
-                  <button className="flex items-center justify-center w-8 h-8 hover:bg-brand-primary rounded-lg transition-colors">
+                  <button className="flex items-center justify-center p-2 hover:bg-brand-primary rounded-lg transition-colors">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M8 12.6667V3.33333M8 3.33333L3.33333 8M8 3.33333L12.6667 8" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M7.99992 12.6668V3.3335M7.99992 3.3335L3.33325 8.00016M7.99992 3.3335L12.6666 8.00016" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
                 </div>
