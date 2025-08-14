@@ -279,6 +279,112 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
           </div>
         </>
       )}
+
+      {/* Character Selection Modal */}
+      {showCharacterModal && (
+        <>
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-50"
+            onClick={handleCloseCharacterModal}
+          />
+          <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div
+              className="w-[1116px] h-[920px] p-6 flex flex-col gap-10 rounded-2xl z-50"
+              style={{ backgroundColor: '#171717' }}
+            >
+              {/* Header */}
+              <div className="flex items-center gap-2.5 w-full">
+                <h2 className="flex-1 text-text-primary text-xl font-normal leading-tight">
+                  Characters
+                </h2>
+                <div className="flex justify-end items-center gap-3 flex-1">
+                  <button className="flex p-3 justify-center items-center gap-2 rounded-lg border border-border-neutral bg-surface-neutral transition-colors hover:bg-opacity-90">
+                    <PlusSquare size={16} className="text-text-dark" strokeWidth={1.6} />
+                    <span className="text-text-dark text-base font-normal leading-none">New character</span>
+                  </button>
+                  <button
+                    onClick={handleCloseCharacterModal}
+                    className="flex p-3 justify-center items-center gap-2 rounded-lg border border-brand-primary bg-brand-primary transition-colors hover:bg-opacity-90"
+                  >
+                    <X size={16} className="text-text-primary" strokeWidth={1.6} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col gap-12 flex-1 overflow-y-auto">
+                {/* Your characters */}
+                <div className="flex flex-col gap-6">
+                  <h3 className="text-text-primary text-base font-bold leading-relaxed">
+                    Your characters
+                  </h3>
+                  <div className="flex gap-6">
+                    {/* New character card */}
+                    <div className="flex flex-col justify-center items-center w-[194.4px] h-[268px] py-[85px] gap-3 rounded-2xl cursor-pointer hover:bg-opacity-80 transition-colors" style={{ backgroundColor: '#232424' }}>
+                      <Plus size={24} className="text-text-primary" strokeWidth={2.5} />
+                      <span className="text-text-primary text-sm font-normal leading-relaxed text-center">
+                        New character
+                      </span>
+                    </div>
+
+                    {/* David Burton character */}
+                    <div className="relative flex flex-col justify-end items-start h-[268px] w-[194.4px] p-3 gap-3 rounded-2xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200" style={{ backgroundColor: '#232424' }}>
+                      <img
+                        src="https://api.builder.io/api/v1/image/assets/TEMP/76b4f7963e4bf681cae0a3d3dcd8fdb678c36329?width=388"
+                        alt="David Burton"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                      <span className="relative z-10 text-text-primary text-sm font-normal leading-relaxed">
+                        David Burton
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Explore community characters */}
+                <div className="flex flex-col gap-6">
+                  <h3 className="text-text-primary text-base font-bold leading-relaxed">
+                    Explore community characters
+                  </h3>
+                  <div className="flex flex-wrap gap-6">
+                    {[
+                      'https://api.builder.io/api/v1/image/assets/TEMP/40b74ac71e98e7774f25157b955e8b38e45ebc7b?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/b93b59c211da9b1cd6455a6f7816a50c0b871723?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/a8834d98dc98b1e731de3ec6bdd1225c551d4756?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/6788181b325f4d2d5748e583d4157c63db50364b?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/245130976f9e07616a8b965c591af27f6150f057?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/be47c48d11659b8ba57123be7ece013a2b6d2d8f?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/98396b7f0e659d8fa3bcef97b87471ce4f48b5a1?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/1f7cec421b527a7eb13270643b0c53c6967d9267?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/93e008f4628ba8f83760e2ca87efaccbda4ed7f0?width=388',
+                      'https://api.builder.io/api/v1/image/assets/TEMP/39f3cf41672806bcdb55c0b354cf3122e9e253cb?width=388'
+                    ].map((image, index) => (
+                      <div key={index} className="relative flex flex-col justify-end items-start h-[268px] min-w-[194.4px] max-w-[265px] p-3 gap-3 rounded-2xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 flex-1" style={{ backgroundColor: '#232424' }}>
+                        <img
+                          src={image}
+                          alt={`Community character ${index + 1}`}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+
+                        <div className="relative z-10 flex justify-end items-center w-full">
+                          <div className="flex items-center gap-1 px-0.5 py-0.5 rounded-lg">
+                            <Heart size={12} className="text-text-primary" strokeWidth={1.2} />
+                            <span className="text-text-primary text-xs font-medium leading-4 tracking-wide">
+                              89
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
