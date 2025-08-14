@@ -25,6 +25,14 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
     handleCloseModal();
   };
 
+  const handleCharacterClick = () => {
+    setShowCharacterModal(true);
+  };
+
+  const handleCloseCharacterModal = () => {
+    setShowCharacterModal(false);
+  };
+
   return (
     <>
       <header className="flex justify-between items-center w-full relative">
