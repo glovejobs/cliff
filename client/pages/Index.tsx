@@ -13,7 +13,7 @@ export default function Index() {
       {/* Fixed Header */}
       <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg px-6">
         <div className="max-w-[1320px] mx-auto pt-6 pb-4">
-          <Header />
+          <Header currentPage="explore" />
         </div>
       </div>
 
