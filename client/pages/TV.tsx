@@ -85,7 +85,11 @@ const TV = () => {
     }
 
     // Try modern Clipboard API only if we're confident it will work
-    navigator.clipboard.writeText(currentVideo.prompt).catch(() => {
+    navigator.clipboard.writeText(currentVideo.prompt).then(() => {
+      // Show success feedback
+      setShowCopiedFeedback(true);
+      setTimeout(() => setShowCopiedFeedback(false), 2000);
+    }).catch(() => {
       // If it fails, use fallback
       copyToClipboardFallback(currentVideo.prompt);
     });
