@@ -393,7 +393,7 @@ const TV = () => {
                     </div>
                   </div>
                   <div className="text-brand-text text-center text-xs font-medium leading-4 tracking-wide">
-                    Nada Skincare ad
+                    {currentVideo.title}
                   </div>
                 </div>
 
