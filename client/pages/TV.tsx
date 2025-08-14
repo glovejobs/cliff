@@ -513,9 +513,21 @@ const TV = () => {
             <button className="flex items-center justify-center bg-brand-primary border border-brand-primary rounded-lg p-3 hover:bg-opacity-90 transition-colors">
               <Download size={16} className="text-text-primary" strokeWidth={1.6} />
             </button>
-            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
-              <Heart size={16} className="text-text-primary" strokeWidth={1.6} />
-              89
+            <button
+              onClick={handleLikeClick}
+              className={`flex items-center gap-2 border rounded-lg px-3 py-3 text-base font-normal transition-all ${
+                isLiked
+                  ? 'bg-red-500 border-red-500 text-white'
+                  : 'bg-brand-primary border-brand-primary text-brand-text hover:bg-opacity-90'
+              }`}
+            >
+              <Heart
+                size={16}
+                className={isLiked ? "text-white" : "text-text-primary"}
+                strokeWidth={1.6}
+                fill={isLiked ? "currentColor" : "none"}
+              />
+              {likeCount}
             </button>
             <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
               <MessageCircle size={16} className="text-text-primary" strokeWidth={1.6} />
