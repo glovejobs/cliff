@@ -207,18 +207,18 @@ const TV = () => {
               </div>
 
               {/* Right Side Video */}
-              <div 
+              <div
                 className={`${
                   isPlaying ? 'w-0 opacity-0' : 'w-[60px] opacity-100'
                 } flex-shrink-0 h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out`}
               >
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/1e810018ba559b80ef3bd7b4264ac0910600e3d3?width=228"
-                  alt="Side video"
+                  src={videos[(currentVideoIndex + 1) % videos.length].thumbnail}
+                  alt="Next video"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-                <button className="absolute inset-0 flex items-center justify-center">
+                <button className="absolute inset-0 flex items-center justify-center" onClick={handleNextVideo}>
                   <div className="w-[25px] h-[25px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm">
                     <Play
                       size={12}
