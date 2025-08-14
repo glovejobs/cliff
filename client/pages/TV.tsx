@@ -36,6 +36,10 @@ const TV = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const handleDetailsClick = () => {
+    setShowDetails(!showDetails);
+  };
+
   // Sync video state with our controls
   useEffect(() => {
     const video = videoRef.current;
