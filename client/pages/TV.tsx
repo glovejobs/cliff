@@ -49,7 +49,7 @@ const TV = () => {
       title: 'Nada Skincare ad',
       src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2F3bd305393904499f993b2da9a384bde1?alt=media&token=d3c57b20-24ea-4448-b242-2328f26b86c6&apiKey=617016228c9243e3b70f57624716a0e1',
       thumbnail: 'https://api.builder.io/api/v1/image/assets/TEMP/1e810018ba559b80ef3bd7b4264ac0910600e3d3?width=228',
-      prompt: "Create a fresh, uplifting ad for 'Nada' ��� a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.",
+      prompt: "Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.",
       views: '5.6k',
       year: '2025'
     }
@@ -110,6 +110,11 @@ const TV = () => {
       if (!successful) {
         throw new Error('execCommand copy failed');
       }
+
+      // Show success feedback
+      setShowCopiedFeedback(true);
+      setTimeout(() => setShowCopiedFeedback(false), 2000);
+
     } catch (err) {
       console.error('Copy fallback failed:', err);
     } finally {
