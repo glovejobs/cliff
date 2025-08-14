@@ -129,6 +129,8 @@ const TV = () => {
   };
 
   const handlePrevVideo = () => {
+    if (isTransitioning) return;
+
     const video = videoRef.current;
     if (video) {
       video.pause();
@@ -136,7 +138,19 @@ const TV = () => {
 
     setIsPlaying(false);
     setIsLiked(false);
-    setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
+    setIsTransitioning(true);
+    setTransitionDirection('prev');
+
+    // Start the transition animation
+    setTimeout(() => {
+      setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
+
+      // End transition after animation completes
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setTransitionDirection(null);
+      }, 500);
+    }, 250);
   };
 
   // Sync video state with our controls
