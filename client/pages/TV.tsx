@@ -460,7 +460,7 @@ const TV = () => {
                 Prompt
               </h3>
               <p className="text-text-primary text-base leading-relaxed">
-                Bond and Madeleine sit in a dimly lit safehouse in Morocco. Over a glass of scotch, they argue about trust, betrayal, and whether love has a place in espionage. Bond's phone buzzes with a new mission, but he hesitates — for once, the stakes feel personal.
+                Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.
               </p>
             </div>
 
