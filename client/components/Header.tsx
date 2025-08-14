@@ -7,6 +7,7 @@ interface HeaderProps {
 
 const Header = ({ currentPage = 'explore' }: HeaderProps) => {
   const [showPromptModal, setShowPromptModal] = useState(false);
+  const [showCharacterModal, setShowCharacterModal] = useState(false);
   const [promptText, setPromptText] = useState('');
   const buttonRef = useRef<HTMLButtonElement>(null);
   const handleNewSceneClick = () => {
