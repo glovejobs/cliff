@@ -336,11 +336,19 @@ const TV = () => {
                         onClick={handleMuteClick}
                         className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
                       >
-                        <VolumeX
-                          size={16}
-                          className="text-text-primary"
-                          strokeWidth={1.2}
-                        />
+                        {isMuted ? (
+                          <VolumeX
+                            size={16}
+                            className="text-text-primary"
+                            strokeWidth={1.2}
+                          />
+                        ) : (
+                          <Volume2
+                            size={16}
+                            className="text-text-primary"
+                            strokeWidth={1.2}
+                          />
+                        )}
                       </button>
                       <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                         {isMuted ? 'Unmute' : 'Mute'}
