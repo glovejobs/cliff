@@ -809,6 +809,103 @@ const TV = () => {
           </div>
         </div>
       </div>
+
+      {/* Comments Panel */}
+      <div
+        className={`fixed top-0 right-0 h-screen w-[516px] bg-app-bg border-l border-brand-primary transform transition-transform duration-500 ease-in-out z-50 ${
+          showComments ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full p-6 gap-10">
+          {/* Header with profile and close button */}
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3 flex-1">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/1f1a162f3d7a0cbf3d0126cdb330d609b152b836?width=80"
+                alt="Profile"
+                className="w-10 h-10 rounded-full"
+              />
+              <div className="flex items-start gap-4 flex-1">
+                <div className="flex flex-col gap-0.5">
+                  <div className="text-text-primary text-base font-bold leading-snug">
+                    Cody McVie
+                  </div>
+                  <div className="text-text-secondary text-sm leading-relaxed">
+                    1 week ago
+                  </div>
+                </div>
+                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-2 py-1 text-text-dark text-xs font-medium">
+                  Follow
+                </button>
+              </div>
+            </div>
+            <button
+              onClick={() => setShowComments(false)}
+              className="flex items-center justify-center w-10 h-10 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
+            >
+              <X size={16} className="text-text-primary" strokeWidth={1.6} />
+            </button>
+          </div>
+
+          {/* Content */}
+          <div className="flex flex-col gap-6 flex-1">
+            {/* Prompt Section */}
+            <div className="flex flex-col gap-2.5">
+              <h3 className="text-text-primary text-base font-bold leading-snug">
+                Prompt
+              </h3>
+              <p className="text-text-primary text-base leading-relaxed">
+                {currentVideo.prompt}
+              </p>
+            </div>
+
+            {/* Divider */}
+            <div className="border-t border-border-neutral pt-6"></div>
+
+            {/* Comments Section */}
+            <div className="flex flex-col gap-6 flex-1">
+              {/* Single Comment */}
+              <div className="flex items-start gap-3">
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/b8e9ff78111840cedbff6e9d6405300c2a42eaa8?width=80"
+                  alt="Commenter"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div className="flex flex-col gap-1 flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-text-primary text-base font-bold">Johnny Magic</span>
+                    <span className="text-text-primary text-base">This is so nice to watch, I love it!! 💖</span>
+                  </div>
+                  <span className="text-text-secondary text-sm">22h</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Comment Input */}
+            <div className="flex flex-col gap-3 mt-auto">
+              <div className="flex flex-col gap-3 p-4 bg-surface-neutral rounded-lg">
+                <textarea
+                  placeholder="Add a comment to join the conversation"
+                  className="w-full bg-transparent text-text-tertiary text-base resize-none border-none outline-none placeholder:text-text-tertiary"
+                  rows={3}
+                />
+                <div className="flex justify-between items-center">
+                  <button className="flex items-center justify-center w-8 h-8 hover:bg-brand-primary rounded-lg transition-colors">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 3.33333V12.6667M3.33333 8H12.6667" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                  <button className="flex items-center justify-center w-8 h-8 hover:bg-brand-primary rounded-lg transition-colors">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 12.6667V3.33333M8 3.33333L3.33333 8M8 3.33333L12.6667 8" stroke="#F3F3F3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
