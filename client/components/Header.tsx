@@ -313,8 +313,8 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
               </div>
 
               {/* Content */}
-              <div className="flex-1 relative">
-                <ScrollableContainer className="h-full">
+              <div className="flex-1 relative min-h-0">
+                <ScrollableContainer style={{ height: 'calc(80vh - 160px)' }}>
                   <div className="flex flex-col gap-12 pr-6">
                     {/* Your characters */}
                     <div className="flex flex-col gap-6">
