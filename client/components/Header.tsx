@@ -290,7 +290,7 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
           />
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div
-              className="w-[1116px] h-[920px] p-6 flex flex-col gap-10 rounded-2xl z-50"
+              className="w-[1116px] h-[80vh] p-6 flex flex-col gap-10 rounded-2xl z-50"
               style={{ backgroundColor: '#171717' }}
             >
               {/* Header */}
