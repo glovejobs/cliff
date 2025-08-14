@@ -88,7 +88,7 @@ const TV = () => {
     }
   ];
 
-  const currentVideo = videos[currentVideoIndex];
+  const currentVideo = videos[framePositions.center];
 
   const handlePlayPause = () => {
     const video = videoRef.current;
