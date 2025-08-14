@@ -25,8 +25,9 @@ const TV = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(89);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [videoLikes, setVideoLikes] = useState([142, 89]); // Track likes separately
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const videos = [
@@ -34,8 +35,8 @@ const TV = () => {
       id: 'prompt-floor',
       title: 'The Prompt Floor',
       src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2Ff34ab02cd9b54be5a8cf11c2a13ae949?alt=media&token=005cee05-b139-4895-97fd-e10b939f1887&apiKey=617016228c9243e3b70f57624716a0e1',
+      thumbnail: 'https://api.builder.io/api/v1/image/assets/TEMP/ae4e8c13075e64b7209a5f67540fbb6b82c43f26?width=82',
       prompt: "Create a witty, fast‑paced, and slightly surreal film titled The Prompt Floor. The story dives into the unseen world of AI cinema — where human writers and artificial minds collaborate, clash, and improvise on a secret floor of a futuristic film studio. Show the drama, comedy, and chaos of prompts coming to life, blending meta‑humor, heartfelt moments, and visually inventive sequences that reveal how ideas evolve from text to screen.",
-      likes: 142,
       views: '8.2k',
       year: '2024'
     },
@@ -43,8 +44,8 @@ const TV = () => {
       id: 'nada-skincare',
       title: 'Nada Skincare ad',
       src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2F3bd305393904499f993b2da9a384bde1?alt=media&token=d3c57b20-24ea-4448-b242-2328f26b86c6&apiKey=617016228c9243e3b70f57624716a0e1',
+      thumbnail: 'https://api.builder.io/api/v1/image/assets/TEMP/1e810018ba559b80ef3bd7b4264ac0910600e3d3?width=228',
       prompt: "Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.",
-      likes: 89,
       views: '5.6k',
       year: '2025'
     }
