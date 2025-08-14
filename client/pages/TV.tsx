@@ -68,12 +68,43 @@ const TV = () => {
   };
 
   const handleLikeClick = () => {
-    if (isLiked) {
-      setLikeCount(likeCount - 1);
-    } else {
-      setLikeCount(likeCount + 1);
+    const newLikedState = !isLiked;
+    setIsLiked(newLikedState);
+
+    // Update the current video's like count
+    videos[currentVideoIndex].likes = newLikedState
+      ? videos[currentVideoIndex].likes + 1
+      : videos[currentVideoIndex].likes - 1;
+  };
+
+  const handleMuteClick = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
+
+  const handleNextVideo = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
     }
-    setIsLiked(!isLiked);
+
+    setIsPlaying(false);
+    setIsLiked(false);
+    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const handlePrevVideo = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
+    }
+
+    setIsPlaying(false);
+    setIsLiked(false);
+    setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
   };
 
   // Sync video state with our controls
