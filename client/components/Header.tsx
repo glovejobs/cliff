@@ -314,8 +314,15 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
 
               {/* Content */}
               <div className="flex-1 relative min-h-0">
-                <ScrollableContainer style={{ height: 'calc(80vh - 160px)' }}>
-                  <div className="flex flex-col gap-12 pr-6 min-h-max">
+                <div
+                  className="overflow-y-auto pr-4"
+                  style={{
+                    height: 'calc(80vh - 160px)',
+                    scrollbarWidth: 'thin',
+                    scrollbarColor: 'rgba(156, 163, 175, 0.5) transparent'
+                  }}
+                >
+                  <div className="flex flex-col gap-12">
                     {/* Your characters */}
                     <div className="flex flex-col gap-6">
                       <h3 className="text-text-primary text-base font-bold leading-relaxed">
@@ -384,7 +391,7 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
                       </div>
                     </div>
                   </div>
-                </ScrollableContainer>
+                </div>
               </div>
             </div>
           </div>
