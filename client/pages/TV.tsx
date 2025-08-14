@@ -81,6 +81,14 @@ const TV = () => {
     }
   ];
 
+  const [framePositions, setFramePositions] = useState({
+    offLeft: (currentVideoIndex - 2 + videos.length) % videos.length,
+    left: (currentVideoIndex - 1 + videos.length) % videos.length,
+    center: currentVideoIndex,
+    right: (currentVideoIndex + 1) % videos.length,
+    offRight: (currentVideoIndex + 2) % videos.length
+  });
+
   const currentVideo = videos[framePositions.center];
 
   const handlePlayPause = () => {
