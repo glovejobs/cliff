@@ -547,7 +547,7 @@ const TV = () => {
                 Prompt
               </h3>
               <p className="text-text-primary text-base leading-relaxed">
-                Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.
+                {currentVideo.prompt}
               </p>
             </div>
 
