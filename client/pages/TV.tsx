@@ -312,7 +312,7 @@ const TV = () => {
                 {isTransitioning ? (
                   <>
                     <img
-                      src={currentVideo.thumbnail}
+                      src={videos[transitionDirection === 'next' ? currentVideoIndex : (currentVideoIndex + 1) % videos.length].thumbnail}
                       alt="Current video"
                       className="w-full h-full object-cover"
                     />
