@@ -67,17 +67,18 @@ const TV = () => {
               </div>
 
               {/* Main Video Player */}
-              <div className="flex-1 h-full flex justify-center items-center bg-gray-300 rounded-lg relative">
-                <button 
-                  className="w-[120px] h-[120px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-opacity-40 transition-colors"
-                  onClick={handlePlayPause}
-                >
-                  {isPlaying ? (
-                    <Pause size={48} className="text-white" fill="white" />
-                  ) : (
+              <div
+                className="flex-1 h-full flex justify-center items-center bg-gray-300 rounded-lg relative cursor-pointer"
+                onClick={handlePlayPause}
+              >
+                {!isPlaying && (
+                  <button
+                    className="w-[120px] h-[120px] bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-opacity-40 transition-colors"
+                    onClick={handlePlayPause}
+                  >
                     <Play size={48} className="text-white ml-2" fill="white" />
-                  )}
-                </button>
+                  </button>
+                )}
               </div>
 
               {/* Right Side Video */}
