@@ -16,6 +16,7 @@ import {
   FileText,
   X,
   Download,
+  Copy,
 } from "lucide-react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
