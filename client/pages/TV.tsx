@@ -42,6 +42,15 @@ const TV = () => {
     setShowDetails(!showDetails);
   };
 
+  const handleLikeClick = () => {
+    if (isLiked) {
+      setLikeCount(likeCount - 1);
+    } else {
+      setLikeCount(likeCount + 1);
+    }
+    setIsLiked(!isLiked);
+  };
+
   // Sync video state with our controls
   useEffect(() => {
     const video = videoRef.current;
