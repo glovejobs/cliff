@@ -36,21 +36,30 @@ const TV = () => {
 
   const videos = [
     {
-      id: 'prompt-floor',
-      title: 'The Prompt Floor',
-      src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2Ff34ab02cd9b54be5a8cf11c2a13ae949?alt=media&token=005cee05-b139-4895-97fd-e10b939f1887&apiKey=617016228c9243e3b70f57624716a0e1',
+      id: 'time-in-motion',
+      title: 'Time in Motion',
+      src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2Fe4628b7c94f5420bb196daae4c7af7e6?alt=media&token=bcab6baa-2a44-46ca-9aa5-4c1065798a60&apiKey=617016228c9243e3b70f57624716a0e1',
       thumbnail: 'https://api.builder.io/api/v1/image/assets/TEMP/ae4e8c13075e64b7209a5f67540fbb6b82c43f26?width=82',
-      prompt: "Create a witty, fast‑paced, and slightly surreal film titled The Prompt Floor. The story dives into the unseen world of AI cinema — where human writers and artificial minds collaborate, clash, and improvise on a secret floor of a futuristic film studio. Show the drama, comedy, and chaos of prompts coming to life, blending meta‑humor, heartfelt moments, and visually inventive sequences that reveal how ideas evolve from text to screen.",
-      views: '8.2k',
-      year: '2024'
+      prompt: "Create a sleek, cinematic shot of a single human hand wearing an elegant wristwatch. The background is softly blurred to keep full focus on the watch. Use smooth, slow camera motion — starting from the side of the wrist, gliding in a gentle arc to reveal the watch face in perfect lighting. Highlight the craftsmanship, polished metal, and fine details of the design, with warm, high‑end lifestyle tones that evoke sophistication and precision.",
+      views: '12.3k',
+      year: '2025'
     },
     {
-      id: 'nada-skincare',
-      title: 'Nada Skincare ad',
-      src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2F3bd305393904499f993b2da9a384bde1?alt=media&token=d3c57b20-24ea-4448-b242-2328f26b86c6&apiKey=617016228c9243e3b70f57624716a0e1',
+      id: 'homebound',
+      title: 'Homebound',
+      src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2F65a0425066ae44ab96be2fbabee7a7bc?alt=media&token=41a53cf5-0bb3-4880-b9bb-b7b132c20291&apiKey=617016228c9243e3b70f57624716a0e1',
       thumbnail: 'https://api.builder.io/api/v1/image/assets/TEMP/1e810018ba559b80ef3bd7b4264ac0910600e3d3?width=228',
-      prompt: "Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.",
-      views: '5.6k',
+      prompt: "Capture a cinematic, early‑evening scene of a professional Nigerian woman driving home through the bustling roads of Lagos after a day at work. She sits in the driver's seat, city lights and golden‑hour hues streaming through the car windows. The camera alternates between smooth tracking shots outside — revealing vibrant street life, honking traffic, and roadside vendors — and intimate interior angles that show her relaxed yet thoughtful mood. Ambient sounds of the city mix with the low hum of the car, evoking warmth, resilience, and everyday beauty.",
+      views: '8.7k',
+      year: '2025'
+    },
+    {
+      id: 'ikea-unboxing',
+      title: 'IKEA unboxing',
+      src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2Fa57112836c604e479d8bb214e88bbf2d?alt=media&token=bb21bd58-98dd-42aa-b064-126f12ade915&apiKey=617016228c9243e3b70f57624716a0e1',
+      thumbnail: 'https://api.builder.io/api/v1/image/assets/TEMP/1e810018ba559b80ef3bd7b4264ac0910600e3d3?width=228',
+      prompt: "Create a cinematic, one-take unboxing where a single IKEA flat-pack box on a clean studio floor unfolds into a full, cozy bedroom layout. Start with a top-down shot; as the camera slowly descends, the box opens in a smooth origami motion. Panels slide, hinge, and lock with satisfying clicks: a birch bed frame assembles, a mattress unfurls, nightstands glide out, a wardrobe rises, and a soft rug rolls into place. Use Scandinavian minimalism: light wood, matte white, muted gray textiles. Warm 3000K lighting strips tuck under the bed and headboard; a pendant drops in and turns on as everything snaps together. Keep the motion precise and elegant—hyperreal practical effects with subtle CGI polish. Transition from top-down to a slow 180° orbit around the finished room, sunlight grazing textures, plants adding life. No people, no visible tools, no hard cuts. 4K, 35mm lens feel, gentle ambient music synchronized to assembly cues.",
+      views: '15.2k',
       year: '2025'
     }
   ];
