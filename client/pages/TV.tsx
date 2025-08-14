@@ -46,7 +46,7 @@ const TV = () => {
       title: 'The Prompt Floor',
       src: 'https://cdn.builder.io/o/assets%2F617016228c9243e3b70f57624716a0e1%2Ff34ab02cd9b54be5a8cf11c2a13ae949?alt=media&token=005cee05-b139-4895-97fd-e10b939f1887&apiKey=617016228c9243e3b70f57624716a0e1',
       thumbnail: 'https://api.builder.io/api/v1/image/assets/TEMP/ae4e8c13075e64b7209a5f67540fbb6b82c43f26?width=82',
-      prompt: "Create a witty, fast‑paced, and slightly surreal film titled The Prompt Floor. The story dives into the unseen world of AI cinema — where human writers and artificial minds collaborate, clash, and improvise on a secret floor of a futuristic film studio. Show the drama, comedy, and chaos of prompts coming to life, blending meta‑humor, heartfelt moments, and visually inventive sequences that reveal how ideas evolve from text to screen.",
+      prompt: "Create a witty, fast‑paced, and slightly surreal film titled The Prompt Floor. The story dives into the unseen world of AI cinema ��� where human writers and artificial minds collaborate, clash, and improvise on a secret floor of a futuristic film studio. Show the drama, comedy, and chaos of prompts coming to life, blending meta‑humor, heartfelt moments, and visually inventive sequences that reveal how ideas evolve from text to screen.",
       views: '8.2k',
       year: '2024'
     },
@@ -196,13 +196,22 @@ const TV = () => {
     setIsPlaying(false);
     setIsLiked(false);
     setIsTransitioning(true);
-    setTransitionDirection('next');
 
-    // Complete the transition animation
+    // Shift all positions to the left (next)
+    const newPositions = {
+      offLeft: framePositions.left,
+      left: framePositions.center,
+      center: framePositions.right,
+      right: framePositions.offRight,
+      offRight: (framePositions.offRight + 1) % videos.length
+    };
+
+    setFramePositions(newPositions);
+    setCurrentVideoIndex(newPositions.center);
+
+    // Complete the transition
     setTimeout(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
       setIsTransitioning(false);
-      setTransitionDirection(null);
     }, 500);
   };
 
@@ -217,13 +226,22 @@ const TV = () => {
     setIsPlaying(false);
     setIsLiked(false);
     setIsTransitioning(true);
-    setTransitionDirection('prev');
 
-    // Complete the transition animation
+    // Shift all positions to the right (prev)
+    const newPositions = {
+      offLeft: (framePositions.offLeft - 1 + videos.length) % videos.length,
+      left: framePositions.offLeft,
+      center: framePositions.left,
+      right: framePositions.center,
+      offRight: framePositions.right
+    };
+
+    setFramePositions(newPositions);
+    setCurrentVideoIndex(newPositions.center);
+
+    // Complete the transition
     setTimeout(() => {
-      setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
       setIsTransitioning(false);
-      setTransitionDirection(null);
     }, 500);
   };
 
