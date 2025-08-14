@@ -339,13 +339,21 @@ const TV = () => {
 
                 {/* Like and Comment Buttons - Vertical Stack */}
                 <div className="flex flex-col gap-1.5">
-                  <button className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
+                  <button
+                    onClick={handleLikeClick}
+                    className={`flex items-center justify-center gap-2 w-[68px] h-10 border rounded-lg px-3 py-3 text-base font-normal transition-all ${
+                      isLiked
+                        ? 'bg-red-500 border-red-500 text-white'
+                        : 'bg-brand-primary border-brand-primary text-brand-text hover:bg-opacity-90'
+                    }`}
+                  >
                     <Heart
                       size={16}
-                      className="text-text-primary"
+                      className={isLiked ? "text-white" : "text-text-primary"}
                       strokeWidth={1.6}
+                      fill={isLiked ? "currentColor" : "none"}
                     />
-                    89
+                    {likeCount}
                   </button>
 
                   <button className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
