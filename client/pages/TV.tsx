@@ -380,7 +380,7 @@ const TV = () => {
                       <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
                     </div>
                     <div className="group relative">
-                      <button>
+                      <button onClick={handleNextVideo}>
                         <ChevronRight
                           size={16}
                           className="text-text-primary"
