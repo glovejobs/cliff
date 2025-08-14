@@ -363,7 +363,10 @@ const TV = () => {
                   </div>
 
                   <div className="group relative">
-                    <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
+                    <button
+                      className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
+                      onClick={handleDetailsClick}
+                    >
                       <FileText
                         size={16}
                         className="text-text-primary"
