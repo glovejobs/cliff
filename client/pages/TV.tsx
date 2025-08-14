@@ -114,9 +114,11 @@ const TV = () => {
       // If details panel is open, swap to comments (overlay)
       setShowDetails(false);
       setShowComments(true);
+      setCommentsOpenedFromDetails(true);
     } else {
       // If no panel is open, slide out comments
       setShowComments(!showComments);
+      setCommentsOpenedFromDetails(false);
     }
   };
 
