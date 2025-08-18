@@ -1,6 +1,7 @@
 import { Plus, Heart } from 'lucide-react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import { ScrollableContainer } from '../components/ui/scrollable-container';
 
 interface CharacterCardProps {
   image: string;
@@ -100,11 +101,10 @@ const Characters = () => {
       {/* Sidebar */}
       <Sidebar activeItem="characters" />
       
-      {/* Main Content */}
-      <main className="ml-20 px-6 pt-3 pb-6 min-h-screen">
-        <div className="max-w-[1320px] mx-auto">
-          {/* Header */}
-          <div className="flex justify-between items-center w-full mb-10">
+      {/* Fixed Header */}
+      <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg px-6">
+        <div className="max-w-[1320px] mx-auto pt-6 pb-4">
+          <div className="flex justify-between items-center w-full">
             {/* Search Bar */}
             <div className="flex items-center gap-2 bg-nav-bg rounded-full px-4 py-3 w-[360px]">
               <span className="text-text-secondary flex-1 text-base font-normal">
@@ -133,56 +133,63 @@ const Characters = () => {
               </div>
             </div>
           </div>
-          
-          {/* Content */}
-          <div className="flex flex-col items-center gap-12 flex-1">
-            {/* Hero Section */}
-            <div className="flex flex-col justify-center items-start gap-2.5 max-w-[600px] w-full">
-              <h1 className="text-text-primary text-3xl font-normal leading-tight w-full text-center">
-                What character will you create?
-              </h1>
-              <p className="text-text-primary text-base font-normal leading-relaxed w-full text-center">
-                Create original characters or save familiar ones. Your cast is entirely yours. Who will shape your story next?
-              </p>
-            </div>
-            
-            {/* Content Sections */}
-            <div className="flex flex-col items-center gap-12 flex-1 w-full">
-              {/* Your Characters Section */}
-              <div className="flex flex-col gap-6 w-full">
-                <h2 className="text-text-primary text-base font-bold leading-relaxed w-full">
-                  Your characters
-                </h2>
-                <div className="flex items-start gap-6 w-full">
-                  <CharacterCard isNewCharacter={true} image="" />
-                  <CharacterCard 
-                    image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
-                    name="David Burton"
-                  />
-                </div>
-              </div>
-
-              {/* Explore Community Characters Section */}
-              <div className="flex flex-col gap-6 w-full">
-                <h2 className="text-text-primary text-base font-bold leading-relaxed w-full">
-                  Explore community characters
-                </h2>
-                <div className="flex flex-wrap gap-6 w-full">
-                  {communityCharacters.map((character, index) => (
-                    <CharacterCard
-                      key={index}
-                      image={character.image}
-                      likes={character.likes}
-                    />
-                  ))}
-                </div>
+        </div>
+      </div>
+      
+      {/* Main Scrollable Content */}
+      <main className="ml-20 px-6 min-h-screen" style={{ paddingTop: '106px' }}>
+        <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 106px)' }}>
+          <div className="max-w-[1320px] mx-auto">
+            {/* Content */}
+            <div className="flex flex-col items-center gap-12 flex-1">
+              {/* Hero Section */}
+              <div className="flex flex-col justify-center items-start gap-2.5 max-w-[600px] w-full">
+                <h1 className="text-text-primary text-3xl font-normal leading-tight w-full text-center">
+                  What character will you create?
+                </h1>
+                <p className="text-text-primary text-base font-normal leading-relaxed w-full text-center">
+                  Create original characters or save familiar ones. Your cast is entirely yours. Who will shape your story next?
+                </p>
               </div>
               
-              {/* Spacer */}
-              <div className="h-3"></div>
+              {/* Content Sections */}
+              <div className="flex flex-col items-center gap-12 flex-1 w-full">
+                {/* Your Characters Section */}
+                <div className="flex flex-col gap-6 w-full">
+                  <h2 className="text-text-primary text-base font-bold leading-relaxed w-full">
+                    Your characters
+                  </h2>
+                  <div className="flex items-start gap-6 w-full">
+                    <CharacterCard isNewCharacter={true} image="" />
+                    <CharacterCard 
+                      image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
+                      name="David Burton"
+                    />
+                  </div>
+                </div>
+
+                {/* Explore Community Characters Section */}
+                <div className="flex flex-col gap-6 w-full">
+                  <h2 className="text-text-primary text-base font-bold leading-relaxed w-full">
+                    Explore community characters
+                  </h2>
+                  <div className="flex flex-wrap gap-6 w-full">
+                    {communityCharacters.map((character, index) => (
+                      <CharacterCard
+                        key={index}
+                        image={character.image}
+                        likes={character.likes}
+                      />
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Spacer */}
+                <div className="h-3"></div>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollableContainer>
       </main>
     </div>
   );

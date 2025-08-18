@@ -1,6 +1,7 @@
 import { ChevronDown, Heart, Play, Edit } from 'lucide-react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import { ScrollableContainer } from '../components/ui/scrollable-container';
 
 interface MediaCardProps {
   title: string;
@@ -137,12 +138,18 @@ const Library = () => {
     <div className="min-h-screen bg-app-bg relative">
       {/* Sidebar */}
       <Sidebar activeItem="library" />
-      
-      {/* Main Content */}
-      <main className="ml-20 px-6 pt-3 pb-6 min-h-screen">
-        <div className="max-w-[1320px] mx-auto">
-          {/* Header */}
-          <Header />
+
+      {/* Fixed Header */}
+      <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg px-6">
+        <div className="max-w-[1320px] mx-auto pt-6 pb-4">
+          <Header currentPage="library" />
+        </div>
+      </div>
+
+      {/* Main Scrollable Content */}
+      <main className="ml-20 px-6 min-h-screen" style={{ paddingTop: '106px' }}>
+        <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 106px)' }}>
+          <div className="max-w-[1320px] mx-auto">
           
           {/* Library Content */}
           <div className="flex flex-col items-center gap-6 flex-1">
@@ -190,7 +197,8 @@ const Library = () => {
             {/* Spacer */}
             <div className="h-6"></div>
           </div>
-        </div>
+          </div>
+        </ScrollableContainer>
       </main>
     </div>
   );
