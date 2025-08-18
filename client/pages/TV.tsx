@@ -34,6 +34,8 @@ const TV = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(89);
   const [isMuted, setIsMuted] = useState(false);
+  const [volume, setVolume] = useState(50);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [videoLikes, setVideoLikes] = useState([142, 89, 203, 167, 156]); // Track likes separately
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -221,6 +223,49 @@ const TV = () => {
     setIsMuted(!isMuted);
   };
 
+  const handleVolumeUp = () => {
+    const newVolume = Math.min(volume + 10, 100);
+    setVolume(newVolume);
+    const video = videoRef.current;
+    if (video) {
+      video.volume = newVolume / 100;
+    }
+  };
+
+  const handleVolumeDown = () => {
+    const newVolume = Math.max(volume - 10, 0);
+    setVolume(newVolume);
+    const video = videoRef.current;
+    if (video) {
+      video.volume = newVolume / 100;
+    }
+  };
+
+  const handleMaximize = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (!isFullscreen) {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if ((video as any).webkitRequestFullscreen) {
+        (video as any).webkitRequestFullscreen();
+      } else if ((video as any).msRequestFullscreen) {
+        (video as any).msRequestFullscreen();
+      }
+      setIsFullscreen(true);
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if ((document as any).webkitExitFullscreen) {
+        (document as any).webkitExitFullscreen();
+      } else if ((document as any).msExitFullscreen) {
+        (document as any).msExitFullscreen();
+      }
+      setIsFullscreen(false);
+    }
+  };
+
   const handleNextVideo = () => {
     if (isTransitioning) return;
 
@@ -388,9 +433,9 @@ const TV = () => {
               </div>
             </div>
 
-            {/* Controls Section - New Remote Design */}
+            {/* Controls Section - Enhanced Remote Design */}
             <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full">
-              {/* New Remote Control */}
+              {/* Enhanced Remote Control */}
               <div className="flex items-center gap-3 px-12 py-0 rounded-full border border-black h-[110px]" style={{
                 background: 'linear-gradient(180deg, #363636 7.69%, #171717 95.5%), radial-gradient(154.49% 116.65% at 80.37% -2.35%, #000 0%, #656565 100%), #000'
               }}>
@@ -399,20 +444,53 @@ const TV = () => {
                 <div className="flex flex-wrap items-center w-[92px]" style={{ alignContent: 'center', gap: '6px 12px' }}>
                   {/* Top Row: Play/Pause - Mute */}
                   <div className="group relative">
-                    <button onClick={handlePlayPause} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
-                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
-                      border: '1px solid #A3A3A3',
-                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
-                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
-                    }}>
-                      {isPlaying ? (
-                        <div style={{ width: '15.374px', height: '9px', position: 'relative', fill: 'rgba(245, 245, 245, 1)' }}>
-                          <div style={{ width: '1px', height: '9px', borderRadius: '0.187px', background: '#D9D9D9', position: 'absolute', left: '11px', top: '0px' }}></div>
-                          <div style={{ width: '1px', height: '9px', borderRadius: '0.187px', background: '#D9D9D9', position: 'absolute', left: '15px', top: '0px' }}></div>
-                        </div>
-                      ) : (
-                        <Play size={16} className="text-white ml-0.5" fill="white" />
-                      )}
+                    <button onClick={handlePlayPause} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out">
+                      <svg width="40" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <filter id="play-filter" x="-0.134" y="-0.606" width="41.212" height="41.233" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feMorphology radius="0.303" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="0.152"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feMorphology radius="1.212" operator="erode" in="SourceAlpha" result="effect2_innerShadow"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="0.606"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                          </filter>
+                          <linearGradient id="play-gradient" x1="47.462" y1="27.737" x2="27.3" y2="-6.829" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#242424"/>
+                            <stop offset="1" stopColor="#383838"/>
+                          </linearGradient>
+                          <linearGradient id="play-stroke" x1="-4.049" y1="9.737" x2="11.301" y2="45.184" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#A3A3A3"/>
+                            <stop offset="0.296" stopColor="#2B2B2B"/>
+                            <stop offset="0.791" stopColor="#0A0A0A"/>
+                            <stop offset="1" stopColor="#333333"/>
+                          </linearGradient>
+                        </defs>
+                        <g filter="url(#play-filter)">
+                          <ellipse cx="20.472" cy="20.01" rx="20" ry="20.01" fill="url(#play-gradient)"/>
+                          <path d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z" stroke="url(#play-stroke)"/>
+                          <path d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z" stroke="black"/>
+                        </g>
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        {isPlaying ? (
+                          <div style={{ width: '15.374px', height: '9px', position: 'relative' }}>
+                            <div style={{ width: '1px', height: '9px', borderRadius: '0.187px', background: '#D9D9D9', position: 'absolute', left: '6px', top: '0px' }}></div>
+                            <div style={{ width: '1px', height: '9px', borderRadius: '0.187px', background: '#D9D9D9', position: 'absolute', left: '9px', top: '0px' }}></div>
+                          </div>
+                        ) : (
+                          <Play size={16} className="text-white ml-0.5" fill="white" />
+                        )}
+                      </div>
                     </button>
                     <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       {isPlaying ? 'Pause' : 'Play'}
@@ -420,19 +498,42 @@ const TV = () => {
                   </div>
 
                   <div className="group relative">
-                    <button onClick={handleMuteClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
-                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
-                      border: '1px solid #A3A3A3',
-                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
-                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
-                    }}>
-                      {isMuted ? (
-                        <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                          <path d="M13.1722 3.757C14.0114 4.59629 14.5829 5.66565 14.8143 6.82979C15.0457 7.99392 14.9266 9.20054 14.4722 10.297C14.2842 10.75 14.2412 10.887 13.9502 11.281M11.7442 8.834C11.7442 8.834 11.9722 8.394 11.9722 8C11.972 7.20442 11.6558 6.44148 11.0932 5.879M5.71817 5.309C5.55217 5.45 5.47217 5.5 5.47217 5.5H2.97217V10.5H5.47217L8.97217 13.5V8.834M6.90217 4.265L8.97217 2.5V6.075M2.47217 2L14.4722 14" stroke="#F5F5F5"/>
-                        </svg>
-                      ) : (
-                        <Volume2 size={16} className="text-white" strokeWidth={1.2} />
-                      )}
+                    <button onClick={handleMuteClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out">
+                      <svg width="40" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <filter id="mute-filter" x="-0.134" y="-0.606" width="41.212" height="41.233" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feMorphology radius="0.303" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="0.152"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feMorphology radius="1.212" operator="erode" in="SourceAlpha" result="effect2_innerShadow"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="0.606"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+                          </filter>
+                        </defs>
+                        <g filter="url(#mute-filter)">
+                          <ellipse cx="20.472" cy="20.01" rx="20" ry="20.01" fill="url(#play-gradient)"/>
+                          <path d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z" stroke="url(#play-stroke)"/>
+                          <path d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z" stroke="black"/>
+                        </g>
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        {isMuted ? (
+                          <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                            <path d="M13.1722 3.757C14.0114 4.59629 14.5829 5.66565 14.8143 6.82979C15.0457 7.99392 14.9266 9.20054 14.4722 10.297C14.2842 10.75 14.2412 10.887 13.9502 11.281M11.7442 8.834C11.7442 8.834 11.9722 8.394 11.9722 8C11.972 7.20442 11.6558 6.44148 11.0932 5.879M5.71817 5.309C5.55217 5.45 5.47217 5.5 5.47217 5.5H2.97217V10.5H5.47217L8.97217 13.5V8.834M6.90217 4.265L8.97217 2.5V6.075M2.47217 2L14.4722 14" stroke="#F5F5F5"/>
+                          </svg>
+                        ) : (
+                          <Volume2 size={16} className="text-white" strokeWidth={1.2} />
+                        )}
+                      </div>
                     </button>
                     <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       {isMuted ? 'Unmute' : 'Mute'}
@@ -441,15 +542,31 @@ const TV = () => {
 
                   {/* Bottom Row: Power - Maximize */}
                   <div className="group relative">
-                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
-                      background: 'linear-gradient(330deg, #575656 12.95%, #7A7A7A 86.08%)',
-                      border: '1px solid #696969',
-                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
-                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
-                    }}>
-                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                        <path d="M12.7121 4.42659C13.5511 5.26578 14.1223 6.33488 14.3537 7.49871C14.585 8.66255 14.4661 9.86885 14.0119 10.9651C13.5577 12.0613 12.7887 12.9983 11.802 13.6575C10.8154 14.3167 9.65542 14.6685 8.46881 14.6685C7.28221 14.6685 6.12225 14.3167 5.13559 13.6575C4.14894 12.9983 3.37991 12.0613 2.92572 10.9651C2.47154 9.86884 2.3526 8.66254 2.58396 7.49871C2.81531 6.33488 3.38656 5.26578 4.22548 4.42659M8.47215 1.33325L8.47215 7.99992" stroke="#900B09" strokeLinecap="round" strokeLinejoin="round"/>
+                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out">
+                      <svg width="40" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="power-gradient" x1="47.462" y1="27.737" x2="27.3" y2="-6.829" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#575656"/>
+                            <stop offset="1" stopColor="#7A7A7A"/>
+                          </linearGradient>
+                          <linearGradient id="power-stroke" x1="-4.049" y1="9.737" x2="11.301" y2="45.184" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#A3A3A3"/>
+                            <stop offset="0.296" stopColor="#2B2B2B"/>
+                            <stop offset="0.791" stopColor="#0A0A0A"/>
+                            <stop offset="1" stopColor="#333333"/>
+                          </linearGradient>
+                        </defs>
+                        <g filter="url(#play-filter)">
+                          <ellipse cx="20.472" cy="20.01" rx="20" ry="20.01" fill="url(#power-gradient)"/>
+                          <path d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z" stroke="url(#power-stroke)"/>
+                          <path d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z" stroke="#696969"/>
+                        </g>
                       </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                          <path d="M12.7121 4.42659C13.5511 5.26578 14.1223 6.33488 14.3537 7.49871C14.585 8.66255 14.4661 9.86885 14.0119 10.9651C13.5577 12.0613 12.7887 12.9983 11.802 13.6575C10.8154 14.3167 9.65542 14.6685 8.46881 14.6685C7.28221 14.6685 6.12225 14.3167 5.13559 13.6575C4.14894 12.9983 3.37991 12.0613 2.92572 10.9651C2.47154 9.86884 2.3526 8.66254 2.58396 7.49871C2.81531 6.33488 3.38656 5.26578 4.22548 4.42659M8.47215 1.33325L8.47215 7.99992" stroke="#900B09" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
                     </button>
                     <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       Power
@@ -457,68 +574,136 @@ const TV = () => {
                   </div>
 
                   <div className="group relative">
-                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
-                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
-                      border: '1px solid #A3A3A3',
-                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
-                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
-                    }}>
-                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                        <path d="M5.8055 2L3.8055 2C3.45188 2 3.11274 2.14048 2.86269 2.39052C2.61264 2.64057 2.47217 2.97971 2.47217 3.33333L2.47217 5.33333M14.4722 5.33334L14.4722 3.33334C14.4722 2.97971 14.3317 2.64057 14.0816 2.39053C13.8316 2.14048 13.4925 2 13.1388 2L11.1388 2M11.1388 14L13.1388 14C13.4925 14 13.8316 13.8595 14.0816 13.6095C14.3317 13.3594 14.4722 13.0203 14.4722 12.6667L14.4722 10.6667M2.47217 10.6667L2.47217 12.6667C2.47217 13.0203 2.61264 13.3594 2.86269 13.6095C3.11274 13.8595 3.45188 14 3.8055 14L5.8055 14" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                    <button onClick={handleMaximize} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out">
+                      <svg width="40" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g filter="url(#play-filter)">
+                          <ellipse cx="20.472" cy="20.01" rx="20" ry="20.01" fill="url(#play-gradient)"/>
+                          <path d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z" stroke="url(#play-stroke)"/>
+                          <path d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z" stroke="black"/>
+                        </g>
                       </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                          <path d="M5.8055 2L3.8055 2C3.45188 2 3.11274 2.14048 2.86269 2.39052C2.61264 2.64057 2.47217 2.97971 2.47217 3.33333L2.47217 5.33333M14.4722 5.33334L14.4722 3.33334C14.4722 2.97971 14.3317 2.64057 14.0816 2.39053C13.8316 2.14048 13.4925 2 13.1388 2L11.1388 2M11.1388 14L13.1388 14C13.4925 14 13.8316 13.8595 14.0816 13.6095C14.3317 13.3594 14.4722 13.0203 14.4722 12.6667L14.4722 10.6667M2.47217 10.6667L2.47217 12.6667C2.47217 13.0203 2.61264 13.3594 2.86269 13.6095C3.11274 13.8595 3.45188 14 3.8055 14L5.8055 14" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
                     </button>
                     <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                      Maximize
+                      {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
                     </div>
                   </div>
                 </div>
 
-                {/* Volume Control */}
+                {/* Enhanced Volume Control */}
                 <div className="relative w-[34.865px] h-[86px]">
                   <div className="w-[35px] h-[86px] rounded-full border-[0.931px] border-[#6B6B6B] absolute left-0 top-0" style={{
                     background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%), #2E2E2E',
                     boxShadow: '0 0 1.162px 1.162px rgba(0, 0, 0, 0.50) inset, 0 0 0.291px 0.291px rgba(0, 0, 0, 0.46)'
                   }}></div>
-                  <svg width="16" height="16" className="absolute left-[9px] top-[12px]" viewBox="0 0 17 16" fill="none">
-                    <path d="M8.47215 3.33325L8.47215 12.6666M3.80548 7.99992L13.1388 7.99992" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <svg width="16" height="16" className="absolute left-[9px] top-[58px]" viewBox="0 0 17 16" fill="none">
-                    <path d="M3.80548 8L13.1388 8" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
 
-                {/* Center Display - Much Bigger */}
-                <div className="relative w-[200px] h-[200px]">
-                  {/* Main Display Circle */}
-                  <div className="w-[160px] h-[160px] rounded-full bg-[rgba(30,30,30,0.50)] absolute left-[20px] top-[20px]" style={{ backgroundBlendMode: 'overlay' }}>
-                    <img
-                      src={videos[framePositions.center].thumbnail}
-                      alt="Now playing"
-                      className="w-[160px] h-[160px] rounded-full absolute left-0 top-0 object-cover"
-                      style={{ backgroundBlendMode: 'normal, overlay' }}
-                    />
-                    <div className="w-[160px] h-[160px] opacity-70 bg-[rgba(0,0,0,0.5)] absolute left-0 top-0 rounded-full"></div>
-                    <div className="w-[160px] h-[50px] text-white text-center font-medium text-[16px] leading-[20px] tracking-[0.5px] absolute left-0 top-[55px]" style={{ fontFamily: 'Roboto' }}>
-                      <span className="font-normal text-[16px]">{currentVideo.title}</span>
+                  <div className="group relative">
+                    <button onClick={handleVolumeUp} className="absolute left-[9px] top-[12px] flex items-center justify-center transition-colors hover:opacity-80">
+                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                        <path d="M8.47215 3.33325L8.47215 12.6666M3.80548 7.99992L13.1388 7.99992" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <div className="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Volume Up ({volume}%)
                     </div>
                   </div>
 
-                  {/* Navigation Dots */}
-                  <button
-                    onClick={handlePrevVideo}
-                    className="absolute left-[2px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
-                    style={{
-                      filter: 'drop-shadow(0 0 2px rgba(0, 0, 0, 0.3))'
-                    }}
-                  ></button>
+                  <div className="group relative">
+                    <button onClick={handleVolumeDown} className="absolute left-[9px] top-[58px] flex items-center justify-center transition-colors hover:opacity-80">
+                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                        <path d="M3.80548 8L13.1388 8" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <div className="absolute left-12 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Volume Down ({volume}%)
+                    </div>
+                  </div>
+                </div>
 
-                  <button
-                    onClick={handleNextVideo}
-                    className="absolute right-[2px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
-                    style={{
-                      filter: 'drop-shadow(0 0 2px rgba(0, 0, 0, 0.3))'
-                    }}
-                  ></button>
+                {/* Enhanced Center Display */}
+                <div className="relative w-[200px] h-[200px]">
+                  {/* Outer Ring with Exact Figma Styling */}
+                  <svg width="200" height="200" viewBox="0 0 135 135" fill="none" className="absolute inset-0">
+                    <defs>
+                      <linearGradient id="center-gradient" x1="158.112" y1="93.004" x2="90.524" y2="-22.928" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#242424"/>
+                        <stop offset="1" stopColor="#383838"/>
+                      </linearGradient>
+                      <linearGradient id="center-stroke" x1="-14.695" y1="32.648" x2="36.756" y2="151.524" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#A3A3A3"/>
+                        <stop offset="0.296" stopColor="#2B2B2B"/>
+                        <stop offset="0.791" stopColor="#0A0A0A"/>
+                        <stop offset="1" stopColor="#333333"/>
+                      </linearGradient>
+                      <filter id="center-inner-shadow" x="6.739" y="64.879" width="4.577" height="4.824" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                        <feOffset dx="-0.877" dy="-0.439"/>
+                        <feGaussianBlur stdDeviation="0.219"/>
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0.65 0 0 0 0 0.65 0 0 0 0 0.65 0 0 0 0.5 0"/>
+                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                        <feOffset dx="0.439" dy="0.877"/>
+                        <feGaussianBlur stdDeviation="0.219"/>
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
+                      </filter>
+                    </defs>
+
+                    {/* Outer Ring */}
+                    <path d="M134.663 67.095C134.663 104.151 104.623 134.191 67.568 134.191C30.512 134.191 0.472 104.151 0.472 67.095C0.472 30.04 30.512 0 67.568 0C104.623 0 134.663 30.04 134.663 67.095ZM17.231 67.095C17.231 94.895 39.768 117.432 67.568 117.432C95.368 117.432 117.904 94.895 117.904 67.095C117.904 39.295 95.368 16.759 67.568 16.759C39.768 16.759 17.231 39.295 17.231 67.095Z" fill="url(#center-gradient)" stroke="url(#center-stroke)" strokeWidth="2"/>
+                    <path d="M134.663 67.095C134.663 104.151 104.623 134.191 67.568 134.191C30.512 134.191 0.472 104.151 0.472 67.095C0.472 30.04 30.512 0 67.568 0C104.623 0 134.663 30.04 134.663 67.095ZM17.231 67.095C17.231 94.895 39.768 117.432 67.568 117.432C95.368 117.432 117.904 94.895 117.904 67.095C117.904 39.295 95.368 16.759 67.568 16.759C39.768 16.759 17.231 39.295 17.231 67.095Z" stroke="black" strokeWidth="2"/>
+                  </svg>
+
+                  {/* Inner Content Circle */}
+                  <div className="w-[120px] h-[120px] rounded-full bg-[rgba(30,30,30,0.50)] absolute left-[40px] top-[40px]" style={{ backgroundBlendMode: 'overlay' }}>
+                    <img
+                      src={videos[framePositions.center].thumbnail}
+                      alt="Now playing"
+                      className="w-[120px] h-[120px] rounded-full absolute left-0 top-0 object-cover"
+                      style={{ backgroundBlendMode: 'normal, overlay' }}
+                    />
+                    <div className="w-[120px] h-[120px] opacity-70 bg-[rgba(0,0,0,0.5)] absolute left-0 top-0 rounded-full"></div>
+                    <div className="w-[120px] h-[40px] text-white text-center font-medium text-[14px] leading-[18px] tracking-[0.5px] absolute left-0 top-[40px]" style={{ fontFamily: 'Roboto' }}>
+                      <span className="font-normal text-[14px]">{currentVideo.title}</span>
+                    </div>
+                  </div>
+
+                  {/* Enhanced Navigation Dots with Tooltips */}
+                  <div className="group relative">
+                    <button
+                      onClick={handlePrevVideo}
+                      className="absolute left-[15px] top-1/2 -translate-y-1/2 w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                      style={{
+                        filter: 'drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))',
+                        boxShadow: 'inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)'
+                      }}
+                    />
+                    <div className="absolute left-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Previous Video
+                    </div>
+                  </div>
+
+                  <div className="group relative">
+                    <button
+                      onClick={handleNextVideo}
+                      className="absolute right-[15px] top-1/2 -translate-y-1/2 w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                      style={{
+                        filter: 'drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))',
+                        boxShadow: 'inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)'
+                      }}
+                    />
+                    <div className="absolute right-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Next Video
+                    </div>
+                  </div>
                 </div>
 
                 {/* Right Control Section */}
