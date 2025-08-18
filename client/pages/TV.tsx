@@ -1,13 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import {
   Play,
-  SkipBack,
-  Pause,
-  SkipForward,
-  Repeat,
-  VolumeX,
   Volume2,
-  Maximize2,
   ChevronLeft,
   ChevronRight,
   Heart,
@@ -394,282 +388,203 @@ const TV = () => {
               </div>
             </div>
 
-            {/* Controls Section - Centered */}
+            {/* Controls Section - New Remote Design */}
             <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full">
-              {/* Invisible balancing div on the left - same size as remix button */}
-              <div className="w-[86px] h-[46px] flex-shrink-0"></div>
-              
-              {/* Main Controller - Horizontal Flexbox Layout */}
-              <div className="flex items-center gap-3 bg-nav-bg border border-brand-primary rounded-2xl p-5 backdrop-blur-sm">
-                {/* TV Icon - Far left */}
-                <div className="group relative">
-                  <button className="flex items-center justify-center w-[86px] h-[86px] bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                    <svg
-                      className="w-[34.4px] h-[34.4px]"
-                      viewBox="0 0 36 36"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M25.167 3.66699L18.0003 10.8337L10.8337 3.66699M6.53366 10.8337H29.467C31.0502 10.8337 32.3337 12.1171 32.3337 13.7003V29.467C32.3337 31.0502 31.0502 32.3337 29.467 32.3337H6.53366C4.95044 32.3337 3.66699 31.0502 3.66699 29.467V13.7003C3.66699 12.1171 4.95044 10.8337 6.53366 10.8337Z"
-                        stroke="#F5F5F5"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                  <div className="absolute bottom-20 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                    TV off
-                  </div>
-                </div>
+              {/* New Remote Control */}
+              <div className="flex items-center gap-3 px-12 py-0 rounded-full border border-black bg-[linear-gradient(180deg,#363636_7.69%,#171717_95.5%),radial-gradient(154.49%_116.65%_at_80.37%_-2.35%,#000_0%,#656565_100%),#000] backdrop-blur-sm h-[110px]">
 
-                {/* Media Controls Column */}
-                <div className="flex flex-col gap-1.5">
-                  {/* Top Row: Skip back, Pause/Play, Skip forward */}
-                  <div className="flex gap-3">
-                    <div className="group relative">
-                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                        <SkipBack
-                          size={16}
-                          className="text-text-primary"
-                          strokeWidth={1.6}
-                        />
-                      </button>
-                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        Skip back
-                      </div>
-                    </div>
-
-                    <div className="group relative">
-                      <button
-                        className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
-                        onClick={handlePlayPause}
-                      >
-                        {isPlaying ? (
-                          <Pause
-                            size={16}
-                            className="text-text-primary"
-                            strokeWidth={1.6}
-                          />
-                        ) : (
-                          <Play
-                            size={16}
-                            className="text-text-primary ml-0.5"
-                            strokeWidth={1.6}
-                            fill="currentColor"
-                          />
-                        )}
-                      </button>
-                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        {isPlaying ? 'Pause' : 'Play'}
-                      </div>
-                    </div>
-
-                    <div className="group relative">
-                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                        <SkipForward
-                          size={16}
-                          className="text-text-primary"
-                          strokeWidth={1.6}
-                        />
-                      </button>
-                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        Skip forward
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Row: Repeat, Mute, Maximize */}
-                  <div className="flex gap-3">
-                    <div className="group relative">
-                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                        <Repeat
-                          size={16}
-                          className="text-text-primary"
-                          strokeWidth={1.2}
-                        />
-                      </button>
-                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        Repeat
-                      </div>
-                    </div>
-
-                    <div className="group relative">
-                      <button
-                        onClick={handleMuteClick}
-                        className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
-                      >
-                        {isMuted ? (
-                          <VolumeX
-                            size={16}
-                            className="text-text-primary"
-                            strokeWidth={1.2}
-                          />
-                        ) : (
-                          <Volume2
-                            size={16}
-                            className="text-text-primary"
-                            strokeWidth={1.2}
-                          />
-                        )}
-                      </button>
-                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        {isMuted ? 'Unmute' : 'Mute'}
-                      </div>
-                    </div>
-
-                    <div className="group relative">
-                      <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                        <Maximize2
-                          size={16}
-                          className="text-text-primary"
-                          strokeWidth={1.6}
-                        />
-                      </button>
-                      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        Maximize
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Previous/Next Video Section */}
-                <div className="flex flex-col justify-center items-center bg-brand-primary rounded-lg p-2.5 gap-2.5 w-[112px] h-[86px]">
-                  <div className="flex items-center gap-2.5">
-                    <div className="group relative">
-                      <button onClick={handlePrevVideo}>
-                        <ChevronLeft
-                          size={16}
-                          className="text-text-primary"
-                          strokeWidth={1.6}
-                        />
-                      </button>
-                      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        Previous video
-                      </div>
-                    </div>
-                    <div className="w-10 h-10 rounded-lg overflow-hidden relative">
-                      <img
-                        src={videos[framePositions.center].thumbnail}
-                        alt="Now playing"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-                    </div>
-                    <div className="group relative">
-                      <button onClick={handleNextVideo}>
-                        <ChevronRight
-                          size={16}
-                          className="text-text-primary"
-                          strokeWidth={1.6}
-                        />
-                      </button>
-                      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                        Next video
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-brand-text text-center text-xs font-medium leading-4 tracking-wide">
-                    {currentVideo.title}
-                  </div>
-                </div>
-
-                {/* Like and Comment Buttons - Vertical Stack */}
-                <div className="flex flex-col gap-1.5">
-                  <button
-                    onClick={handleLikeClick}
-                    className={`flex items-center justify-center gap-2 w-[68px] h-10 border rounded-lg px-3 py-3 text-base font-normal transition-all ${
-                      isLiked
-                        ? 'bg-red-500 border-red-500 text-white'
-                        : 'bg-brand-primary border-brand-primary text-brand-text hover:bg-opacity-90'
-                    }`}
-                  >
-                    <Heart
-                      size={16}
-                      className={isLiked ? "text-white" : "text-text-primary"}
-                      strokeWidth={1.6}
-                      fill={isLiked ? "currentColor" : "none"}
-                    />
-                    {videoLikes[currentVideoIndex]}
-                  </button>
-
-                  <button
-                    onClick={handleCommentsClick}
-                    className="flex items-center justify-center gap-2 w-[68px] h-10 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors"
-                  >
-                    <MessageCircle
-                      size={16}
-                      className="text-text-primary"
-                      strokeWidth={1.6}
-                    />
-                    1
-                  </button>
-                </div>
-
-                {/* Share and Details - Vertical Stack */}
-                <div className="flex flex-col gap-1.5">
+                {/* Left Control Section */}
+                <div className="flex items-center gap-3">
+                  {/* Maximize Button */}
                   <div className="group relative">
-                    <button className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors">
-                      <Share2
-                        size={16}
-                        className="text-text-primary"
-                        strokeWidth={1.6}
-                      />
+                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                      border: '1px solid #A3A3A3',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset, 0 0 0.303px 0.303px rgba(0, 0, 0, 0.46)',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M5.33333 2.00012L3.33333 2.00012C2.97971 2.00012 2.64057 2.1406 2.39052 2.39065C2.14048 2.64069 2 2.97983 2 3.33346L2 5.33346M14 5.33346L14 3.33346C14 2.97984 13.8595 2.6407 13.6095 2.39065C13.3594 2.1406 13.0203 2.00012 12.6667 2.00012L10.6667 2.00012M10.6667 14.0001L12.6667 14.0001C13.0203 14.0001 13.3594 13.8596 13.6095 13.6096C13.8595 13.3596 14 13.0204 14 12.6668L14 10.6668M2 10.6668L2 12.6668C2 13.0204 2.14047 13.3595 2.39052 13.6096C2.64057 13.8596 2.97971 14.0001 3.33333 14.0001L5.33333 14.0001" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                     </button>
                     <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                      Share
+                      Maximize
                     </div>
                   </div>
 
+                  {/* Power Button */}
                   <div className="group relative">
-                    <button
-                      className="flex items-center justify-center w-10 h-10 p-3 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
-                      onClick={handleDetailsClick}
-                    >
-                      <FileText
-                        size={16}
-                        className="text-text-primary"
-                        strokeWidth={1.6}
-                      />
+                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #575656 12.95%, #7A7A7A 86.08%)',
+                      border: '1px solid #696969',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset, 0 0 0.303px 0.303px rgba(0, 0, 0, 0.46)',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M12.2399 4.4268C13.0788 5.26599 13.6501 6.3351 13.8814 7.49893C14.1128 8.66276 13.9939 9.86906 13.5397 10.9653C13.0855 12.0615 12.3165 12.9985 11.3298 13.6577C10.3431 14.3169 9.18319 14.6687 7.99658 14.6687C6.80998 14.6687 5.65002 14.3169 4.66336 13.6577C3.67671 12.9985 2.90768 12.0615 2.45349 10.9653C1.99931 9.86906 1.88038 8.66276 2.11173 7.49893C2.34308 6.33509 2.91433 5.26599 3.75325 4.4268M7.99992 1.33347L7.99992 8.00013" stroke="#900B09" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Power
+                    </div>
+                  </div>
+
+                  {/* Mute Button */}
+                  <div className="group relative">
+                    <button onClick={handleMuteClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                      border: '1px solid #A3A3A3',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset, 0 0 0.303px 0.303px rgba(0, 0, 0, 0.46)',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      {isMuted ? (
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M12.7 3.75712C13.5393 4.59641 14.1107 5.66577 14.3421 6.82991C14.5735 7.99405 14.4545 9.20066 14 10.2971C13.812 10.7501 13.769 10.8871 13.478 11.2811M11.272 8.83412C11.272 8.83412 11.5 8.39412 11.5 8.00012C11.4998 7.20454 11.1836 6.4416 10.621 5.87912M5.246 5.30912C5.08 5.45012 5 5.50012 5 5.50012H2.5V10.5001H5L8.5 13.5001V8.83412M6.43 4.26512L8.5 2.50012V6.07512M2 2.00012L14 14.0001" stroke="#F5F5F5"/>
+                        </svg>
+                      ) : (
+                        <Volume2 size={16} className="text-white" strokeWidth={1.2} />
+                      )}
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      {isMuted ? 'Unmute' : 'Mute'}
+                    </div>
+                  </div>
+
+                  {/* Play/Pause Button */}
+                  <div className="group relative">
+                    <button onClick={handlePlayPause} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                      border: '1px solid #A3A3A3',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset, 0 0 0.303px 0.303px rgba(0, 0, 0, 0.46)',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      {isPlaying ? (
+                        <div className="flex gap-0.5">
+                          <div className="w-px h-2 bg-white rounded-sm"></div>
+                          <div className="w-px h-2 bg-white rounded-sm"></div>
+                        </div>
+                      ) : (
+                        <Play size={16} className="text-white ml-0.5" fill="white" />
+                      )}
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      {isPlaying ? 'Pause' : 'Play'}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Volume Control */}
+                <div className="h-[86px] flex flex-col items-center justify-between py-3 px-2.5 rounded-full" style={{
+                  background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                  border: '0.931px solid #6B6B6B',
+                  boxShadow: '0 0 1.162px 1.162px rgba(0, 0, 0, 0.50) inset, 0 0 0.291px 0.291px rgba(0, 0, 0, 0.46)'
+                }}>
+                  <button className="flex items-center justify-center">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M7.99992 3.33347L7.99992 12.6668M3.33325 8.00013L12.6666 8.00013" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                  <button className="flex items-center justify-center">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M3.33325 8.00012L12.6666 8.00012" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Center Display */}
+                <div className="relative w-[134px] h-[134px] rounded-full bg-gray-800 overflow-hidden">
+                  <img
+                    src={videos[framePositions.center].thumbnail}
+                    alt="Now playing"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-white text-center">
+                      <div className="text-sm font-medium leading-tight">
+                        {currentVideo.title}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Control Section */}
+                <div className="flex flex-col gap-1.5">
+                  {/* Comments Button */}
+                  <button onClick={handleCommentsClick} className="flex items-center gap-2 h-10 px-3 rounded-full transition-all duration-300 ease-in-out" style={{
+                    background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                    border: '1px solid #A3A3A3'
+                  }}>
+                    <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                      <path d="M14.0557 7.66678C14.058 8.54669 13.8524 9.4147 13.4557 10.2001C12.9853 11.1413 12.2622 11.9329 11.3673 12.4863C10.4724 13.0397 9.44116 13.333 8.389 13.3334C7.50908 13.3357 6.64107 13.1302 5.85566 12.7334L2.05566 14.0001L3.32233 10.2001C2.92562 9.4147 2.72004 8.54669 2.72233 7.66678C2.72274 6.61462 3.01607 5.58334 3.56948 4.68848C4.12288 3.79361 4.9145 3.07049 5.85566 2.60011C6.64107 2.2034 7.50909 1.99782 8.389 2.00011L8.72233 2.00011C10.1119 2.07677 11.4244 2.66329 12.4084 3.64735C13.3925 4.63142 13.979 5.94388 14.0557 7.33345L14.0557 7.66678Z" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span className="text-white text-xs font-medium">1</span>
+                  </button>
+
+                  {/* Like Button */}
+                  <button onClick={handleLikeClick} className={`flex items-center gap-2 h-10 px-3 rounded-full transition-all duration-300 ease-in-out ${
+                    isLiked ? 'bg-red-500 border border-red-500' : ''
+                  }`} style={!isLiked ? {
+                    background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                    border: '1px solid #A3A3A3'
+                  } : {}}>
+                    <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                      <path d="M13.949 3.07345C13.6085 2.73279 13.2042 2.46255 12.7592 2.27818C12.3143 2.0938 11.8373 1.9989 11.3557 1.9989C10.874 1.9989 10.3971 2.0938 9.95209 2.27818C9.50712 2.46255 9.10283 2.73279 8.76233 3.07345L8.05566 3.78012L7.349 3.07345C6.6612 2.38566 5.72835 1.99926 4.75566 1.99926C3.78297 1.99926 2.85012 2.38566 2.16233 3.07345C1.47453 3.76125 1.08813 4.6941 1.08813 5.66678C1.08813 6.63947 1.47453 7.57232 2.16233 8.26012L8.05566 14.1535L13.949 8.26012C14.2897 7.91962 14.5599 7.51533 14.7443 7.07036C14.9286 6.62538 15.0235 6.14845 15.0235 5.66679C15.0235 5.18513 14.9286 4.70819 14.7443 4.26322C14.5599 3.81824 14.2897 3.41396 13.949 3.07345Z" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round" fill={isLiked ? "#F3F3F3" : "none"}/>
+                    </svg>
+                    <span className="text-white text-xs font-medium">{videoLikes[currentVideoIndex]}</span>
+                  </button>
+                </div>
+
+                {/* Far Right Control Section */}
+                <div className="flex flex-col gap-1.5">
+                  {/* Magic Wand Button */}
+                  <div className="group relative">
+                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                      border: '1px solid #A3A3A3',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset, 0 0 0.303px 0.303px rgba(0, 0, 0, 0.46)',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                        <path d="M9.33953 8.51844L7.90733 7.08624C7.71213 6.89104 7.61453 6.79344 7.5092 6.74124C7.30886 6.64196 7.07366 6.64196 6.87326 6.74124C6.768 6.79344 6.67038 6.89104 6.47515 7.08624C6.27992 7.28151 6.1823 7.37911 6.13012 7.48438C6.03084 7.68478 6.03084 7.91998 6.13012 8.12031C6.1823 8.22564 6.27992 8.32324 6.47515 8.51844L7.90733 9.95064M9.33953 8.51844L13.6362 12.8151C13.8314 13.0103 13.929 13.1079 13.9812 13.2132C14.0805 13.4136 14.0805 13.6488 13.9812 13.8492C13.929 13.9544 13.8314 14.052 13.6362 14.2473C13.4409 14.4425 13.3433 14.5401 13.2381 14.5923C13.0377 14.6916 12.8025 14.6916 12.6021 14.5923C12.4968 14.5401 12.3992 14.4425 12.204 14.2473L7.90733 9.95064M9.33953 8.51844L7.90733 9.95064" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M11.3891 1.33347L11.5856 1.86453C11.8433 2.56091 11.9721 2.9091 12.2261 3.1631C12.4801 3.4171 12.8283 3.54594 13.5247 3.80362L14.0557 4.00013L13.5247 4.19665C12.8283 4.45433 12.4801 4.58317 12.2261 4.83717C11.9721 5.09117 11.8433 5.43935 11.5856 6.13573L11.3891 6.6668L11.1925 6.13573C10.9349 5.43936 10.806 5.09117 10.552 4.83717C10.298 4.58317 9.94988 4.45433 9.25348 4.19665L8.72241 4.00013L9.25348 3.80362C9.94988 3.54594 10.298 3.4171 10.552 3.1631C10.806 2.9091 10.9349 2.56091 11.1925 1.86453L11.3891 1.33347Z" stroke="#F3F3F3" strokeLinejoin="round"/>
+                        <path d="M4.05566 2.66678L4.20305 3.06508C4.39631 3.58736 4.49294 3.84851 4.68344 4.03901C4.87394 4.2295 5.13508 4.32613 5.65736 4.51939L6.05566 4.66678L5.65736 4.81417C5.13508 5.00743 4.87394 5.10406 4.68344 5.29456C4.49294 5.48505 4.39631 5.7462 4.20305 6.26848L4.05566 6.66678L3.90828 6.26848C3.71502 5.7462 3.61838 5.48505 3.42788 5.29456C3.23739 5.10406 2.97624 5.00743 2.45396 4.81417L2.05566 4.66678L2.45396 4.51939C2.97624 4.32613 3.23739 4.2295 3.42788 4.039C3.61838 3.84851 3.71502 3.58736 3.90828 3.06508L4.05566 2.66678Z" stroke="#F3F3F3" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Remix
+                    </div>
+                  </div>
+
+                  {/* Info Button */}
+                  <div className="group relative">
+                    <button onClick={handleDetailsClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                      border: '1px solid #A3A3A3',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset, 0 0 0.303px 0.303px rgba(0, 0, 0, 0.46)',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                        <path d="M8.05558 10.6668L8.05558 8.00013M8.05558 5.33347L8.06225 5.33347M14.7222 8.00013C14.7222 11.682 11.7375 14.6668 8.05558 14.6668C4.37368 14.6668 1.38891 11.682 1.38891 8.00013C1.38892 4.31823 4.37368 1.33347 8.05558 1.33347C11.7375 1.33347 14.7222 4.31824 14.7222 8.00013Z" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                     </button>
                     <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       Details
                     </div>
                   </div>
                 </div>
+
               </div>
 
-              {/* Remix Button */}
-              <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
-                <svg
-                  className="w-4 h-4"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.28387 8.51817L7.85167 7.08597C7.65647 6.89077 7.55887 6.79317 7.45353 6.74097C7.2532 6.64168 7.018 6.64168 6.8176 6.74097C6.71233 6.79317 6.61471 6.89077 6.41949 7.08597C6.22425 7.28124 6.12664 7.37884 6.07446 7.4841C5.97518 7.6845 5.97518 7.9197 6.07446 8.12004C6.12664 8.22537 6.22425 8.32297 6.41949 8.51817L7.85167 9.95037M9.28387 8.51817L13.5805 12.8148C13.7757 13.01 13.8733 13.1076 13.9255 13.213C14.0248 13.4133 14.0248 13.6485 13.9255 13.8489C13.8733 13.9542 13.7757 14.0518 13.5805 14.247C13.3853 14.4422 13.2877 14.5398 13.1824 14.592C12.982 14.6913 12.7468 14.6913 12.5465 14.592C12.4411 14.5398 12.3435 14.4422 12.1483 14.247L7.85167 9.95037M9.28387 8.51817L7.85167 9.95037"
-                    stroke="currentColor"
-                    strokeWidth="1.3125"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M11.3332 1.3335L11.5297 1.86456C11.7874 2.56094 11.9162 2.90913 12.1702 3.16313C12.4242 3.41713 12.7724 3.54597 13.4688 3.80365L13.9998 4.00016L13.4688 4.19668C12.7724 4.45436 12.4242 4.5832 12.1702 4.8372C11.9162 5.0912 11.7874 5.43938 11.5297 6.13576L11.3332 6.66683L11.1366 6.13576C10.879 5.43939 10.7501 5.0912 10.4961 4.8372C10.2421 4.5832 9.89397 4.45436 9.19757 4.19668L8.6665 4.00016L9.19757 3.80365C9.89397 3.54597 10.2421 3.41713 10.4961 3.16313C10.7501 2.90913 10.879 2.56094 11.1366 1.86456L11.3332 1.3335Z"
-                    stroke="currentColor"
-                    strokeWidth="1.3125"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M4 2.6665L4.14739 3.0648C4.34065 3.58708 4.43728 3.84823 4.62778 4.03873C4.81827 4.22922 5.07942 4.32586 5.6017 4.51912L6 4.6665L5.6017 4.81389C5.07942 5.00715 4.81827 5.10378 4.62777 5.29428C4.43728 5.48478 4.34065 5.74592 4.14739 6.2682L4 6.6665L3.85261 6.2682C3.65935 5.74592 3.56272 5.48478 3.37222 5.29428C3.18173 5.10378 2.92058 5.00715 2.3983 4.81389L2 4.6665L2.3983 4.51912C2.92058 4.32586 3.18173 4.22922 3.37222 4.03872C3.56272 3.84823 3.65935 3.58708 3.85261 3.0648L4 2.6665Z"
-                    stroke="currentColor"
-                    strokeWidth="1.3125"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Remix
-              </button>
+              {/* Navigation Arrows (hidden but functionality preserved) */}
+              <div className="hidden">
+                <button onClick={handlePrevVideo} className="p-2">
+                  <ChevronLeft size={16} />
+                </button>
+                <button onClick={handleNextVideo} className="p-2">
+                  <ChevronRight size={16} />
+                </button>
+              </div>
             </div>
           </div>
         </div>
