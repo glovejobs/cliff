@@ -396,61 +396,8 @@ const TV = () => {
               }}>
 
                 {/* Left Control Section - 2x2 Grid */}
-                <div className="flex flex-wrap items-center gap-3 w-[92px]" style={{ alignContent: 'center', gap: '6px 12px' }}>
-                  {/* Top Row */}
-                  <div className="group relative">
-                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
-                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
-                      border: '1px solid #A3A3A3',
-                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
-                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
-                    }}>
-                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                        <path d="M5.8055 2L3.8055 2C3.45188 2 3.11274 2.14048 2.86269 2.39052C2.61264 2.64057 2.47217 2.97971 2.47217 3.33333L2.47217 5.33333M14.4722 5.33334L14.4722 3.33334C14.4722 2.97971 14.3317 2.64057 14.0816 2.39053C13.8316 2.14048 13.4925 2 13.1388 2L11.1388 2M11.1388 14L13.1388 14C13.4925 14 13.8316 13.8595 14.0816 13.6095C14.3317 13.3594 14.4722 13.0203 14.4722 12.6667L14.4722 10.6667M2.47217 10.6667L2.47217 12.6667C2.47217 13.0203 2.61264 13.3594 2.86269 13.6095C3.11274 13.8595 3.45188 14 3.8055 14L5.8055 14" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </button>
-                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                      Maximize
-                    </div>
-                  </div>
-
-                  <div className="group relative">
-                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
-                      background: 'linear-gradient(330deg, #575656 12.95%, #7A7A7A 86.08%)',
-                      border: '1px solid #696969',
-                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
-                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
-                    }}>
-                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                        <path d="M12.7121 4.42659C13.5511 5.26578 14.1223 6.33488 14.3537 7.49871C14.585 8.66255 14.4661 9.86885 14.0119 10.9651C13.5577 12.0613 12.7887 12.9983 11.802 13.6575C10.8154 14.3167 9.65542 14.6685 8.46881 14.6685C7.28221 14.6685 6.12225 14.3167 5.13559 13.6575C4.14894 12.9983 3.37991 12.0613 2.92572 10.9651C2.47154 9.86884 2.3526 8.66254 2.58396 7.49871C2.81531 6.33488 3.38656 5.26578 4.22548 4.42659M8.47215 1.33325L8.47215 7.99992" stroke="#900B09" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </button>
-                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                      Power
-                    </div>
-                  </div>
-
-                  {/* Bottom Row */}
-                  <div className="group relative">
-                    <button onClick={handleMuteClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
-                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
-                      border: '1px solid #A3A3A3',
-                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
-                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
-                    }}>
-                      {isMuted ? (
-                        <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                          <path d="M13.1722 3.757C14.0114 4.59629 14.5829 5.66565 14.8143 6.82979C15.0457 7.99392 14.9266 9.20054 14.4722 10.297C14.2842 10.75 14.2412 10.887 13.9502 11.281M11.7442 8.834C11.7442 8.834 11.9722 8.394 11.9722 8C11.972 7.20442 11.6558 6.44148 11.0932 5.879M5.71817 5.309C5.55217 5.45 5.47217 5.5 5.47217 5.5H2.97217V10.5H5.47217L8.97217 13.5V8.834M6.90217 4.265L8.97217 2.5V6.075M2.47217 2L14.4722 14" stroke="#F5F5F5"/>
-                        </svg>
-                      ) : (
-                        <Volume2 size={16} className="text-white" strokeWidth={1.2} />
-                      )}
-                    </button>
-                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                      {isMuted ? 'Unmute' : 'Mute'}
-                    </div>
-                  </div>
-
+                <div className="flex flex-wrap items-center w-[92px]" style={{ alignContent: 'center', gap: '6px 12px' }}>
+                  {/* Top Row: Play/Pause - Mute */}
                   <div className="group relative">
                     <button onClick={handlePlayPause} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
                       background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
@@ -471,6 +418,59 @@ const TV = () => {
                       {isPlaying ? 'Pause' : 'Play'}
                     </div>
                   </div>
+
+                  <div className="group relative">
+                    <button onClick={handleMuteClick} className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                      border: '1px solid #A3A3A3',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      {isMuted ? (
+                        <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                          <path d="M13.1722 3.757C14.0114 4.59629 14.5829 5.66565 14.8143 6.82979C15.0457 7.99392 14.9266 9.20054 14.4722 10.297C14.2842 10.75 14.2412 10.887 13.9502 11.281M11.7442 8.834C11.7442 8.834 11.9722 8.394 11.9722 8C11.972 7.20442 11.6558 6.44148 11.0932 5.879M5.71817 5.309C5.55217 5.45 5.47217 5.5 5.47217 5.5H2.97217V10.5H5.47217L8.97217 13.5V8.834M6.90217 4.265L8.97217 2.5V6.075M2.47217 2L14.4722 14" stroke="#F5F5F5"/>
+                        </svg>
+                      ) : (
+                        <Volume2 size={16} className="text-white" strokeWidth={1.2} />
+                      )}
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      {isMuted ? 'Unmute' : 'Mute'}
+                    </div>
+                  </div>
+
+                  {/* Bottom Row: Power - Maximize */}
+                  <div className="group relative">
+                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #575656 12.95%, #7A7A7A 86.08%)',
+                      border: '1px solid #696969',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                        <path d="M12.7121 4.42659C13.5511 5.26578 14.1223 6.33488 14.3537 7.49871C14.585 8.66255 14.4661 9.86885 14.0119 10.9651C13.5577 12.0613 12.7887 12.9983 11.802 13.6575C10.8154 14.3167 9.65542 14.6685 8.46881 14.6685C7.28221 14.6685 6.12225 14.3167 5.13559 13.6575C4.14894 12.9983 3.37991 12.0613 2.92572 10.9651C2.47154 9.86884 2.3526 8.66254 2.58396 7.49871C2.81531 6.33488 3.38656 5.26578 4.22548 4.42659M8.47215 1.33325L8.47215 7.99992" stroke="#900B09" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Power
+                    </div>
+                  </div>
+
+                  <div className="group relative">
+                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out" style={{
+                      background: 'linear-gradient(330deg, #242424 12.95%, #383838 86.08%)',
+                      border: '1px solid #A3A3A3',
+                      boxShadow: '0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset',
+                      filter: 'drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))'
+                    }}>
+                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                        <path d="M5.8055 2L3.8055 2C3.45188 2 3.11274 2.14048 2.86269 2.39052C2.61264 2.64057 2.47217 2.97971 2.47217 3.33333L2.47217 5.33333M14.4722 5.33334L14.4722 3.33334C14.4722 2.97971 14.3317 2.64057 14.0816 2.39053C13.8316 2.14048 13.4925 2 13.1388 2L11.1388 2M11.1388 14L13.1388 14C13.4925 14 13.8316 13.8595 14.0816 13.6095C14.3317 13.3594 14.4722 13.0203 14.4722 12.6667L14.4722 10.6667M2.47217 10.6667L2.47217 12.6667C2.47217 13.0203 2.61264 13.3594 2.86269 13.6095C3.11274 13.8595 3.45188 14 3.8055 14L5.8055 14" stroke="#F3F3F3" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                      Maximize
+                    </div>
+                  </div>
                 </div>
 
                 {/* Volume Control */}
@@ -487,20 +487,38 @@ const TV = () => {
                   </svg>
                 </div>
 
-                {/* Center Display */}
-                <div className="relative w-[134.191px] h-[134.191px]">
-                  <div className="w-[92px] h-[92px] rounded-full bg-[rgba(30,30,30,0.50)] absolute left-[21px] top-[20px]" style={{ backgroundBlendMode: 'overlay' }}>
+                {/* Center Display - Much Bigger */}
+                <div className="relative w-[200px] h-[200px]">
+                  {/* Main Display Circle */}
+                  <div className="w-[160px] h-[160px] rounded-full bg-[rgba(30,30,30,0.50)] absolute left-[20px] top-[20px]" style={{ backgroundBlendMode: 'overlay' }}>
                     <img
                       src={videos[framePositions.center].thumbnail}
                       alt="Now playing"
-                      className="w-[92px] h-[92px] rounded-full absolute left-0 top-0 object-cover"
+                      className="w-[160px] h-[160px] rounded-full absolute left-0 top-0 object-cover"
                       style={{ backgroundBlendMode: 'normal, overlay' }}
                     />
-                    <div className="w-[93px] h-[93px] opacity-70 bg-[rgba(0,0,0,0.5)] absolute left-0 top-0"></div>
-                    <div className="w-[93px] h-[38px] text-white text-center font-medium text-[14.841px] leading-[18.552px] tracking-[0.5px] absolute left-0 top-[28px]" style={{ fontFamily: 'Roboto' }}>
-                      <span className="font-normal text-[15px]">{currentVideo.title}</span>
+                    <div className="w-[160px] h-[160px] opacity-70 bg-[rgba(0,0,0,0.5)] absolute left-0 top-0 rounded-full"></div>
+                    <div className="w-[160px] h-[50px] text-white text-center font-medium text-[16px] leading-[20px] tracking-[0.5px] absolute left-0 top-[55px]" style={{ fontFamily: 'Roboto' }}>
+                      <span className="font-normal text-[16px]">{currentVideo.title}</span>
                     </div>
                   </div>
+
+                  {/* Navigation Dots */}
+                  <button
+                    onClick={handlePrevVideo}
+                    className="absolute left-[2px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                    style={{
+                      filter: 'drop-shadow(0 0 2px rgba(0, 0, 0, 0.3))'
+                    }}
+                  ></button>
+
+                  <button
+                    onClick={handleNextVideo}
+                    className="absolute right-[2px] top-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                    style={{
+                      filter: 'drop-shadow(0 0 2px rgba(0, 0, 0, 0.3))'
+                    }}
+                  ></button>
                 </div>
 
                 {/* Right Control Section */}
