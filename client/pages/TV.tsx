@@ -1113,9 +1113,11 @@ const TV = () => {
                           {currentVideo.title.includes(" ") ? (
                             currentVideo.title.split(" ").map((word, index, arr) => (
                               index === Math.floor(arr.length / 2) ? (
-                                <><br key={index}/>{word}</>
+                                <React.Fragment key={index}><br/>{word}</React.Fragment>
                               ) : (
-                                index > 0 && index !== Math.floor(arr.length / 2) ? ` ${word}` : word
+                                <React.Fragment key={index}>
+                                  {index > 0 && index !== Math.floor(arr.length / 2) ? ` ${word}` : word}
+                                </React.Fragment>
                               )
                             ))
                           ) : (
