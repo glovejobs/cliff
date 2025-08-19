@@ -1162,7 +1162,7 @@ const TV = () => {
                 <div className="flex flex-col justify-center items-start gap-1.5">
                   <button
                     onClick={handleCommentsClick}
-                    className="flex items-center gap-2.5 h-10 px-3 rounded-full border border-black transition-all duration-300 ease-in-out"
+                    className="flex items-center gap-2.5 h-10 px-3 rounded-full border-[0.931px] border-black transition-all duration-300 ease-in-out min-w-[64px]"
                     style={{
                       background: "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
                     }}
@@ -1176,7 +1176,7 @@ const TV = () => {
                       />
                     </svg>
                     <div
-                      className="flex-1 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
+                      className="w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
                       style={{ fontFamily: "Roboto" }}
                     >
                       <span className="font-normal text-xs">1</span>
@@ -1185,7 +1185,7 @@ const TV = () => {
 
                   <button
                     onClick={handleLikeClick}
-                    className={`flex items-center gap-2.5 h-10 px-3 rounded-full border transition-all duration-300 ease-in-out ${
+                    className={`flex items-center gap-2.5 h-10 px-3 rounded-full border-[0.931px] transition-all duration-300 ease-in-out min-w-[64px] ${
                       isLiked ? "bg-red-500 border-red-500" : "border-black"
                     }`}
                     style={
@@ -1206,7 +1206,7 @@ const TV = () => {
                       />
                     </svg>
                     <div
-                      className="flex-1 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
+                      className="w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
                       style={{ fontFamily: "Roboto" }}
                     >
                       <span className="font-normal text-xs">
