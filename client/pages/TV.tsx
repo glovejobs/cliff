@@ -1186,7 +1186,7 @@ const TV = () => {
                   <button
                     onClick={handleLikeClick}
                     className={`flex items-center gap-2.5 h-10 px-3 rounded-full border transition-all duration-300 ease-in-out ${
-                      isLiked ? "bg-red-500 border-red-500" : "border-[#A3A3A3]"
+                      isLiked ? "bg-red-500 border-red-500" : "border-black"
                     }`}
                     style={
                       !isLiked
@@ -1206,7 +1206,7 @@ const TV = () => {
                       />
                     </svg>
                     <div
-                      className="w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
+                      className="flex-1 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
                       style={{ fontFamily: "Roboto" }}
                     >
                       <span className="font-normal text-xs">
