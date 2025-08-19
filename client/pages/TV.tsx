@@ -1130,15 +1130,13 @@ const TV = () => {
                   <div className="group relative">
                     <button
                       onClick={handlePrevVideo}
-                      className="absolute left-[13.5px] top-1/2 -translate-y-1/2 transition-colors"
-                    >
-                      <svg width="4" height="4" viewBox="0 0 4 4" fill="none">
-                        <g filter="url(#center-inner-shadow)">
-                          <ellipse cx="2" cy="2" rx="1.85" ry="1.97" fill="white"/>
-                        </g>
-                        <ellipse cx="2" cy="2" rx="1.63" ry="1.74" stroke="black" strokeWidth="0.44"/>
-                      </svg>
-                    </button>
+                      className="absolute left-[13.5px] top-1/2 -translate-y-1/2 w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                      style={{
+                        filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
+                        boxShadow:
+                          "inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)",
+                      }}
+                    />
                     <div className="absolute left-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       Previous Video
                     </div>
@@ -1147,15 +1145,13 @@ const TV = () => {
                   <div className="group relative">
                     <button
                       onClick={handleNextVideo}
-                      className="absolute right-[13.5px] top-1/2 -translate-y-1/2 transition-colors"
-                    >
-                      <svg width="4" height="4" viewBox="0 0 4 4" fill="none">
-                        <g filter="url(#center-inner-shadow)">
-                          <ellipse cx="2" cy="2" rx="1.85" ry="1.97" fill="white"/>
-                        </g>
-                        <ellipse cx="2" cy="2" rx="1.63" ry="1.74" stroke="black" strokeWidth="0.44"/>
-                      </svg>
-                    </button>
+                      className="absolute right-[13.5px] top-1/2 -translate-y-1/2 w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                      style={{
+                        filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
+                        boxShadow:
+                          "inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)",
+                      }}
+                    />
                     <div className="absolute right-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       Next Video
                     </div>
@@ -1166,46 +1162,21 @@ const TV = () => {
                 <div className="flex flex-col justify-center items-start gap-1.5">
                   <button
                     onClick={handleCommentsClick}
-                    className="flex items-center gap-2.5 h-10 px-3 rounded-full transition-all duration-300 ease-in-out"
+                    className="flex items-center gap-2.5 h-10 px-3 rounded-full border border-[#A3A3A3] transition-all duration-300 ease-in-out"
+                    style={{
+                      background: "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
+                    }}
                   >
-                    <svg
-                      width="40"
-                      height="40"
-                      viewBox="0 0 41 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="absolute inset-0"
-                    >
-                      <g filter="url(#play-filter)">
-                        <ellipse
-                          cx="20.472"
-                          cy="20.01"
-                          rx="20"
-                          ry="20.01"
-                          fill="url(#play-gradient)"
-                        />
-                        <path
-                          d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
-                          stroke="url(#play-stroke)"
-                        />
-                        <path
-                          d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
-                          stroke="black"
-                        />
-                      </g>
+                    <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                      <path
+                        d="M14.5278 7.66669C14.5301 8.5466 14.3245 9.41461 13.9278 10.2C13.4575 11.1412 12.7343 11.9328 11.8395 12.4862C10.9446 13.0396 9.91333 13.3329 8.86116 13.3334C7.98125 13.3356 7.11324 13.1301 6.32783 12.7334L2.52783 14L3.7945 10.2C3.39778 9.41461 3.1922 8.5466 3.1945 7.66669C3.19491 6.61452 3.48824 5.58325 4.04164 4.68839C4.59505 3.79352 5.38667 3.0704 6.32783 2.60002C7.11324 2.20331 7.98125 1.99773 8.86117 2.00002L9.1945 2.00002C10.5841 2.07668 11.8965 2.66319 12.8806 3.64726C13.8647 4.63133 14.4512 5.94379 14.5278 7.33335L14.5278 7.66669Z"
+                        stroke="#F3F3F3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                        <path
-                          d="M14.5278 7.66669C14.5301 8.5466 14.3245 9.41461 13.9278 10.2C13.4575 11.1412 12.7343 11.9328 11.8395 12.4862C10.9446 13.0396 9.91333 13.3329 8.86116 13.3334C7.98125 13.3356 7.11324 13.1301 6.32783 12.7334L2.52783 14L3.7945 10.2C3.39778 9.41461 3.1922 8.5466 3.1945 7.66669C3.19491 6.61452 3.48824 5.58325 4.04164 4.68839C4.59505 3.79352 5.38667 3.0704 6.32783 2.60002C7.11324 2.20331 7.98125 1.99773 8.86117 2.00002L9.1945 2.00002C10.5841 2.07668 11.8965 2.66319 12.8806 3.64726C13.8647 4.63133 14.4512 5.94379 14.5278 7.33335L14.5278 7.66669Z"
-                          stroke="#F3F3F3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
                     <div
-                      className="relative z-10 w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px] ml-6"
+                      className="w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
                       style={{ fontFamily: "Roboto" }}
                     >
                       <span className="font-normal text-xs">1</span>
@@ -1214,51 +1185,28 @@ const TV = () => {
 
                   <button
                     onClick={handleLikeClick}
-                    className={`flex items-center gap-2.5 h-10 px-3 rounded-full transition-all duration-300 ease-in-out ${
-                      isLiked ? "bg-red-500" : ""
+                    className={`flex items-center gap-2.5 h-10 px-3 rounded-full border transition-all duration-300 ease-in-out ${
+                      isLiked ? "bg-red-500 border-red-500" : "border-[#A3A3A3]"
                     }`}
+                    style={
+                      !isLiked
+                        ? {
+                            background: "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
+                          }
+                        : {}
+                    }
                   >
-                    {!isLiked && (
-                      <svg
-                        width="40"
-                        height="40"
-                        viewBox="0 0 41 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="absolute inset-0"
-                      >
-                        <g filter="url(#play-filter)">
-                          <ellipse
-                            cx="20.472"
-                            cy="20.01"
-                            rx="20"
-                            ry="20.01"
-                            fill="url(#play-gradient)"
-                          />
-                          <path
-                            d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
-                            stroke="url(#play-stroke)"
-                          />
-                          <path
-                            d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
-                            stroke="black"
-                          />
-                        </g>
-                      </svg>
-                    )}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                        <path
-                          d="M14.4212 3.07333C14.0807 2.73267 13.6764 2.46243 13.2314 2.27805C12.7864 2.09368 12.3095 1.99878 11.8278 1.99878C11.3462 1.99878 10.8692 2.09368 10.4243 2.27805C9.97929 2.46243 9.575 2.73267 9.2345 3.07333L8.52783 3.78L7.82116 3.07333C7.13337 2.38554 6.20052 1.99914 5.22783 1.99914C4.25514 1.99914 3.32229 2.38554 2.6345 3.07333C1.9467 3.76112 1.5603 4.69397 1.5603 5.66666C1.5603 6.63935 1.9467 7.5722 2.6345 8.26L8.52783 14.1533L14.4212 8.26C14.7618 7.91949 15.0321 7.51521 15.2164 7.07024C15.4008 6.62526 15.4957 6.14832 15.4957 5.66667C15.4957 5.18501 15.4008 4.70807 15.2164 4.2631C15.0321 3.81812 14.7618 3.41384 14.4212 3.07333Z"
-                          stroke="#F3F3F3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          fill={isLiked ? "#F3F3F3" : "none"}
-                        />
-                      </svg>
-                    </div>
+                    <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                      <path
+                        d="M14.4212 3.07333C14.0807 2.73267 13.6764 2.46243 13.2314 2.27805C12.7864 2.09368 12.3095 1.99878 11.8278 1.99878C11.3462 1.99878 10.8692 2.09368 10.4243 2.27805C9.97929 2.46243 9.575 2.73267 9.2345 3.07333L8.52783 3.78L7.82116 3.07333C7.13337 2.38554 6.20052 1.99914 5.22783 1.99914C4.25514 1.99914 3.32229 2.38554 2.6345 3.07333C1.9467 3.76112 1.5603 4.69397 1.5603 5.66666C1.5603 6.63935 1.9467 7.5722 2.6345 8.26L8.52783 14.1533L14.4212 8.26C14.7618 7.91949 15.0321 7.51521 15.2164 7.07024C15.4008 6.62526 15.4957 6.14832 15.4957 5.66667C15.4957 5.18501 15.4008 4.70807 15.2164 4.2631C15.0321 3.81812 14.7618 3.41384 14.4212 3.07333Z"
+                        stroke="#F3F3F3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        fill={isLiked ? "#F3F3F3" : "none"}
+                      />
+                    </svg>
                     <div
-                      className="relative z-10 w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px] ml-6"
+                      className="w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
                       style={{ fontFamily: "Roboto" }}
                     >
                       <span className="font-normal text-xs">
