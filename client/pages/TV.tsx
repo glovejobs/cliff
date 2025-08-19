@@ -380,7 +380,7 @@ const TV = () => {
           {/* Video Player Content */}
           <div className="flex-1 flex flex-col gap-3 min-h-0">
             {/* Video Player Area */}
-            <div className="flex items-center gap-3 flex-1 w-full min-h-0 relative">
+            <div className="flex items-center gap-3 flex-1 w-full min-h-0 relative z-10">
               {/* Left Frame (Previous) */}
               <div
                 className="h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out w-[60px] cursor-pointer"
