@@ -465,7 +465,10 @@ const TV = () => {
             </div>
 
             {/* Controls Section - Enhanced Remote Design */}
-            <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full relative z-50" style={{ margin: "-63px 0 45px" }}>
+            <div
+              className="flex items-center justify-center gap-4 flex-shrink-0 w-full relative z-50"
+              style={{ margin: "-63px 0 45px" }}
+            >
               {/* Enhanced Remote Control */}
               <div
                 className="flex items-center gap-3 px-12 py-0 rounded-full border border-black h-[110px]"
@@ -995,22 +998,28 @@ const TV = () => {
                           style={{
                             fontFamily: "Outfit",
                             lineHeight: "1.33",
-                            whiteSpace: "pre-line"
+                            whiteSpace: "pre-line",
                           }}
                         >
-                          {currentVideo.title.includes(" ") ? (
-                            currentVideo.title.split(" ").map((word, index, arr) => (
-                              index === Math.floor(arr.length / 2) ? (
-                                <React.Fragment key={index}><br/>{word}</React.Fragment>
-                              ) : (
-                                <React.Fragment key={index}>
-                                  {index > 0 && index !== Math.floor(arr.length / 2) ? ` ${word}` : word}
-                                </React.Fragment>
-                              )
-                            ))
-                          ) : (
-                            currentVideo.title
-                          )}
+                          {currentVideo.title.includes(" ")
+                            ? currentVideo.title
+                                .split(" ")
+                                .map((word, index, arr) =>
+                                  index === Math.floor(arr.length / 2) ? (
+                                    <React.Fragment key={index}>
+                                      <br />
+                                      {word}
+                                    </React.Fragment>
+                                  ) : (
+                                    <React.Fragment key={index}>
+                                      {index > 0 &&
+                                      index !== Math.floor(arr.length / 2)
+                                        ? ` ${word}`
+                                        : word}
+                                    </React.Fragment>
+                                  ),
+                                )
+                            : currentVideo.title}
                         </div>
                       </div>
                     </div>
@@ -1128,7 +1137,6 @@ const TV = () => {
                     />
                   </svg>
 
-
                   {/* Navigation Dots - positioned as per user's adjustments */}
                   <div className="group relative z-20">
                     <button
@@ -1169,7 +1177,8 @@ const TV = () => {
                     onClick={handleCommentsClick}
                     className="flex items-center gap-2.5 h-10 px-3 rounded-full transition-all duration-300 ease-in-out min-w-[64px]"
                     style={{
-                      background: "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
+                      background:
+                        "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
                       border: "1.34px solid rgba(0, 0, 0, 1)",
                       boxShadow: "0 0 1.6px 1.162px 1.162px",
                     }}
@@ -1198,7 +1207,8 @@ const TV = () => {
                     style={
                       !isLiked
                         ? {
-                            background: "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
+                            background:
+                              "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
                             border: "1.34px solid rgba(0, 0, 0, 1)",
                             boxShadow: "0 0 1.6px 1.162px 1.162px",
                           }
@@ -1230,9 +1240,7 @@ const TV = () => {
                 {/* Far Right Control Section */}
                 <div className="flex flex-col justify-center items-start gap-1.5">
                   <div className="group relative">
-                    <button
-                      className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out"
-                    >
+                    <button className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out">
                       <svg
                         width="40"
                         height="40"
