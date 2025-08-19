@@ -975,6 +975,47 @@ const TV = () => {
 
                 {/* Enhanced Center Display */}
                 <div className="relative w-[200px] h-[200px]">
+                  {/* Inner Content Circle - moved before SVG */}
+                  <div className="w-[200px] h-[200px] rounded-full absolute left-0 top-0 overflow-hidden flex">
+                    {/* Image Background */}
+                    <img
+                      src={videos[framePositions.center].thumbnail}
+                      alt="Now playing"
+                      className="w-[199px] h-full object-cover absolute inset-0"
+                    />
+                    {/* Overlay with blend modes matching Figma */}
+                    <div className="absolute inset-0 bg-[#1E1E1E] opacity-50 mix-blend-overlay w-[200px]"></div>
+                    <div className="absolute inset-0 bg-black opacity-70 w-[200px]"></div>
+
+                    {/* Centered Text */}
+                    <div className="absolute inset-0 flex items-center justify-center px-3 z-0">
+                      <div className="text-center">
+                        <div
+                          className="text-[#F5F5F5] text-[15.27px] font-medium leading-[20.36px] tracking-[0.5px]"
+                          style={{
+                            fontFamily: "Outfit",
+                            lineHeight: "1.33",
+                            whiteSpace: "pre-line"
+                          }}
+                        >
+                          {currentVideo.title.includes(" ") ? (
+                            currentVideo.title.split(" ").map((word, index, arr) => (
+                              index === Math.floor(arr.length / 2) ? (
+                                <React.Fragment key={index}><br/>{word}</React.Fragment>
+                              ) : (
+                                <React.Fragment key={index}>
+                                  {index > 0 && index !== Math.floor(arr.length / 2) ? ` ${word}` : word}
+                                </React.Fragment>
+                              )
+                            ))
+                          ) : (
+                            currentVideo.title
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Outer Ring with Exact Figma Styling */}
                   <svg
                     width="200"
@@ -1081,52 +1122,12 @@ const TV = () => {
                       strokeWidth="2"
                     />
                     <path
-                      d="M134.663 67.095C134.663 104.151 104.623 134.191 67.568 134.191C30.512 134.191 0.472 104.151 0.472 67.095C0.472 30.04 30.512 0 67.568 0C104.623 0 134.663 30.04 134.663 67.095ZM17.231 67.095C17.231 94.895 39.768 117.432 67.568 117.432C95.368 117.432 117.904 94.895 117.904 67.095C117.904 39.295 95.368 16.759 67.568 16.759C39.768 16.759 17.231 39.295 17.231 67.095Z"
-                      stroke="black"
                       strokeWidth="2"
+                      stroke="black"
+                      d="M134.663 67.095C134.663 104.151 104.623 134.191 67.568 134.191C30.512 134.191 0.472 104.151 0.472 67.095C0.472 30.04 30.512 0 67.568 0C104.623 0 134.663 30.04 134.663 67.095ZM17.231 67.095C17.231 94.895 39.768 117.432 67.568 117.432C95.368 117.432 117.904 94.895 117.904 67.095C117.904 39.295 95.368 16.759 67.568 16.759C39.768 16.759 17.231 39.295 17.231 67.095Z"
                     />
                   </svg>
 
-                  {/* Inner Content Circle */}
-                  <div className="w-[200px] h-[200px] rounded-full absolute left-0 top-0 overflow-hidden">
-                    {/* Image Background */}
-                    <img
-                      src={videos[framePositions.center].thumbnail}
-                      alt="Now playing"
-                      className="w-[199px] h-full object-cover absolute inset-0"
-                    />
-                    {/* Overlay with blend modes matching Figma */}
-                    <div className="absolute inset-0 bg-[#1E1E1E] opacity-50 mix-blend-overlay w-[200px]"></div>
-                    <div className="absolute inset-0 bg-black opacity-70 w-[200px]"></div>
-
-                    {/* Centered Text - Always visible with proper z-index */}
-                    <div className="absolute inset-0 flex items-center justify-center px-3 z-10">
-                      <div className="text-center">
-                        <div
-                          className="text-[#F5F5F5] text-[15.27px] font-medium leading-[20.36px] tracking-[0.5px]"
-                          style={{
-                            fontFamily: "Outfit",
-                            lineHeight: "1.33",
-                            whiteSpace: "pre-line"
-                          }}
-                        >
-                          {currentVideo.title.includes(" ") ? (
-                            currentVideo.title.split(" ").map((word, index, arr) => (
-                              index === Math.floor(arr.length / 2) ? (
-                                <React.Fragment key={index}><br/>{word}</React.Fragment>
-                              ) : (
-                                <React.Fragment key={index}>
-                                  {index > 0 && index !== Math.floor(arr.length / 2) ? ` ${word}` : word}
-                                </React.Fragment>
-                              )
-                            ))
-                          ) : (
-                            currentVideo.title
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
                   {/* Navigation Dots - positioned as per user's adjustments */}
                   <div className="group relative z-20">
@@ -1166,9 +1167,11 @@ const TV = () => {
                 <div className="flex flex-col justify-center items-start gap-1.5">
                   <button
                     onClick={handleCommentsClick}
-                    className="flex items-center gap-2.5 h-10 px-3 rounded-full border-[0.931px] border-black transition-all duration-300 ease-in-out min-w-[64px]"
+                    className="flex items-center gap-2.5 h-10 px-3 rounded-full transition-all duration-300 ease-in-out min-w-[64px]"
                     style={{
                       background: "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
+                      border: "1.34px solid rgba(0, 0, 0, 1)",
+                      boxShadow: "0 0 1.6px 1.162px 1.162px",
                     }}
                   >
                     <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
@@ -1189,15 +1192,19 @@ const TV = () => {
 
                   <button
                     onClick={handleLikeClick}
-                    className={`flex items-center gap-2.5 h-10 px-3 rounded-full border-[0.931px] transition-all duration-300 ease-in-out min-w-[64px] ${
-                      isLiked ? "bg-red-500 border-red-500" : "border-black"
+                    className={`flex items-center gap-2.5 h-10 px-3 rounded-full transition-all duration-300 ease-in-out min-w-[64px] ${
+                      isLiked ? "bg-red-500" : ""
                     }`}
                     style={
                       !isLiked
                         ? {
                             background: "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
+                            border: "1.34px solid rgba(0, 0, 0, 1)",
+                            boxShadow: "0 0 1.6px 1.162px 1.162px",
                           }
-                        : {}
+                        : {
+                            border: "1.34px solid rgb(239, 68, 68)",
+                          }
                     }
                   >
                     <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
