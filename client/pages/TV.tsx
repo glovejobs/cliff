@@ -465,7 +465,7 @@ const TV = () => {
             </div>
 
             {/* Controls Section - Enhanced Remote Design */}
-            <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full">
+            <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full" style={{ margin: "-63px 0 45px" }}>
               {/* Enhanced Remote Control */}
               <div
                 className="flex items-center gap-3 px-12 py-0 rounded-full border border-black h-[110px]"
@@ -1088,19 +1088,19 @@ const TV = () => {
                   </svg>
 
                   {/* Inner Content Circle */}
-                  <div className="w-[117px] h-[117px] rounded-full absolute left-[41.5px] top-[41.5px] overflow-hidden">
+                  <div className="w-[200px] h-[200px] rounded-full absolute left-0 top-0 overflow-hidden">
                     {/* Image Background */}
                     <img
                       src={videos[framePositions.center].thumbnail}
                       alt="Now playing"
-                      className="w-full h-full object-cover absolute inset-0"
+                      className="w-[199px] h-full object-cover absolute inset-0"
                     />
                     {/* Overlay with blend modes matching Figma */}
-                    <div className="absolute inset-0 bg-[#1E1E1E] opacity-50 mix-blend-overlay"></div>
-                    <div className="absolute inset-0 bg-black opacity-70"></div>
+                    <div className="absolute inset-0 bg-[#1E1E1E] opacity-50 mix-blend-overlay w-[200px]"></div>
+                    <div className="absolute inset-0 bg-black opacity-70 w-[200px]"></div>
 
-                    {/* Centered Text */}
-                    <div className="absolute inset-0 flex items-center justify-center px-3">
+                    {/* Centered Text - Always visible with proper z-index */}
+                    <div className="absolute inset-0 flex items-center justify-center px-3 z-10">
                       <div className="text-center">
                         <div
                           className="text-[#F5F5F5] text-[15.27px] font-medium leading-[20.36px] tracking-[0.5px]"
@@ -1128,33 +1128,35 @@ const TV = () => {
                     </div>
                   </div>
 
-                  {/* Navigation Dots - positioned exactly as in Figma */}
-                  <div className="group relative">
+                  {/* Navigation Dots - positioned as per user's adjustments */}
+                  <div className="group relative z-20">
                     <button
                       onClick={handlePrevVideo}
-                      className="absolute left-[13.5px] top-1/2 -translate-y-1/2 w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                      className="absolute left-[13.5px] w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
                       style={{
+                        top: "96px",
                         filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
                         boxShadow:
                           "inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)",
                       }}
                     />
-                    <div className="absolute left-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                    <div className="absolute left-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-30 whitespace-nowrap">
                       Previous Video
                     </div>
                   </div>
 
-                  <div className="group relative">
+                  <div className="group relative z-20">
                     <button
                       onClick={handleNextVideo}
-                      className="absolute right-[13.5px] top-1/2 -translate-y-1/2 w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                      className="absolute right-[13.5px] w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
                       style={{
+                        top: "96px",
                         filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
                         boxShadow:
                           "inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)",
                       }}
                     />
-                    <div className="absolute right-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
+                    <div className="absolute right-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-30 whitespace-nowrap">
                       Next Video
                     </div>
                   </div>
