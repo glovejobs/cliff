@@ -74,7 +74,7 @@ const TV = () => {
       thumbnail:
         "https://api.builder.io/api/v1/image/assets/TEMP/ae4e8c13075e64b7209a5f67540fbb6b82c43f26?width=82",
       prompt:
-        "Create a sleek, cinematic shot of a single human hand wearing an elegant wristwatch. The background is softly blurred to keep full focus on the watch. Use smooth, slow camera motion — starting from the side of the wrist, gliding in a gentle arc to reveal the watch face in perfect lighting. Highlight the craftsmanship, polished metal, and fine details of the design, with warm, high‑end lifestyle tones that evoke sophistication and precision.",
+        "Create a sleek, cinematic shot of a single human hand wearing an elegant wristwatch. The background is softly blurred to keep full focus on the watch. Use smooth, slow camera motion ��� starting from the side of the wrist, gliding in a gentle arc to reveal the watch face in perfect lighting. Highlight the craftsmanship, polished metal, and fine details of the design, with warm, high‑end lifestyle tones that evoke sophistication and precision.",
       views: "12.3k",
       year: "2025",
     },
@@ -383,7 +383,11 @@ const TV = () => {
             <div className="flex items-center gap-3 flex-1 w-full min-h-0 relative z-10">
               {/* Left Frame (Previous) */}
               <div
-                className="h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out w-[60px] cursor-pointer"
+                className={`relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out cursor-pointer ${
+                  isPlaying
+                    ? "w-0 h-0 opacity-0"
+                    : "w-[60px] h-[80%] opacity-100"
+                }`}
                 onClick={handlePrevVideo}
               >
                 <img
@@ -404,7 +408,9 @@ const TV = () => {
               </div>
 
               {/* Center Frame (Main Video) */}
-              <div className="h-full relative rounded-lg overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-1">
+              <div className={`h-full relative rounded-lg overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${
+                isPlaying ? "flex-1" : "flex-1"
+              }`}>
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover"
@@ -443,7 +449,11 @@ const TV = () => {
 
               {/* Right Frame (Next) */}
               <div
-                className="h-full relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out w-[60px] cursor-pointer"
+                className={`relative rounded-lg overflow-hidden transition-all duration-500 ease-in-out cursor-pointer ${
+                  isPlaying
+                    ? "w-0 h-0 opacity-0"
+                    : "w-[60px] h-[80%] opacity-100"
+                }`}
                 onClick={handleNextVideo}
               >
                 <img
