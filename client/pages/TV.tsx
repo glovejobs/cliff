@@ -465,7 +465,7 @@ const TV = () => {
             </div>
 
             {/* Controls Section - Enhanced Remote Design */}
-            <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full" style={{ margin: "-63px 0 45px" }}>
+            <div className="flex items-center justify-center gap-4 flex-shrink-0 w-full relative z-50" style={{ margin: "-63px 0 45px" }}>
               {/* Enhanced Remote Control */}
               <div
                 className="flex items-center gap-3 px-12 py-0 rounded-full border border-black h-[110px]"
