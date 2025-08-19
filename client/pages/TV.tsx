@@ -1088,38 +1088,57 @@ const TV = () => {
                   </svg>
 
                   {/* Inner Content Circle */}
-                  <div
-                    className="w-[120px] h-[120px] rounded-full bg-[rgba(30,30,30,0.50)] absolute left-[40px] top-[40px]"
-                    style={{ backgroundBlendMode: "overlay" }}
-                  >
+                  <div className="w-[117px] h-[117px] rounded-full absolute left-[41.5px] top-[41.5px] overflow-hidden">
+                    {/* Image Background */}
                     <img
                       src={videos[framePositions.center].thumbnail}
                       alt="Now playing"
-                      className="w-[120px] h-[120px] rounded-full absolute left-0 top-0 object-cover"
-                      style={{ backgroundBlendMode: "normal, overlay" }}
+                      className="w-full h-full object-cover absolute inset-0"
                     />
-                    <div className="w-[120px] h-[120px] opacity-70 bg-[rgba(0,0,0,0.5)] absolute left-0 top-0 rounded-full"></div>
-                    <div
-                      className="w-[120px] h-[40px] text-white text-center font-medium text-[14px] leading-[18px] tracking-[0.5px] absolute left-0 top-[40px]"
-                      style={{ fontFamily: "Roboto" }}
-                    >
-                      <span className="font-normal text-[14px]">
-                        {currentVideo.title}
-                      </span>
+                    {/* Overlay with blend modes matching Figma */}
+                    <div className="absolute inset-0 bg-[#1E1E1E] opacity-50 mix-blend-overlay"></div>
+                    <div className="absolute inset-0 bg-black opacity-70"></div>
+
+                    {/* Centered Text */}
+                    <div className="absolute inset-0 flex items-center justify-center px-3">
+                      <div className="text-center">
+                        <div
+                          className="text-[#F5F5F5] text-[15.27px] font-medium leading-[20.36px] tracking-[0.5px]"
+                          style={{
+                            fontFamily: "Outfit",
+                            lineHeight: "1.33",
+                            whiteSpace: "pre-line"
+                          }}
+                        >
+                          {currentVideo.title.includes(" ") ? (
+                            currentVideo.title.split(" ").map((word, index, arr) => (
+                              index === Math.floor(arr.length / 2) ? (
+                                <><br key={index}/>{word}</>
+                              ) : (
+                                index > 0 && index !== Math.floor(arr.length / 2) ? ` ${word}` : word
+                              )
+                            ))
+                          ) : (
+                            currentVideo.title
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Enhanced Navigation Dots with Tooltips */}
+                  {/* Navigation Dots - positioned exactly as in Figma */}
                   <div className="group relative">
                     <button
                       onClick={handlePrevVideo}
-                      className="absolute left-[15px] top-1/2 -translate-y-1/2 w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
-                      style={{
-                        filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
-                        boxShadow:
-                          "inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)",
-                      }}
-                    />
+                      className="absolute left-[13.5px] top-1/2 -translate-y-1/2 transition-colors"
+                    >
+                      <svg width="4" height="4" viewBox="0 0 4 4" fill="none">
+                        <g filter="url(#center-inner-shadow)">
+                          <ellipse cx="2" cy="2" rx="1.85" ry="1.97" fill="white"/>
+                        </g>
+                        <ellipse cx="2" cy="2" rx="1.63" ry="1.74" stroke="black" strokeWidth="0.44"/>
+                      </svg>
+                    </button>
                     <div className="absolute left-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       Previous Video
                     </div>
@@ -1128,13 +1147,15 @@ const TV = () => {
                   <div className="group relative">
                     <button
                       onClick={handleNextVideo}
-                      className="absolute right-[15px] top-1/2 -translate-y-1/2 w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
-                      style={{
-                        filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
-                        boxShadow:
-                          "inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)",
-                      }}
-                    />
+                      className="absolute right-[13.5px] top-1/2 -translate-y-1/2 transition-colors"
+                    >
+                      <svg width="4" height="4" viewBox="0 0 4 4" fill="none">
+                        <g filter="url(#center-inner-shadow)">
+                          <ellipse cx="2" cy="2" rx="1.85" ry="1.97" fill="white"/>
+                        </g>
+                        <ellipse cx="2" cy="2" rx="1.63" ry="1.74" stroke="black" strokeWidth="0.44"/>
+                      </svg>
+                    </button>
                     <div className="absolute right-8 top-1/2 -translate-y-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       Next Video
                     </div>
@@ -1145,22 +1166,46 @@ const TV = () => {
                 <div className="flex flex-col justify-center items-start gap-1.5">
                   <button
                     onClick={handleCommentsClick}
-                    className="flex items-center gap-2.5 h-10 px-3 rounded-full border border-[#A3A3A3] transition-all duration-300 ease-in-out"
-                    style={{
-                      background:
-                        "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
-                    }}
+                    className="flex items-center gap-2.5 h-10 px-3 rounded-full transition-all duration-300 ease-in-out"
                   >
-                    <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                      <path
-                        d="M14.5278 7.66669C14.5301 8.5466 14.3245 9.41461 13.9278 10.2C13.4575 11.1412 12.7343 11.9328 11.8395 12.4862C10.9446 13.0396 9.91333 13.3329 8.86116 13.3334C7.98125 13.3356 7.11324 13.1301 6.32783 12.7334L2.52783 14L3.7945 10.2C3.39778 9.41461 3.1922 8.5466 3.1945 7.66669C3.19491 6.61452 3.48824 5.58325 4.04164 4.68839C4.59505 3.79352 5.38667 3.0704 6.32783 2.60002C7.11324 2.20331 7.98125 1.99773 8.86117 2.00002L9.1945 2.00002C10.5841 2.07668 11.8965 2.66319 12.8806 3.64726C13.8647 4.63133 14.4512 5.94379 14.5278 7.33335L14.5278 7.66669Z"
-                        stroke="#F3F3F3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 41 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="absolute inset-0"
+                    >
+                      <g filter="url(#play-filter)">
+                        <ellipse
+                          cx="20.472"
+                          cy="20.01"
+                          rx="20"
+                          ry="20.01"
+                          fill="url(#play-gradient)"
+                        />
+                        <path
+                          d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
+                          stroke="url(#play-stroke)"
+                        />
+                        <path
+                          d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
+                          stroke="black"
+                        />
+                      </g>
                     </svg>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                        <path
+                          d="M14.5278 7.66669C14.5301 8.5466 14.3245 9.41461 13.9278 10.2C13.4575 11.1412 12.7343 11.9328 11.8395 12.4862C10.9446 13.0396 9.91333 13.3329 8.86116 13.3334C7.98125 13.3356 7.11324 13.1301 6.32783 12.7334L2.52783 14L3.7945 10.2C3.39778 9.41461 3.1922 8.5466 3.1945 7.66669C3.19491 6.61452 3.48824 5.58325 4.04164 4.68839C4.59505 3.79352 5.38667 3.0704 6.32783 2.60002C7.11324 2.20331 7.98125 1.99773 8.86117 2.00002L9.1945 2.00002C10.5841 2.07668 11.8965 2.66319 12.8806 3.64726C13.8647 4.63133 14.4512 5.94379 14.5278 7.33335L14.5278 7.66669Z"
+                          stroke="#F3F3F3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
                     <div
-                      className="w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
+                      className="relative z-10 w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px] ml-6"
                       style={{ fontFamily: "Roboto" }}
                     >
                       <span className="font-normal text-xs">1</span>
@@ -1169,29 +1214,51 @@ const TV = () => {
 
                   <button
                     onClick={handleLikeClick}
-                    className={`flex items-center gap-2.5 h-10 px-3 rounded-full border transition-all duration-300 ease-in-out ${
-                      isLiked ? "bg-red-500 border-red-500" : "border-[#A3A3A3]"
+                    className={`flex items-center gap-2.5 h-10 px-3 rounded-full transition-all duration-300 ease-in-out ${
+                      isLiked ? "bg-red-500" : ""
                     }`}
-                    style={
-                      !isLiked
-                        ? {
-                            background:
-                              "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
-                          }
-                        : {}
-                    }
                   >
-                    <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                      <path
-                        d="M14.4212 3.07333C14.0807 2.73267 13.6764 2.46243 13.2314 2.27805C12.7864 2.09368 12.3095 1.99878 11.8278 1.99878C11.3462 1.99878 10.8692 2.09368 10.4243 2.27805C9.97929 2.46243 9.575 2.73267 9.2345 3.07333L8.52783 3.78L7.82116 3.07333C7.13337 2.38554 6.20052 1.99914 5.22783 1.99914C4.25514 1.99914 3.32229 2.38554 2.6345 3.07333C1.9467 3.76112 1.5603 4.69397 1.5603 5.66666C1.5603 6.63935 1.9467 7.5722 2.6345 8.26L8.52783 14.1533L14.4212 8.26C14.7618 7.91949 15.0321 7.51521 15.2164 7.07024C15.4008 6.62526 15.4957 6.14832 15.4957 5.66667C15.4957 5.18501 15.4008 4.70807 15.2164 4.2631C15.0321 3.81812 14.7618 3.41384 14.4212 3.07333Z"
-                        stroke="#F3F3F3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        fill={isLiked ? "#F3F3F3" : "none"}
-                      />
-                    </svg>
+                    {!isLiked && (
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 41 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="absolute inset-0"
+                      >
+                        <g filter="url(#play-filter)">
+                          <ellipse
+                            cx="20.472"
+                            cy="20.01"
+                            rx="20"
+                            ry="20.01"
+                            fill="url(#play-gradient)"
+                          />
+                          <path
+                            d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
+                            stroke="url(#play-stroke)"
+                          />
+                          <path
+                            d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
+                            stroke="black"
+                          />
+                        </g>
+                      </svg>
+                    )}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                        <path
+                          d="M14.4212 3.07333C14.0807 2.73267 13.6764 2.46243 13.2314 2.27805C12.7864 2.09368 12.3095 1.99878 11.8278 1.99878C11.3462 1.99878 10.8692 2.09368 10.4243 2.27805C9.97929 2.46243 9.575 2.73267 9.2345 3.07333L8.52783 3.78L7.82116 3.07333C7.13337 2.38554 6.20052 1.99914 5.22783 1.99914C4.25514 1.99914 3.32229 2.38554 2.6345 3.07333C1.9467 3.76112 1.5603 4.69397 1.5603 5.66666C1.5603 6.63935 1.9467 7.5722 2.6345 8.26L8.52783 14.1533L14.4212 8.26C14.7618 7.91949 15.0321 7.51521 15.2164 7.07024C15.4008 6.62526 15.4957 6.14832 15.4957 5.66667C15.4957 5.18501 15.4008 4.70807 15.2164 4.2631C15.0321 3.81812 14.7618 3.41384 14.4212 3.07333Z"
+                          stroke="#F3F3F3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          fill={isLiked ? "#F3F3F3" : "none"}
+                        />
+                      </svg>
+                    </div>
                     <div
-                      className="w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px]"
+                      className="relative z-10 w-5 text-white text-center text-xs font-medium leading-4 tracking-[0.5px] ml-6"
                       style={{ fontFamily: "Roboto" }}
                     >
                       <span className="font-normal text-xs">
@@ -1206,38 +1273,57 @@ const TV = () => {
                   <div className="group relative">
                     <button
                       className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out"
-                      style={{
-                        background:
-                          "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
-                        border: "1px solid #A3A3A3",
-                        boxShadow:
-                          "0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset",
-                        filter: "drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))",
-                      }}
                     >
                       <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 17 16"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 41 40"
                         fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M9.8117 8.51841L8.3795 7.08621C8.1843 6.89101 8.0867 6.79341 7.98137 6.74121C7.78103 6.64193 7.54583 6.64193 7.34543 6.74121C7.24017 6.79341 7.14255 6.89101 6.94732 7.08621C6.75209 7.28148 6.65447 7.37908 6.60229 7.48435C6.50301 7.68475 6.50301 7.91995 6.60229 8.12028C6.65447 8.22561 6.75209 8.32321 6.94732 8.51841L8.3795 9.95061M9.8117 8.51841L14.1084 12.8151C14.3036 13.0103 14.4012 13.1079 14.4534 13.2132C14.5526 13.4135 14.5526 13.6487 14.4534 13.8491C14.4012 13.9544 14.3036 14.052 14.1084 14.2473C13.9131 14.4425 13.8155 14.5401 13.7102 14.5923C13.5098 14.6915 13.2746 14.6915 13.0743 14.5923C12.969 14.5401 12.8714 14.4425 12.6762 14.2473L8.3795 9.95061M9.8117 8.51841L8.3795 9.95061"
-                          stroke="#F3F3F3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M11.8612 1.33325L12.0577 1.86432C12.3154 2.5607 12.4443 2.90889 12.6983 3.16289C12.9523 3.41689 13.3004 3.54573 13.9968 3.80341L14.5279 3.99992L13.9968 4.19643C13.3004 4.45411 12.9523 4.58296 12.6983 4.83695C12.4443 5.09095 12.3154 5.43914 12.0577 6.13552L11.8612 6.66659L11.6647 6.13552C11.407 5.43915 11.2781 5.09095 11.0241 4.83695C10.7701 4.58295 10.422 4.45411 9.72559 4.19643L9.19452 3.99992L9.72559 3.80341C10.422 3.54573 10.7701 3.41689 11.0241 3.16289C11.2781 2.90889 11.407 2.5607 11.6647 1.86432L11.8612 1.33325Z"
-                          stroke="#F3F3F3"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M4.52783 2.66675L4.67522 3.06505C4.86848 3.58733 4.96511 3.84848 5.15561 4.03898C5.34611 4.22947 5.60725 4.3261 6.12953 4.51936L6.52783 4.66675L6.12953 4.81414C5.60725 5.00739 5.3461 5.10403 5.1556 5.29453C4.96511 5.48502 4.86848 5.74617 4.67522 6.26845L4.52783 6.66675L4.38044 6.26845C4.18718 5.74617 4.09055 5.48502 3.90005 5.29453C3.70956 5.10403 3.44841 5.00739 2.92613 4.81413L2.52783 4.66675L2.92613 4.51936C3.44841 4.3261 3.70956 4.22947 3.90005 4.03897C4.09055 3.84847 4.18719 3.58733 4.38045 3.06505L4.52783 2.66675Z"
-                          stroke="#F3F3F3"
-                          strokeLinejoin="round"
-                        />
+                        <g filter="url(#play-filter)">
+                          <ellipse
+                            cx="20.472"
+                            cy="20.01"
+                            rx="20"
+                            ry="20.01"
+                            fill="url(#play-gradient)"
+                          />
+                          <path
+                            d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
+                            stroke="url(#play-stroke)"
+                          />
+                          <path
+                            d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
+                            stroke="black"
+                          />
+                        </g>
                       </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 17 16"
+                          fill="none"
+                        >
+                          <path
+                            d="M9.8117 8.51841L8.3795 7.08621C8.1843 6.89101 8.0867 6.79341 7.98137 6.74121C7.78103 6.64193 7.54583 6.64193 7.34543 6.74121C7.24017 6.79341 7.14255 6.89101 6.94732 7.08621C6.75209 7.28148 6.65447 7.37908 6.60229 7.48435C6.50301 7.68475 6.50301 7.91995 6.60229 8.12028C6.65447 8.22561 6.75209 8.32321 6.94732 8.51841L8.3795 9.95061M9.8117 8.51841L14.1084 12.8151C14.3036 13.0103 14.4012 13.1079 14.4534 13.2132C14.5526 13.4135 14.5526 13.6487 14.4534 13.8491C14.4012 13.9544 14.3036 14.052 14.1084 14.2473C13.9131 14.4425 13.8155 14.5401 13.7102 14.5923C13.5098 14.6915 13.2746 14.6915 13.0743 14.5923C12.969 14.5401 12.8714 14.4425 12.6762 14.2473L8.3795 9.95061M9.8117 8.51841L8.3795 9.95061"
+                            stroke="#F3F3F3"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M11.8612 1.33325L12.0577 1.86432C12.3154 2.5607 12.4443 2.90889 12.6983 3.16289C12.9523 3.41689 13.3004 3.54573 13.9968 3.80341L14.5279 3.99992L13.9968 4.19643C13.3004 4.45411 12.9523 4.58296 12.6983 4.83695C12.4443 5.09095 12.3154 5.43914 12.0577 6.13552L11.8612 6.66659L11.6647 6.13552C11.407 5.43915 11.2781 5.09095 11.0241 4.83695C10.7701 4.58295 10.422 4.45411 9.72559 4.19643L9.19452 3.99992L9.72559 3.80341C10.422 3.54573 10.7701 3.41689 11.0241 3.16289C11.2781 2.90889 11.407 2.5607 11.6647 1.86432L11.8612 1.33325Z"
+                            stroke="#F3F3F3"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M4.52783 2.66675L4.67522 3.06505C4.86848 3.58733 4.96511 3.84848 5.15561 4.03898C5.34611 4.22947 5.60725 4.3261 6.12953 4.51936L6.52783 4.66675L6.12953 4.81414C5.60725 5.00739 5.3461 5.10403 5.1556 5.29453C4.96511 5.48502 4.86848 5.74617 4.67522 6.26845L4.52783 6.66675L4.38044 6.26845C4.18718 5.74617 4.09055 5.48502 3.90005 5.29453C3.70956 5.10403 3.44841 5.00739 2.92613 4.81413L2.52783 4.66675L2.92613 4.51936C3.44841 4.3261 3.70956 4.22947 3.90005 4.03897C4.09055 3.84847 4.18719 3.58733 4.38045 3.06505L4.52783 2.66675Z"
+                            stroke="#F3F3F3"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
                     </button>
                     <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       Remix
@@ -1248,28 +1334,47 @@ const TV = () => {
                     <button
                       onClick={handleDetailsClick}
                       className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out"
-                      style={{
-                        background:
-                          "linear-gradient(330deg, #242424 12.95%, #383838 86.08%)",
-                        border: "1px solid #A3A3A3",
-                        boxShadow:
-                          "0 0 1.212px 1.212px rgba(0, 0, 0, 0.50) inset",
-                        filter: "drop-shadow(0 0 0.303px rgba(0, 0, 0, 0.46))",
-                      }}
                     >
                       <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 17 16"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 41 40"
                         fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M8.52781 10.6666L8.52781 7.99992M8.52781 5.33325L8.53448 5.33325M15.1945 7.99992C15.1945 11.6818 12.2097 14.6666 8.52781 14.6666C4.84591 14.6666 1.86114 11.6818 1.86114 7.99992C1.86114 4.31802 4.84591 1.33325 8.52781 1.33325C12.2097 1.33325 15.1945 4.31802 15.1945 7.99992Z"
-                          stroke="#F3F3F3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
+                        <g filter="url(#play-filter)">
+                          <ellipse
+                            cx="20.472"
+                            cy="20.01"
+                            rx="20"
+                            ry="20.01"
+                            fill="url(#play-gradient)"
+                          />
+                          <path
+                            d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
+                            stroke="url(#play-stroke)"
+                          />
+                          <path
+                            d="M20.472 0.5C31.241 0.5 39.972 9.235 39.972 20.01C39.972 30.785 31.242 39.521 20.472 39.521C9.703 39.521 0.972 30.785 0.972 20.01C0.972 9.235 9.703 0.5 20.472 0.5Z"
+                            stroke="black"
+                          />
+                        </g>
                       </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 17 16"
+                          fill="none"
+                        >
+                          <path
+                            d="M8.52781 10.6666L8.52781 7.99992M8.52781 5.33325L8.53448 5.33325M15.1945 7.99992C15.1945 11.6818 12.2097 14.6666 8.52781 14.6666C4.84591 14.6666 1.86114 11.6818 1.86114 7.99992C1.86114 4.31802 4.84591 1.33325 8.52781 1.33325C12.2097 1.33325 15.1945 4.31802 15.1945 7.99992Z"
+                            stroke="#F3F3F3"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
                     </button>
                     <div className="absolute bottom-14 left-1/2 -translate-x-1/2 px-2 py-1 bg-nav-bg text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
                       Details
