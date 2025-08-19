@@ -915,7 +915,7 @@ const TV = () => {
                 {/* Enhanced Volume Control */}
                 <div className="relative w-[34.865px] h-[86px]">
                   <div
-                    className="w-[35px] h-[86px] rounded-full border-[0.931px] border-[#6B6B6B] absolute left-0 top-0"
+                    className="w-[35px] h-[86px] rounded-full border-[0.931px] border-black absolute left-0 top-0"
                     style={{
                       background:
                         "linear-gradient(330deg, #242424 12.95%, #383838 86.08%), #2E2E2E",
