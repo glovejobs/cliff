@@ -61,11 +61,11 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
       >
         {/* Header */}
         <div className="flex items-center gap-2.5 w-full">
-          <h2 
+          <h2
             className="flex-1 text-xl font-normal leading-6"
-            style={{ 
+            style={{
               color: "rgba(243, 243, 243, 1)",
-              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
             }}
           >
             Create character
@@ -87,16 +87,17 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
             <div className="flex flex-col gap-6 flex-1">
               {/* Name Field */}
               <div className="flex flex-col gap-2 w-full">
-                <label 
+                <label
                   className="text-base font-normal leading-6 w-full"
-                  style={{ 
+                  style={{
                     color: "rgba(243, 243, 243, 1)",
-                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   }}
                 >
                   Name your character
                 </label>
-                <div 
+                <div
                   className="flex items-center min-w-[240px] px-4 py-3 w-full rounded-lg"
                   style={{ backgroundColor: "#232424" }}
                 >
@@ -106,20 +107,24 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     className="flex-1 bg-transparent border-0 outline-none text-base font-normal leading-4"
-                    style={{ 
+                    style={{
                       color: "rgba(179, 179, 179, 1)",
-                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                      fontFamily:
+                        "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                     }}
                   />
                 </div>
-                <div 
+                <div
                   className="text-base font-normal italic leading-6 w-full"
-                  style={{ 
+                  style={{
                     color: "rgba(179, 179, 179, 1)",
-                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   }}
                 >
-                  Note: The name you choose will be how the character is referred to in scripts, so choose a name that helps keep our character list organized
+                  Note: The name you choose will be how the character is
+                  referred to in scripts, so choose a name that helps keep our
+                  character list organized
                 </div>
               </div>
 
@@ -127,26 +132,30 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
               <div className="flex items-start gap-6 w-full">
                 <div className="flex flex-col gap-2.5 flex-1">
                   <div className="flex flex-col gap-2 w-full">
-                    <label 
+                    <label
                       className="text-base font-normal leading-6 w-full"
-                      style={{ 
+                      style={{
                         color: "rgba(243, 243, 243, 1)",
-                        fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                        fontFamily:
+                          "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                       }}
                     >
                       Gender
                     </label>
-                    <div 
+                    <div
                       className="flex items-center min-w-[240px] px-4 py-3 w-full rounded-lg relative"
                       style={{ backgroundColor: "#232424" }}
                     >
                       <select
                         value={formData.gender}
-                        onChange={(e) => handleInputChange("gender", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("gender", e.target.value)
+                        }
                         className="flex-1 bg-transparent border-0 outline-none text-base font-normal leading-4 appearance-none pr-6"
-                        style={{ 
+                        style={{
                           color: "rgba(179, 179, 179, 1)",
-                          fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                          fontFamily:
+                            "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                         }}
                       >
                         <option value="">Select a gender</option>
@@ -157,8 +166,8 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                       </select>
                     </div>
                   </div>
-                  <ChevronDown 
-                    size={16} 
+                  <ChevronDown
+                    size={16}
                     className="relative -mt-8 ml-auto mr-4 pointer-events-none"
                     style={{ color: "#F3F3F3" }}
                     strokeWidth={1.6}
@@ -167,26 +176,30 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
 
                 <div className="flex flex-col gap-2.5 flex-1">
                   <div className="flex flex-col gap-2 w-full">
-                    <label 
+                    <label
                       className="text-base font-normal leading-6 w-full"
-                      style={{ 
+                      style={{
                         color: "rgba(243, 243, 243, 1)",
-                        fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                        fontFamily:
+                          "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                       }}
                     >
                       Voice
                     </label>
-                    <div 
+                    <div
                       className="flex items-center min-w-[240px] px-4 py-3 w-full rounded-lg relative"
                       style={{ backgroundColor: "#232424" }}
                     >
                       <select
                         value={formData.voice}
-                        onChange={(e) => handleInputChange("voice", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("voice", e.target.value)
+                        }
                         className="flex-1 bg-transparent border-0 outline-none text-base font-normal leading-4 appearance-none pr-6"
-                        style={{ 
+                        style={{
                           color: "rgba(179, 179, 179, 1)",
-                          fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                          fontFamily:
+                            "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                         }}
                       >
                         <option value="">Select a voice</option>
@@ -197,8 +210,8 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                       </select>
                     </div>
                   </div>
-                  <ChevronDown 
-                    size={16} 
+                  <ChevronDown
+                    size={16}
                     className="relative -mt-8 ml-auto mr-4 pointer-events-none"
                     style={{ color: "#F3F3F3" }}
                     strokeWidth={1.6}
@@ -208,88 +221,110 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
 
               {/* Description Field */}
               <div className="flex flex-col gap-2 w-full">
-                <label 
+                <label
                   className="text-base font-normal leading-6 w-full"
-                  style={{ 
+                  style={{
                     color: "rgba(243, 243, 243, 1)",
-                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   }}
                 >
                   Describe the character
                 </label>
-                <div 
+                <div
                   className="flex items-start min-w-[240px] min-h-[80px] px-4 py-3 w-full rounded-lg"
                   style={{ backgroundColor: "#232424" }}
                 >
                   <textarea
                     placeholder="John is a funny.."
                     value={formData.description}
-                    onChange={(e) => handleInputChange("description", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("description", e.target.value)
+                    }
                     className="flex-1 bg-transparent border-0 outline-none resize-none text-base font-normal leading-6"
-                    style={{ 
+                    style={{
                       color: "rgba(179, 179, 179, 1)",
-                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                      fontFamily:
+                        "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                     }}
                   />
                 </div>
-                <div 
+                <div
                   className="text-base font-normal leading-6 w-full"
-                  style={{ 
+                  style={{
                     color: "rgba(179, 179, 179, 1)",
-                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   }}
                 >
-                  What are their quirks, goals, and biggest secrets? What defining moments from their past shaped who they are today?
+                  What are their quirks, goals, and biggest secrets? What
+                  defining moments from their past shaped who they are today?
                 </div>
               </div>
 
               {/* Appearance Field */}
               <div className="flex flex-col gap-2 w-full">
-                <label 
+                <label
                   className="text-base font-normal leading-6"
-                  style={{ 
+                  style={{
                     color: "rgba(243, 243, 243, 1)",
-                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   }}
                 >
                   Upload photo or describe appearance
                 </label>
-                <div 
+                <div
                   className="flex flex-col p-2 gap-2.5 w-full rounded-2xl"
                   style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                 >
                   <div className="flex flex-col h-[189px] gap-2 w-full">
-                    <div 
+                    <div
                       className="flex flex-col min-w-[240px] min-h-[80px] px-4 py-3 flex-1 w-full rounded-lg"
                       style={{ backgroundColor: "#232424" }}
                     >
                       <textarea
                         placeholder="A confident young woman with braided hair and expressive eyes. She wears a loose linen shirt and carries a satchel filled with old maps. Her voice is calm but assertive, and she often pauses before speaking, as if weighing every word."
                         value={formData.appearance}
-                        onChange={(e) => handleInputChange("appearance", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("appearance", e.target.value)
+                        }
                         className="flex-1 w-full bg-transparent border-0 outline-none resize-none text-base font-normal leading-6 scrollbar-none"
                         style={{
                           color: "rgba(179, 179, 179, 1)",
-                          fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                          fontFamily:
+                            "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                         }}
                       />
                       <div className="flex justify-between items-end flex-1 w-full">
                         <div className="flex items-center gap-1.5 w-[374px]">
                           <button className="flex items-center justify-center p-2 gap-2 rounded-lg hover:bg-brand-primary transition-colors">
-                            <Plus size={16} strokeWidth={1.6} style={{ color: "#F3F3F3" }} />
+                            <Plus
+                              size={16}
+                              strokeWidth={1.6}
+                              style={{ color: "#F3F3F3" }}
+                            />
                           </button>
-                          <button 
+                          <button
                             className="flex items-center justify-center p-2 gap-2 rounded-lg"
-                            style={{ 
-                              background: "rgba(0, 0, 0, 0.10)", 
-                              backdropFilter: "blur(2px)" 
+                            style={{
+                              background: "rgba(0, 0, 0, 0.10)",
+                              backdropFilter: "blur(2px)",
                             }}
                           >
-                            <Camera size={16} strokeWidth={1.6} style={{ color: "#F5F5F5" }} />
+                            <Camera
+                              size={16}
+                              strokeWidth={1.6}
+                              style={{ color: "#F5F5F5" }}
+                            />
                           </button>
                         </div>
                         <button className="flex items-center justify-center p-2 gap-2 rounded-lg hover:bg-brand-primary transition-colors">
-                          <ArrowUp size={16} strokeWidth={1.6} style={{ color: "#F3F3F3" }} />
+                          <ArrowUp
+                            size={16}
+                            strokeWidth={1.6}
+                            style={{ color: "#F3F3F3" }}
+                          />
                         </button>
                       </div>
                     </div>
@@ -305,10 +340,11 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   borderColor: "rgba(118, 118, 118, 1)",
                   backgroundColor: "rgba(227, 227, 227, 1)",
                   color: "rgba(30, 30, 30, 1)",
-                  fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "16px",
                   fontWeight: "400",
-                  lineHeight: "16px"
+                  lineHeight: "16px",
                 }}
               >
                 Bring me to life!
@@ -342,7 +378,8 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                     className="text-center text-base font-normal leading-6 w-full"
                     style={{
                       color: "rgba(179, 179, 179, 1)",
-                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                      fontFamily:
+                        "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                     }}
                   >
                     Preview goes here
@@ -359,14 +396,14 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
             onClick={handleSubmit}
             disabled={!formData.name.trim()}
             className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 disabled:opacity-50"
-            style={{ 
+            style={{
               borderColor: "rgba(118, 118, 118, 1)",
               backgroundColor: "rgba(227, 227, 227, 1)",
               color: "rgba(30, 30, 30, 1)",
               fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "16px",
               fontWeight: "400",
-              lineHeight: "16px"
+              lineHeight: "16px",
             }}
           >
             Create character

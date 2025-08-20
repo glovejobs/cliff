@@ -57,11 +57,11 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
       >
         {/* Header */}
         <div className="flex items-center gap-2.5 w-full">
-          <h2 
+          <h2
             className="flex-1 text-xl font-normal leading-6"
-            style={{ 
+            style={{
               color: "rgba(243, 243, 243, 1)",
-              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
             }}
           >
             Create set
@@ -83,16 +83,17 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
             <div className="flex flex-col gap-6 flex-1">
               {/* Name Field */}
               <div className="flex flex-col gap-2 w-full">
-                <label 
+                <label
                   className="text-base font-normal leading-6 w-full"
-                  style={{ 
+                  style={{
                     color: "rgba(243, 243, 243, 1)",
-                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   }}
                 >
                   Name your set
                 </label>
-                <div 
+                <div
                   className="flex items-center min-w-[240px] px-4 py-3 w-full rounded-lg"
                   style={{ backgroundColor: "#232424" }}
                 >
@@ -102,9 +103,10 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     className="flex-1 bg-transparent border-0 outline-none text-base font-normal leading-4"
-                    style={{ 
+                    style={{
                       color: "rgba(179, 179, 179, 1)",
-                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                      fontFamily:
+                        "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                     }}
                   />
                 </div>
@@ -113,26 +115,30 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
               {/* Ambient Sound Field */}
               <div className="flex flex-col gap-2.5 w-full">
                 <div className="flex flex-col gap-2 w-full">
-                  <label 
+                  <label
                     className="text-base font-normal leading-6 w-full"
-                    style={{ 
+                    style={{
                       color: "rgba(243, 243, 243, 1)",
-                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                      fontFamily:
+                        "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                     }}
                   >
                     Ambient sound
                   </label>
-                  <div 
+                  <div
                     className="flex items-center min-w-[240px] px-4 py-3 w-full rounded-lg relative"
                     style={{ backgroundColor: "#232424" }}
                   >
                     <select
                       value={formData.ambientSound}
-                      onChange={(e) => handleInputChange("ambientSound", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("ambientSound", e.target.value)
+                      }
                       className="flex-1 bg-transparent border-0 outline-none text-base font-normal leading-4 appearance-none pr-6"
-                      style={{ 
+                      style={{
                         color: "rgba(179, 179, 179, 1)",
-                        fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                        fontFamily:
+                          "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                       }}
                     >
                       <option value="">Select an ambient sound</option>
@@ -147,8 +153,8 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                     </select>
                   </div>
                 </div>
-                <ChevronDown 
-                  size={16} 
+                <ChevronDown
+                  size={16}
                   className="relative -mt-8 ml-auto mr-4 pointer-events-none"
                   style={{ color: "#F3F3F3" }}
                   strokeWidth={1.6}
@@ -157,51 +163,67 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
 
               {/* Environment Description Field */}
               <div className="flex flex-col gap-2 w-full">
-                <label 
+                <label
                   className="text-base font-normal leading-6"
-                  style={{ 
+                  style={{
                     color: "rgba(243, 243, 243, 1)",
-                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   }}
                 >
                   Upload photo or describe environment
                 </label>
-                <div 
+                <div
                   className="flex flex-col p-2 gap-2.5 w-full rounded-2xl"
                   style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                 >
                   <div className="flex flex-col h-[189px] gap-2 w-full">
-                    <div 
+                    <div
                       className="flex flex-col min-w-[240px] min-h-[80px] px-4 py-3 flex-1 w-full rounded-lg"
                       style={{ backgroundColor: "#232424" }}
                     >
                       <textarea
                         placeholder="A misty cliffside at dawn, overlooking a vast ocean. Jagged rocks frame the horizon, waves crash below, and a lone lighthouse blinks in the distance. The atmosphere is quiet, eerie, and poetic, perfect for a reflective or suspenseful scene."
                         value={formData.description}
-                        onChange={(e) => handleInputChange("description", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("description", e.target.value)
+                        }
                         className="flex-1 w-full bg-transparent border-0 outline-none resize-none text-base font-normal leading-6 scrollbar-none"
                         style={{
                           color: "rgba(179, 179, 179, 1)",
-                          fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                          fontFamily:
+                            "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                         }}
                       />
                       <div className="flex justify-between items-end flex-1 w-full">
                         <div className="flex items-center gap-1.5 w-[374px]">
                           <button className="flex items-center justify-center p-2 gap-2 rounded-lg hover:bg-brand-primary transition-colors">
-                            <Plus size={16} strokeWidth={1.6} style={{ color: "#F3F3F3" }} />
+                            <Plus
+                              size={16}
+                              strokeWidth={1.6}
+                              style={{ color: "#F3F3F3" }}
+                            />
                           </button>
-                          <button 
+                          <button
                             className="flex items-center justify-center p-2 gap-2 rounded-lg"
-                            style={{ 
-                              background: "rgba(0, 0, 0, 0.10)", 
-                              backdropFilter: "blur(2px)" 
+                            style={{
+                              background: "rgba(0, 0, 0, 0.10)",
+                              backdropFilter: "blur(2px)",
                             }}
                           >
-                            <Camera size={16} strokeWidth={1.6} style={{ color: "#F5F5F5" }} />
+                            <Camera
+                              size={16}
+                              strokeWidth={1.6}
+                              style={{ color: "#F5F5F5" }}
+                            />
                           </button>
                         </div>
                         <button className="flex items-center justify-center p-2 gap-2 rounded-lg hover:bg-brand-primary transition-colors">
-                          <ArrowUp size={16} strokeWidth={1.6} style={{ color: "#F3F3F3" }} />
+                          <ArrowUp
+                            size={16}
+                            strokeWidth={1.6}
+                            style={{ color: "#F3F3F3" }}
+                          />
                         </button>
                       </div>
                     </div>
@@ -217,10 +239,11 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                   borderColor: "rgba(118, 118, 118, 1)",
                   backgroundColor: "rgba(227, 227, 227, 1)",
                   color: "rgba(30, 30, 30, 1)",
-                  fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "16px",
                   fontWeight: "400",
-                  lineHeight: "16px"
+                  lineHeight: "16px",
                 }}
               >
                 Bring set to life!
@@ -254,7 +277,8 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                     className="text-center text-base font-normal leading-6 w-full"
                     style={{
                       color: "rgba(179, 179, 179, 1)",
-                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                      fontFamily:
+                        "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                     }}
                   >
                     Preview goes here
@@ -271,14 +295,14 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
             onClick={handleSubmit}
             disabled={!formData.name.trim()}
             className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 disabled:opacity-50"
-            style={{ 
+            style={{
               borderColor: "rgba(118, 118, 118, 1)",
               backgroundColor: "rgba(227, 227, 227, 1)",
               color: "rgba(30, 30, 30, 1)",
               fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "16px",
               fontWeight: "400",
-              lineHeight: "16px"
+              lineHeight: "16px",
             }}
           >
             Create set
