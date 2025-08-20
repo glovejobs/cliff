@@ -78,16 +78,16 @@ const Sets = () => {
                 <div className="flex items-start content-start gap-6 w-full flex-wrap">
                   {/* Community set cards */}
                   {[
-                    "https://api.builder.io/api/v1/image/assets/TEMP/335074587128e5312a96ccfc390e68eff84d45f7?width=460",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/071f1acf87ad1177616e9f4c241d503d9c7a790a?width=460",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/5efb5b8f51ea45d8ff54925ad6b9df53dfb9d2a7?width=530",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/f6eef26825a9c448b8c41f6e0a42f7abce2b8a23?width=530",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/fd46e9193c7a4cd659dd8d49afba0b156b17c37d?width=460",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/b466cd315d76e8beb4bc8462588d672bb9e3450e?width=530",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/c88df77378a9cf284d44f3df86cb403236f7b91a?width=426",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/a606e3cd657ef1f565c63df985092b597d7c90ec?width=530",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/7d982f5a651e632b331f4ee9a53a500ee5a1a888?width=530",
-                    "https://api.builder.io/api/v1/image/assets/TEMP/4206d632139b0c9c1c0fae8559ee35303fecb0e2?width=426"
+                    "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=460&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=460&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=530&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=530&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=460&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=530&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=426&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1504870712357-65ea720d6078?w=530&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1541600383005-565c949cf552?w=530&h=200&fit=crop&crop=center",
+                    "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=426&h=200&fit=crop&crop=center"
                   ].map((src, index) => (
                     <div key={index} className="flex h-[200px] min-w-[194.4px] max-w-[265px] relative rounded-2xl bg-nav-bg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group flex-1">
                       <img 
