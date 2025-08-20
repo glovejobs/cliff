@@ -18,10 +18,14 @@ const CharacterCard = ({
   name,
   likes,
   isNewCharacter = false,
+  onClick,
 }: CharacterCardProps) => {
   if (isNewCharacter) {
     return (
-      <div className="flex flex-col justify-center items-center h-[268px] min-w-[194.4px] max-w-[265px] gap-3 rounded-2xl bg-nav-bg cursor-pointer hover:bg-opacity-80 transition-colors flex-1">
+      <div
+        onClick={onClick}
+        className="flex flex-col justify-center items-center h-[268px] min-w-[194.4px] max-w-[265px] gap-3 rounded-2xl bg-nav-bg cursor-pointer hover:bg-opacity-80 transition-colors flex-1"
+      >
         <Plus size={24} className="text-text-primary" strokeWidth={2.5} />
         <span className="text-text-primary text-sm font-normal leading-relaxed text-center">
           New character
