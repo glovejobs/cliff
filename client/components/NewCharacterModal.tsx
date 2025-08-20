@@ -55,8 +55,8 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div 
-        className="flex flex-col w-[1116px] h-[920px] p-6 gap-10 rounded-2xl"
+      <div
+        className="w-[1116px] h-[80vh] p-6 flex flex-col gap-10 rounded-2xl"
         style={{ backgroundColor: "#171717" }}
       >
         {/* Header */}
@@ -267,8 +267,8 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                         placeholder="A confident young woman with braided hair and expressive eyes. She wears a loose linen shirt and carries a satchel filled with old maps. Her voice is calm but assertive, and she often pauses before speaking, as if weighing every word."
                         value={formData.appearance}
                         onChange={(e) => handleInputChange("appearance", e.target.value)}
-                        className="flex-1 w-full bg-transparent border-0 outline-none resize-none text-base font-normal leading-6"
-                        style={{ 
+                        className="flex-1 w-full bg-transparent border-0 outline-none resize-none text-base font-normal leading-6 scrollbar-none"
+                        style={{
                           color: "rgba(179, 179, 179, 1)",
                           fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
                         }}
@@ -300,8 +300,8 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
               {/* Generate Button */}
               <button
                 onClick={handleGenerateCharacter}
-                className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90"
-                style={{ 
+                className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start"
+                style={{
                   borderColor: "rgba(118, 118, 118, 1)",
                   backgroundColor: "rgba(227, 227, 227, 1)",
                   color: "rgba(30, 30, 30, 1)",
@@ -316,7 +316,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
             </div>
 
             {/* Right Side - Preview */}
-            <div 
+            <div
               className="flex flex-col justify-center items-center h-[565px] flex-1 rounded-2xl relative"
               style={{ backgroundColor: "#232424" }}
             >
@@ -328,15 +328,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   </span>
                 </div>
               ) : (
-                <div 
-                  className="flex flex-col items-center gap-2 absolute"
-                  style={{ 
-                    width: "144px", 
-                    height: "78px", 
-                    left: "183px", 
-                    top: "244px" 
-                  }}
-                >
+                <div className="flex flex-col items-center gap-2 w-36">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                     <path
                       d="M10 42H38C40.2091 42 42 40.2091 42 38V10C42 7.79086 40.2091 6 38 6H10C7.79086 6 6 7.79086 6 10V38C6 40.2091 7.79086 42 10 42ZM10 42L32 20L42 30M20 17C20 18.6569 18.6569 20 17 20C15.3431 20 14 18.6569 14 17C14 15.3431 15.3431 14 17 14C18.6569 14 20 15.3431 20 17Z"
@@ -346,9 +338,9 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <div 
+                  <div
                     className="text-center text-base font-normal leading-6 w-full"
-                    style={{ 
+                    style={{
                       color: "rgba(179, 179, 179, 1)",
                       fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
                     }}
