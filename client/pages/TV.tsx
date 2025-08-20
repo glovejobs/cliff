@@ -408,9 +408,11 @@ const TV = () => {
               </div>
 
               {/* Center Frame (Main Video) */}
-              <div className={`h-full relative rounded-lg overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${
-                isPlaying ? "flex-1" : "flex-1"
-              }`}>
+              <div
+                className={`h-full relative rounded-lg overflow-hidden cursor-pointer transition-all duration-500 ease-in-out ${
+                  isPlaying ? "flex-1" : "flex-1"
+                }`}
+              >
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover"
@@ -1419,7 +1421,18 @@ const TV = () => {
                     1 week ago
                   </div>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg text-text-dark text-base font-normal" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif', height: '24px', paddingLeft: '8px', paddingRight: '8px', paddingTop: '4px', paddingBottom: '4px' }}>
+                <button
+                  className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg text-text-dark text-base font-normal"
+                  style={{
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                    height: "24px",
+                    paddingLeft: "8px",
+                    paddingRight: "8px",
+                    paddingTop: "4px",
+                    paddingBottom: "4px",
+                  }}
+                >
                   Follow
                 </button>
               </div>
@@ -1520,7 +1533,13 @@ const TV = () => {
 
           {/* Bottom Actions */}
           <div className="flex items-center justify-end gap-3 flex-wrap">
-            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
+            <button
+              className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors"
+              style={{
+                fontFamily:
+                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+              }}
+            >
               <Share2
                 size={16}
                 className="text-text-primary"
@@ -1542,7 +1561,10 @@ const TV = () => {
                   ? "bg-red-500 border-red-500 text-white"
                   : "bg-brand-primary border-brand-primary text-brand-text hover:bg-opacity-90"
               }`}
-              style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}
+              style={{
+                fontFamily:
+                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+              }}
             >
               <Heart
                 size={16}
@@ -1554,7 +1576,10 @@ const TV = () => {
             <button
               onClick={handleCommentsClick}
               className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors"
-              style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}
+              style={{
+                fontFamily:
+                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+              }}
             >
               <MessageCircle
                 size={16}
@@ -1562,7 +1587,13 @@ const TV = () => {
                 strokeWidth={1.6}
               />
             </button>
-            <button className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal hover:bg-opacity-90 transition-colors" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
+            <button
+              className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal hover:bg-opacity-90 transition-colors"
+              style={{
+                fontFamily:
+                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+              }}
+            >
               <svg
                 className="w-4 h-4"
                 viewBox="0 0 16 16"
@@ -1619,7 +1650,18 @@ const TV = () => {
                     1 week ago
                   </div>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg text-text-dark text-base font-normal" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif', height: '24px', paddingLeft: '8px', paddingRight: '8px', paddingTop: '4px', paddingBottom: '4px' }}>
+                <button
+                  className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg text-text-dark text-base font-normal"
+                  style={{
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                    height: "24px",
+                    paddingLeft: "8px",
+                    paddingRight: "8px",
+                    paddingTop: "4px",
+                    paddingBottom: "4px",
+                  }}
+                >
                   Follow
                 </button>
               </div>
