@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X, Plus, Camera, ArrowUp } from "lucide-react";
+import { X, Plus, Camera, ArrowUp, ChevronDown } from "lucide-react";
 
 interface NewSetModalProps {
   isOpen: boolean;
@@ -51,204 +51,242 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-app-bg rounded-2xl p-6 w-[1116px] h-[920px] flex flex-col gap-10">
+      <div 
+        className="flex flex-col w-[1116px] h-[920px] p-6 gap-10 rounded-2xl"
+        style={{ backgroundColor: "#171717" }}
+      >
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <h2
-            className="text-text-primary text-xl font-normal leading-6"
-            style={{
-              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+        <div className="flex items-center gap-2.5 w-full">
+          <h2 
+            className="flex-1 text-xl font-normal leading-6"
+            style={{ 
+              color: "rgba(243, 243, 243, 1)",
+              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
             }}
           >
             Create set
           </h2>
-          <button
-            onClick={onClose}
-            className="flex items-center justify-center w-12 h-12 bg-brand-primary border border-brand-primary rounded-lg hover:bg-opacity-90 transition-colors"
-          >
-            <X size={16} className="text-text-primary" strokeWidth={1.6} />
-          </button>
+          <div className="flex justify-end items-center gap-3 flex-1">
+            <button
+              onClick={onClose}
+              className="flex items-center justify-center p-3 gap-2 rounded-lg border border-brand-primary bg-brand-primary hover:bg-opacity-90 transition-colors"
+            >
+              <X size={16} className="text-text-primary" strokeWidth={1.6} />
+            </button>
+          </div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 flex gap-12">
-          {/* Left Side - Form */}
-          <div className="flex-1 flex flex-col gap-6">
-            {/* Name Field */}
-            <div className="flex flex-col gap-2">
-              <label
-                className="text-text-primary text-base font-normal leading-6"
-                style={{
-                  fontFamily:
-                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                }}
-              >
-                Name your set
-              </label>
-              <input
-                type="text"
-                placeholder="Enter a set name"
-                value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
-                className="flex items-center min-w-[240px] px-4 py-3 rounded-lg bg-nav-bg border-0 text-text-secondary text-base font-normal outline-none focus:ring-2 focus:ring-brand-primary"
-                style={{
-                  fontFamily:
-                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                }}
-              />
-            </div>
-
-            {/* Ambient Sound Field */}
-            <div className="flex flex-col gap-2">
-              <label
-                className="text-text-primary text-base font-normal leading-6"
-                style={{
-                  fontFamily:
-                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                }}
-              >
-                Ambient sound
-              </label>
-              <div className="relative">
-                <select
-                  value={formData.ambientSound}
-                  onChange={(e) =>
-                    handleInputChange("ambientSound", e.target.value)
-                  }
-                  className="flex items-center min-w-[240px] px-4 py-3 rounded-lg bg-nav-bg border-0 text-text-secondary text-base font-normal outline-none focus:ring-2 focus:ring-brand-primary appearance-none w-full pr-10"
-                  style={{
-                    fontFamily:
-                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+        <div className="flex flex-col flex-1 w-full">
+          <div className="flex justify-center items-start gap-12 flex-1 w-full">
+            {/* Left Side - Form */}
+            <div className="flex flex-col gap-6 flex-1">
+              {/* Name Field */}
+              <div className="flex flex-col gap-2 w-full">
+                <label 
+                  className="text-base font-normal leading-6 w-full"
+                  style={{ 
+                    color: "rgba(243, 243, 243, 1)",
+                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
                   }}
                 >
-                  <option value="">Select an ambient sound</option>
-                  <option value="city-traffic">City Traffic</option>
-                  <option value="ocean-waves">Ocean Waves</option>
-                  <option value="forest-birds">Forest Birds</option>
-                  <option value="rain">Rain</option>
-                  <option value="wind">Wind</option>
-                  <option value="cafe-chatter">Cafe Chatter</option>
-                  <option value="campfire">Campfire</option>
-                  <option value="none">None / Silence</option>
-                </select>
-                <svg
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-primary pointer-events-none"
-                  viewBox="0 0 16 16"
-                  fill="none"
+                  Name your set
+                </label>
+                <div 
+                  className="flex items-center min-w-[240px] px-4 py-3 w-full rounded-lg"
+                  style={{ backgroundColor: "#232424" }}
                 >
-                  <path
-                    d="M4 6L8 10L12 6"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <input
+                    type="text"
+                    placeholder="Enter a set name"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                    className="flex-1 bg-transparent border-0 outline-none text-base font-normal leading-4"
+                    style={{ 
+                      color: "rgba(179, 179, 179, 1)",
+                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    }}
                   />
-                </svg>
-              </div>
-            </div>
-
-            {/* Environment Description Field */}
-            <div className="flex flex-col gap-2">
-              <label
-                className="text-text-primary text-base font-normal leading-6"
-                style={{
-                  fontFamily:
-                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                }}
-              >
-                Upload photo or describe environment
-              </label>
-              <div className="flex flex-col gap-2 p-2 rounded-2xl bg-black bg-opacity-50">
-                <textarea
-                  placeholder="A misty cliffside at dawn, overlooking a vast ocean. Jagged rocks frame the horizon, waves crash below, and a lone lighthouse blinks in the distance. The atmosphere is quiet, eerie, and poetic, perfect for a reflective or suspenseful scene."
-                  value={formData.description}
-                  onChange={(e) =>
-                    handleInputChange("description", e.target.value)
-                  }
-                  className="flex items-start min-w-[240px] min-h-[189px] px-4 py-3 rounded-lg bg-nav-bg border-0 text-text-secondary text-base font-normal outline-none focus:ring-2 focus:ring-brand-primary resize-none flex-1"
-                  style={{
-                    fontFamily:
-                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                    lineHeight: "140%",
-                  }}
-                />
-                <div className="flex justify-between items-end">
-                  <div className="flex items-center gap-1.5">
-                    <button className="flex items-center justify-center p-2 rounded-lg hover:bg-brand-primary transition-colors">
-                      <Plus
-                        size={16}
-                        className="text-text-primary"
-                        strokeWidth={1.6}
-                      />
-                    </button>
-                    <button className="flex items-center justify-center p-2 rounded-lg bg-black bg-opacity-10 backdrop-blur-sm hover:bg-opacity-20 transition-colors">
-                      <Camera
-                        size={16}
-                        className="text-text-primary"
-                        strokeWidth={1.6}
-                      />
-                    </button>
-                  </div>
-                  <button className="flex items-center justify-center p-2 rounded-lg hover:bg-brand-primary transition-colors">
-                    <ArrowUp
-                      size={16}
-                      className="text-text-primary"
-                      strokeWidth={1.6}
-                    />
-                  </button>
                 </div>
               </div>
+
+              {/* Ambient Sound Field */}
+              <div className="flex flex-col gap-2.5 w-full">
+                <div className="flex flex-col gap-2 w-full">
+                  <label 
+                    className="text-base font-normal leading-6 w-full"
+                    style={{ 
+                      color: "rgba(243, 243, 243, 1)",
+                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    }}
+                  >
+                    Ambient sound
+                  </label>
+                  <div 
+                    className="flex items-center min-w-[240px] px-4 py-3 w-full rounded-lg relative"
+                    style={{ backgroundColor: "#232424" }}
+                  >
+                    <select
+                      value={formData.ambientSound}
+                      onChange={(e) => handleInputChange("ambientSound", e.target.value)}
+                      className="flex-1 bg-transparent border-0 outline-none text-base font-normal leading-4 appearance-none pr-6"
+                      style={{ 
+                        color: "rgba(179, 179, 179, 1)",
+                        fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                      }}
+                    >
+                      <option value="">Select an ambient sound</option>
+                      <option value="city-traffic">City Traffic</option>
+                      <option value="ocean-waves">Ocean Waves</option>
+                      <option value="forest-birds">Forest Birds</option>
+                      <option value="rain">Rain</option>
+                      <option value="wind">Wind</option>
+                      <option value="cafe-chatter">Cafe Chatter</option>
+                      <option value="campfire">Campfire</option>
+                      <option value="none">None / Silence</option>
+                    </select>
+                  </div>
+                </div>
+                <ChevronDown 
+                  size={16} 
+                  className="relative -mt-8 ml-auto mr-4 pointer-events-none"
+                  style={{ color: "#F3F3F3" }}
+                  strokeWidth={1.6}
+                />
+              </div>
+
+              {/* Environment Description Field */}
+              <div className="flex flex-col gap-2 w-full">
+                <label 
+                  className="text-base font-normal leading-6"
+                  style={{ 
+                    color: "rgba(243, 243, 243, 1)",
+                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                  }}
+                >
+                  Upload photo or describe environment
+                </label>
+                <div 
+                  className="flex flex-col p-2 gap-2.5 w-full rounded-2xl"
+                  style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                >
+                  <div className="flex flex-col h-[189px] gap-2 w-full">
+                    <div 
+                      className="flex flex-col min-w-[240px] min-h-[80px] px-4 py-3 flex-1 w-full rounded-lg"
+                      style={{ backgroundColor: "#232424" }}
+                    >
+                      <textarea
+                        placeholder="A misty cliffside at dawn, overlooking a vast ocean. Jagged rocks frame the horizon, waves crash below, and a lone lighthouse blinks in the distance. The atmosphere is quiet, eerie, and poetic, perfect for a reflective or suspenseful scene."
+                        value={formData.description}
+                        onChange={(e) => handleInputChange("description", e.target.value)}
+                        className="flex-1 w-full bg-transparent border-0 outline-none resize-none text-base font-normal leading-6"
+                        style={{ 
+                          color: "rgba(179, 179, 179, 1)",
+                          fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                        }}
+                      />
+                      <div className="flex justify-between items-end flex-1 w-full">
+                        <div className="flex items-center gap-1.5 w-[374px]">
+                          <button className="flex items-center justify-center p-2 gap-2 rounded-lg hover:bg-brand-primary transition-colors">
+                            <Plus size={16} strokeWidth={1.6} style={{ color: "#F3F3F3" }} />
+                          </button>
+                          <button 
+                            className="flex items-center justify-center p-2 gap-2 rounded-lg"
+                            style={{ 
+                              background: "rgba(0, 0, 0, 0.10)", 
+                              backdropFilter: "blur(2px)" 
+                            }}
+                          >
+                            <Camera size={16} strokeWidth={1.6} style={{ color: "#F5F5F5" }} />
+                          </button>
+                        </div>
+                        <button className="flex items-center justify-center p-2 gap-2 rounded-lg hover:bg-brand-primary transition-colors">
+                          <ArrowUp size={16} strokeWidth={1.6} style={{ color: "#F3F3F3" }} />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Generate Button */}
+              <button
+                onClick={handleGenerateSet}
+                className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90"
+                style={{ 
+                  borderColor: "rgba(118, 118, 118, 1)",
+                  backgroundColor: "rgba(227, 227, 227, 1)",
+                  color: "rgba(30, 30, 30, 1)",
+                  fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  lineHeight: "16px"
+                }}
+              >
+                Bring set to life!
+              </button>
             </div>
 
-            {/* Generate Button */}
-            <button
-              onClick={handleGenerateSet}
-              className="flex items-center justify-center gap-2 px-3 py-3 border border-border-neutral rounded-lg bg-surface-neutral text-text-dark text-base font-normal hover:bg-opacity-90 transition-colors"
-              style={{
-                fontFamily:
-                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-              }}
+            {/* Right Side - Preview */}
+            <div 
+              className="flex flex-col justify-center items-center h-[565px] flex-1 rounded-2xl"
+              style={{ backgroundColor: "#232424" }}
             >
-              Bring set to life!
-            </button>
-          </div>
-
-          {/* Right Side - Preview */}
-          <div className="flex-1 flex flex-col justify-center items-center bg-nav-bg rounded-2xl">
-            {isGenerating ? (
-              <div className="flex flex-col items-center gap-4">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-text-primary"></div>
-                <span className="text-text-primary text-base">
-                  Generating set...
-                </span>
-              </div>
-            ) : (
-              <div className="flex flex-col items-center gap-2 w-36">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  <path
-                    d="M10 42H38C40.2091 42 42 40.2091 42 38V10C42 7.79086 40.2091 6 38 6H10C7.79086 6 6 7.79086 6 10V38C6 40.2091 7.79086 42 10 42ZM10 42L32 20L42 30M20 17C20 18.6569 18.6569 20 17 20C15.3431 20 14 18.6569 14 17C14 15.3431 15.3431 14 17 14C18.6569 14 20 15.3431 20 17Z"
-                    stroke="#B3B3B3"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="text-text-secondary text-base text-center leading-6">
-                  Preview goes here
-                </span>
-              </div>
-            )}
+              {isGenerating ? (
+                <div className="flex flex-col items-center gap-4">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-text-primary"></div>
+                  <span className="text-text-primary text-base">
+                    Generating set...
+                  </span>
+                </div>
+              ) : (
+                <div 
+                  className="flex flex-col items-center gap-2 absolute"
+                  style={{ 
+                    width: "144px", 
+                    height: "78px", 
+                    left: "183px", 
+                    top: "244px" 
+                  }}
+                >
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <path
+                      d="M10 42H38C40.2091 42 42 40.2091 42 38V10C42 7.79086 40.2091 6 38 6H10C7.79086 6 6 7.79086 6 10V38C6 40.2091 7.79086 42 10 42ZM10 42L32 20L42 30M20 17C20 18.6569 18.6569 20 17 20C15.3431 20 14 18.6569 14 17C14 15.3431 15.3431 14 17 14C18.6569 14 20 15.3431 20 17Z"
+                      stroke="#B3B3B3"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div 
+                    className="text-center text-base font-normal leading-6 w-full"
+                    style={{ 
+                      color: "rgba(179, 179, 179, 1)",
+                      fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                    }}
+                  >
+                    Preview goes here
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end gap-3">
+        <div className="flex justify-end items-center gap-3 w-full">
           <button
             onClick={handleSubmit}
             disabled={!formData.name.trim()}
-            className="flex items-center justify-center gap-2 px-3 py-3 border border-border-neutral rounded-lg bg-surface-neutral text-text-dark text-base font-normal hover:bg-opacity-90 transition-colors disabled:opacity-50"
-            style={{
+            className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 disabled:opacity-50"
+            style={{ 
+              borderColor: "rgba(118, 118, 118, 1)",
+              backgroundColor: "rgba(227, 227, 227, 1)",
+              color: "rgba(30, 30, 30, 1)",
               fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+              fontSize: "16px",
+              fontWeight: "400",
+              lineHeight: "16px"
             }}
           >
             Create set
