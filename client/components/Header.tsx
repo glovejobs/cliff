@@ -20,6 +20,8 @@ interface HeaderProps {
     | "characters"
     | "sets"
     | "community";
+  onNewSetClick?: () => void;
+  onNewCharacterClick?: () => void;
 }
 
 const Header = ({ currentPage = "explore" }: HeaderProps) => {
