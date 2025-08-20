@@ -71,16 +71,6 @@ const Header = ({ currentPage = "explore" }: HeaderProps) => {
 
         {/* Action Buttons and Avatar */}
         <div className="flex items-center gap-3">
-          {/* Share your story button */}
-          <button
-            className="flex items-center justify-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal transition-colors hover:bg-opacity-90"
-            style={{
-              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-            }}
-          >
-            Share your story
-          </button>
-
           {/* New scene button */}
           <button
             ref={buttonRef}
