@@ -101,7 +101,7 @@ const Header = ({
                 strokeLinejoin="round"
               />
             </svg>
-            New scene
+            {currentPage === "sets" ? "New set" : currentPage === "characters" ? "New character" : "New scene"}
           </button>
 
           {/* User Avatar */}
