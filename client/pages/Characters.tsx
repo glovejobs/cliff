@@ -202,6 +202,24 @@ const Characters = () => {
                       image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
                       name="David Burton"
                     />
+                    <div className="opacity-30 pointer-events-none">
+                      <CharacterCard
+                        image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
+                        name="David Burton"
+                      />
+                    </div>
+                    <div className="opacity-30 pointer-events-none">
+                      <CharacterCard
+                        image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
+                        name="David Burton"
+                      />
+                    </div>
+                    <div className="opacity-30 pointer-events-none">
+                      <CharacterCard
+                        image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
+                        name="David Burton"
+                      />
+                    </div>
                   </div>
                 </div>
 
