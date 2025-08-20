@@ -118,7 +118,7 @@ const Characters = () => {
             {/* Action Buttons and Avatar */}
             <div className="flex items-center gap-3">
               {/* New character button */}
-              <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 py-3 text-text-dark text-base font-normal transition-colors hover:bg-opacity-90">
+              <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal transition-colors hover:bg-opacity-90" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
                 <Plus size={16} className="text-text-dark" strokeWidth={1.6} />
                 New character
               </button>
