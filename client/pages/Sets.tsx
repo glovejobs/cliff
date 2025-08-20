@@ -175,6 +175,13 @@ const Sets = () => {
           </div>
         </ScrollableContainer>
       </main>
+
+      {/* New Set Modal */}
+      <NewSetModal
+        isOpen={showNewSetModal}
+        onClose={handleCloseModal}
+        onCreateSet={handleCreateSet}
+      />
     </div>
   );
 };
