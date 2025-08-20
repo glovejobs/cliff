@@ -167,6 +167,7 @@ const Characters = () => {
             <div className="flex items-center gap-3">
               {/* New character button */}
               <button
+                onClick={handleNewCharacterClick}
                 className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal transition-colors hover:bg-opacity-90"
                 style={{
                   fontFamily:
