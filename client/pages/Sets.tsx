@@ -52,10 +52,13 @@ const Sets = () => {
 
                   {/* Sahara Desert set card */}
                   <div className="flex w-[265px] h-[200px] relative rounded-2xl bg-nav-bg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group">
-                    <img 
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/7eb9c7eba5885e8b0ae8af18246deceb74c22e6f?width=530" 
+                    <img
+                      src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=530&h=200&fit=crop&crop=center"
                       alt="Sahara Desert"
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = "https://via.placeholder.com/530x200/2a2a2a/ffffff?text=Sahara+Desert";
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                     <div className="absolute bottom-3 left-3 right-3">
