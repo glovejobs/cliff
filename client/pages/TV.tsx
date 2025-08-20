@@ -63,7 +63,7 @@ const TV = () => {
       thumbnail:
         "https://api.builder.io/api/v1/image/assets/TEMP/1e810018ba559b80ef3bd7b4264ac0910600e3d3?width=228",
       prompt:
-        "Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence‑boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.",
+        "Create a fresh, uplifting ad for 'Nada' — a gentle, minimalist skincare line that celebrates natural beauty. Highlight its clean ingredients, hydrating feel, and confidence���boosting results. Use warm, soft visuals and an inspiring, feel‑good tone.",
       views: "5.6k",
       year: "2025",
     },
@@ -1419,7 +1419,7 @@ const TV = () => {
                     1 week ago
                   </div>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg text-text-dark text-base font-normal" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif', height: '24px', paddingLeft: '8px', paddingRight: '8px', paddingTop: '4px', paddingBottom: '4px' }}>
                   Follow
                 </button>
               </div>
@@ -1619,7 +1619,7 @@ const TV = () => {
                     1 week ago
                   </div>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg text-text-dark text-base font-normal" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif', height: '24px', paddingLeft: '8px', paddingRight: '8px', paddingTop: '4px', paddingBottom: '4px' }}>
                   Follow
                 </button>
               </div>
