@@ -90,10 +90,13 @@ const Sets = () => {
                     "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=426&h=200&fit=crop&crop=center"
                   ].map((src, index) => (
                     <div key={index} className="flex h-[200px] min-w-[194.4px] max-w-[265px] relative rounded-2xl bg-nav-bg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group flex-1">
-                      <img 
+                      <img
                         src={src}
                         alt={`Community set ${index + 1}`}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = `https://via.placeholder.com/400x200/2a2a2a/ffffff?text=Set+${index + 1}`;
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                       <div className="absolute bottom-3 right-3">
