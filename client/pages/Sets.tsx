@@ -5,6 +5,20 @@ import NewSetModal from "../components/NewSetModal";
 import { ScrollableContainer } from "../components/ui/scrollable-container";
 
 const Sets = () => {
+  const [showNewSetModal, setShowNewSetModal] = useState(false);
+
+  const handleNewSetClick = () => {
+    setShowNewSetModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowNewSetModal(false);
+  };
+
+  const handleCreateSet = (setData: any) => {
+    console.log("Creating set:", setData);
+    // Handle set creation logic here
+  };
   return (
     <div className="min-h-screen bg-app-bg relative">
       {/* Sidebar */}
