@@ -35,7 +35,13 @@ const Header = ({
   const [searchQuery, setSearchQuery] = useState("");
   const buttonRef = useRef<HTMLButtonElement>(null);
   const handleNewSceneClick = () => {
-    setShowPromptModal(true);
+    if (currentPage === "sets" && onNewSetClick) {
+      onNewSetClick();
+    } else if (currentPage === "characters" && onNewCharacterClick) {
+      onNewCharacterClick();
+    } else {
+      setShowPromptModal(true);
+    }
   };
 
   const handleCloseModal = () => {
