@@ -10,6 +10,7 @@ interface CharacterCardProps {
   name?: string;
   likes?: number;
   isNewCharacter?: boolean;
+  onClick?: () => void;
 }
 
 const CharacterCard = ({
