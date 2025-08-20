@@ -60,7 +60,10 @@ const Sets = () => {
                   </h2>
                   <div className="flex items-start gap-6 w-full">
                     {/* New set card */}
-                    <div className="flex w-[194px] h-[200px] p-[85px_0] flex-col justify-center items-center gap-3 rounded-2xl bg-nav-bg cursor-pointer hover:bg-opacity-80 transition-colors">
+                    <div
+                      onClick={handleNewSetClick}
+                      className="flex w-[194px] h-[200px] p-[85px_0] flex-col justify-center items-center gap-3 rounded-2xl bg-nav-bg cursor-pointer hover:bg-opacity-80 transition-colors"
+                    >
                       <svg
                         width="24"
                         height="24"
