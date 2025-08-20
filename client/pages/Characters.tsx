@@ -219,7 +219,7 @@ const Characters = () => {
                     Your characters
                   </h2>
                   <div className="flex items-start gap-6 w-full">
-                    <CharacterCard isNewCharacter={true} image="" />
+                    <CharacterCard isNewCharacter={true} image="" onClick={handleNewCharacterClick} />
                     <CharacterCard
                       image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
                       name="David Burton"
