@@ -1419,7 +1419,7 @@ const TV = () => {
                     1 week ago
                   </div>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-2 py-1 text-text-dark text-xs font-medium">
+                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
                   Follow
                 </button>
               </div>
@@ -1619,7 +1619,7 @@ const TV = () => {
                     1 week ago
                   </div>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-2 py-1 text-text-dark text-xs font-medium">
+                <button className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
                   Follow
                 </button>
               </div>
