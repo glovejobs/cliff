@@ -24,7 +24,11 @@ interface HeaderProps {
   onNewCharacterClick?: () => void;
 }
 
-const Header = ({ currentPage = "explore" }: HeaderProps) => {
+const Header = ({
+  currentPage = "explore",
+  onNewSetClick,
+  onNewCharacterClick
+}: HeaderProps) => {
   const [showPromptModal, setShowPromptModal] = useState(false);
   const [showCharacterModal, setShowCharacterModal] = useState(false);
   const [promptText, setPromptText] = useState("");
