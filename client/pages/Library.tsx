@@ -87,12 +87,12 @@ const MediaCard = ({ title, subtitle, description, backgroundImage, posterImage,
               </span>
             </div>
             
-            <button className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-2 py-2 text-text-dark text-xs font-medium hover:bg-opacity-90 transition-colors">
+            <button className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal hover:bg-opacity-90 transition-colors" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
               <Play size={16} className="text-text-dark" strokeWidth={1.6} />
               Watch video
             </button>
-            
-            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-2 py-2 text-brand-text text-xs font-medium hover:bg-opacity-90 transition-colors">
+
+            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
               <Edit size={16} className="text-text-primary" strokeWidth={1.6} />
               Edit
             </button>
