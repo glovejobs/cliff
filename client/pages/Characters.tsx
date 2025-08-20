@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Plus, Heart } from "lucide-react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
+import NewCharacterModal from "../components/NewCharacterModal";
 import { ScrollableContainer } from "../components/ui/scrollable-container";
 
 interface CharacterCardProps {
