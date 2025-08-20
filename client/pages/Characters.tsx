@@ -268,6 +268,13 @@ const Characters = () => {
           </div>
         </ScrollableContainer>
       </main>
+
+      {/* New Character Modal */}
+      <NewCharacterModal
+        isOpen={showNewCharacterModal}
+        onClose={handleCloseModal}
+        onCreateCharacter={handleCreateCharacter}
+      />
     </div>
   );
 };
