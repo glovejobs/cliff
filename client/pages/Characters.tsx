@@ -13,7 +13,7 @@ interface CharacterCardProps {
 const CharacterCard = ({ image, name, likes, isNewCharacter = false }: CharacterCardProps) => {
   if (isNewCharacter) {
     return (
-      <div className="flex flex-col justify-center items-center w-[194px] py-[85px] gap-3 rounded-2xl bg-nav-bg cursor-pointer hover:bg-opacity-80 transition-colors">
+      <div className="flex flex-col justify-center items-center h-[268px] min-w-[194.4px] max-w-[265px] gap-3 rounded-2xl bg-nav-bg cursor-pointer hover:bg-opacity-80 transition-colors flex-1">
         <Plus size={24} className="text-text-primary" strokeWidth={2.5} />
         <span className="text-text-primary text-sm font-normal leading-relaxed text-center">
           New character
@@ -30,7 +30,7 @@ const CharacterCard = ({ image, name, likes, isNewCharacter = false }: Character
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-      
+
       {/* Content */}
       <div className="relative z-10 flex justify-between items-end w-full">
         {name && (
@@ -38,7 +38,7 @@ const CharacterCard = ({ image, name, likes, isNewCharacter = false }: Character
             {name}
           </span>
         )}
-        
+
         {likes !== undefined && (
           <div className="flex items-center gap-1 px-0.5 py-0.5 rounded-lg">
             <Heart size={12} className="text-text-primary" strokeWidth={1.2} />
