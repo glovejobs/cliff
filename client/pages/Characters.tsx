@@ -65,6 +65,20 @@ const CharacterCard = ({
 };
 
 const Characters = () => {
+  const [showNewCharacterModal, setShowNewCharacterModal] = useState(false);
+
+  const handleNewCharacterClick = () => {
+    setShowNewCharacterModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowNewCharacterModal(false);
+  };
+
+  const handleCreateCharacter = (characterData: any) => {
+    console.log("Creating character:", characterData);
+    // Handle character creation logic here
+  };
   const communityCharacters = [
     {
       image:
