@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
+import NewSetModal from "../components/NewSetModal";
 import { ScrollableContainer } from "../components/ui/scrollable-container";
 
 const Sets = () => {
