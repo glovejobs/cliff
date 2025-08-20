@@ -9,6 +9,7 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
   const [showPromptModal, setShowPromptModal] = useState(false);
   const [showCharacterModal, setShowCharacterModal] = useState(false);
   const [promptText, setPromptText] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const buttonRef = useRef<HTMLButtonElement>(null);
   const handleNewSceneClick = () => {
     setShowPromptModal(true);
@@ -37,17 +38,22 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
     <>
       <header className="flex justify-between items-center w-full relative">
         {/* Search Bar */}
-        <div className="flex items-center gap-2 bg-nav-bg rounded-full px-4 py-3 w-[360px]">
-          <span className="text-text-secondary flex-1 text-base font-normal">
-            Search
-          </span>
+        <div className="flex items-center gap-2 bg-nav-bg rounded-lg px-3 h-10 w-[360px]">
           <Search size={16} className="text-text-primary" strokeWidth={1.6} />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search"
+            className="flex-1 bg-transparent text-text-primary text-base font-normal border-none outline-none placeholder:text-text-secondary"
+            style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}
+          />
         </div>
 
         {/* Action Buttons and Avatar */}
         <div className="flex items-center gap-3">
           {/* Share your story button */}
-          <button className="flex items-center justify-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal transition-colors hover:bg-opacity-90">
+          <button className="flex items-center justify-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal transition-colors hover:bg-opacity-90" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
             Share your story
           </button>
 
@@ -55,9 +61,12 @@ const Header = ({ currentPage = 'explore' }: HeaderProps) => {
           <button
             ref={buttonRef}
             onClick={handleNewSceneClick}
-            className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 py-3 text-text-dark text-base font-normal transition-colors hover:bg-opacity-90"
+            className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal transition-colors hover:bg-opacity-90"
+            style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}
           >
-            <Plus size={16} className="text-text-dark" strokeWidth={1.6} />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 5.33333V10.6667M5.33333 8H10.6667M3.33333 2H12.6667C13.403 2 14 2.59695 14 3.33333V12.6667C14 13.403 13.403 14 12.6667 14H3.33333C2.59695 14 2 13.403 2 12.6667V3.33333C2 2.59695 2.59695 2 3.33333 2Z" stroke="#1E1E1E" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
             New scene
           </button>
 
