@@ -204,20 +204,20 @@ const Characters = () => {
                     />
                     <div className="opacity-0 pointer-events-none">
                       <CharacterCard
-                        image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
-                        name="David Burton"
+                        image="https://api.builder.io/api/v1/image/assets/TEMP/b4eb7f80085b73954020840c94ee13c30eb67dd3?width=398"
+                        name="Sarah Chen"
                       />
                     </div>
                     <div className="opacity-0 pointer-events-none">
                       <CharacterCard
-                        image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
-                        name="David Burton"
+                        image="https://api.builder.io/api/v1/image/assets/TEMP/c00b1bbb9b292460f2351cc1a85cfabb8cc441b1?width=398"
+                        name="Marcus Torres"
                       />
                     </div>
                     <div className="opacity-0 pointer-events-none">
                       <CharacterCard
-                        image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
-                        name="David Burton"
+                        image="https://api.builder.io/api/v1/image/assets/TEMP/42b4d4eea6bbb7d4bcd9d47e7d9f2a70baa0f64c?width=398"
+                        name="Emma Rodriguez"
                       />
                     </div>
                   </div>
