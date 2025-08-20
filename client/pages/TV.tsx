@@ -1520,7 +1520,7 @@ const TV = () => {
 
           {/* Bottom Actions */}
           <div className="flex items-center justify-end gap-3 flex-wrap">
-            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors">
+            <button className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
               <Share2
                 size={16}
                 className="text-text-primary"
@@ -1528,7 +1528,7 @@ const TV = () => {
               />
               Share
             </button>
-            <button className="flex items-center justify-center bg-brand-primary border border-brand-primary rounded-lg p-3 hover:bg-opacity-90 transition-colors">
+            <button className="flex items-center justify-center bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 hover:bg-opacity-90 transition-colors">
               <Download
                 size={16}
                 className="text-text-primary"
@@ -1537,11 +1537,12 @@ const TV = () => {
             </button>
             <button
               onClick={handleLikeClick}
-              className={`flex items-center gap-2 border rounded-lg px-3 py-3 text-base font-normal transition-all ${
+              className={`flex items-center gap-2 border rounded-lg px-3 h-10 text-base font-normal transition-all ${
                 isLiked
                   ? "bg-red-500 border-red-500 text-white"
                   : "bg-brand-primary border-brand-primary text-brand-text hover:bg-opacity-90"
               }`}
+              style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}
             >
               <Heart
                 size={16}
@@ -1549,20 +1550,19 @@ const TV = () => {
                 strokeWidth={1.6}
                 fill={isLiked ? "currentColor" : "none"}
               />
-              {videoLikes[currentVideoIndex]}
             </button>
             <button
               onClick={handleCommentsClick}
-              className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 py-3 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors"
+              className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors"
+              style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}
             >
               <MessageCircle
                 size={16}
                 className="text-text-primary"
                 strokeWidth={1.6}
               />
-              1
             </button>
-            <button className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 py-3 text-text-dark text-xs font-medium hover:bg-opacity-90 transition-colors">
+            <button className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal hover:bg-opacity-90 transition-colors" style={{ fontFamily: 'Inter, -apple-system, Roboto, Helvetica, sans-serif' }}>
               <svg
                 className="w-4 h-4"
                 viewBox="0 0 16 16"
