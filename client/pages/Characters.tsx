@@ -140,54 +140,7 @@ const Characters = () => {
       {/* Fixed Header */}
       <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg px-6">
         <div className="max-w-[1320px] mx-auto pt-6 pb-4">
-          <div className="flex justify-between items-center w-full">
-            {/* Search Bar */}
-            <div className="flex items-center gap-2 bg-nav-bg rounded-full px-4 py-3 w-[360px]">
-              <span className="text-text-secondary flex-1 text-base font-normal">
-                Search
-              </span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14 14L11.1 11.1M12.6667 7.33333C12.6667 10.2789 10.2789 12.6667 7.33333 12.6667C4.38781 12.6667 2 10.2789 2 7.33333C2 4.38781 4.38781 2 7.33333 2C10.2789 2 12.6667 4.38781 12.6667 7.33333Z"
-                  stroke="#F3F3F3"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            {/* Action Buttons and Avatar */}
-            <div className="flex items-center gap-3">
-              {/* New character button */}
-              <button
-                onClick={handleNewCharacterClick}
-                className="flex items-center justify-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal transition-colors hover:bg-opacity-90"
-                style={{
-                  fontFamily:
-                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                }}
-              >
-                <Plus size={16} className="text-text-dark" strokeWidth={1.6} />
-                New character
-              </button>
-
-              {/* User Avatar */}
-              <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/9e1049624f15a39f810df66dbfc884a730489857?width=80"
-                  alt="User avatar"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
+          <Header currentPage="characters" onNewCharacterClick={handleNewCharacterClick} />
         </div>
       </div>
 

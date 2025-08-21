@@ -2,6 +2,8 @@ import { Tv, Layers, Image, Globe, User, MapPin } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ScrollableContainer } from '../components/ui/scrollable-container';
 
+// Updated sidebar alignment and navigation states
+
 const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
   const location = useLocation();
   
@@ -11,9 +13,19 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
     const path = location.pathname;
     if (path === '/tv') return 'tv';
     if (path === '/library') return 'library';
-    if (path === '/community') return 'community';
+    if (path === '/community' || path.startsWith('/community/')) return 'community';
     if (path === '/') return 'explore';
     return 'explore';
+  };
+  
+  const getCurrentCommunityRoom = () => {
+    const path = location.pathname;
+    if (path === '/community/general') return 'general';
+    if (path === '/community/announcements') return 'announcements';
+    if (path === '/community/rules') return 'rules';
+    if (path === '/community/create') return 'create';
+    if (path === '/community') return 'general'; // Default to general
+    return 'general';
   };
   
   const currentActiveItem = getActiveItem();
@@ -37,7 +49,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-[252px] bg-transparent flex flex-col py-3 px-6 z-50">
+    <aside className="fixed left-0 top-0 h-full w-[252px] bg-transparent flex flex-col py-7 px-6 z-50">
       {/* Logo */}
       <div className="flex items-center gap-2 mb-10">
         <div className="flex items-center justify-center w-10 h-10 bg-white rounded-full">
@@ -113,17 +125,24 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
             {/* Thread line */}
             <div className="absolute left-7 top-0 w-0.5 h-[186px] bg-nav-hover"></div>
             
-            {communityItems.map((item) => (
-              <Link
-                key={item.id}
-                to={item.path}
-                className="flex items-center h-[46px] px-4 py-3 rounded-lg transition-all duration-200 hover:bg-nav-hover opacity-30"
-              >
-                <span className="text-text-primary text-base font-normal leading-relaxed flex-1 ml-6">
-                  {item.label}
-                </span>
-              </Link>
-            ))}
+            {communityItems.map((item) => {
+              const isActiveRoom = getCurrentCommunityRoom() === item.id;
+              
+              return (
+                <Link
+                  key={item.id}
+                  to={item.path}
+                  className={`
+                    flex items-center h-[46px] px-4 py-3 rounded-lg transition-all duration-200
+                    ${isActiveRoom ? 'bg-nav-hover opacity-100' : 'opacity-30 hover:bg-nav-hover hover:opacity-100'}
+                  `}
+                >
+                  <span className="text-text-primary text-base font-normal leading-relaxed flex-1 ml-6">
+                    {item.label}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
 
