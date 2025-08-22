@@ -80,9 +80,9 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
           </div>
         </div>
 
-        {/* Content */}
+        {/* Content - 2 Column Layout */}
         <div className="flex justify-center items-stretch gap-12 flex-1 w-full min-h-0">
-          {/* Left Side - Scrollable Form */}
+          {/* Left Column - Forms + Generate Button */}
           <div className="flex flex-col flex-1 min-h-0">
             <div className="flex flex-col gap-3 overflow-y-auto pr-4 scrollbar-none flex-1">
               {/* Name Field */}
@@ -263,7 +263,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                 </div>
               </div>
 
-              {/* Appearance Field with 205px minimum height */}
+              {/* Appearance Field */}
               <div className="flex flex-col gap-1 w-full">
                 <label
                   className="text-base font-normal leading-6"
@@ -336,11 +336,13 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Generate Button - moved to left side as last form element */}
+            {/* Generate Button - At bottom of left column */}
+            <div className="pt-4">
               <button
                 onClick={handleGenerateCharacter}
-                className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start mt-2"
+                className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start"
                 style={{
                   borderColor: "rgba(118, 118, 118, 1)",
                   backgroundColor: "rgba(227, 227, 227, 1)",
@@ -357,7 +359,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
             </div>
           </div>
 
-          {/* Right Side - Preview Only */}
+          {/* Right Column - Preview + Create Button */}
           <div className="flex flex-col flex-1 h-full">
             {/* Preview */}
             <div
@@ -395,27 +397,27 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                 </div>
               )}
             </div>
-          </div>
-        </div>
 
-        {/* Footer */}
-        <div className="flex justify-end items-center gap-3 w-full">
-          <button
-            onClick={handleSubmit}
-            disabled={!formData.name.trim()}
-            className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 disabled:opacity-50"
-            style={{
-              borderColor: "rgba(118, 118, 118, 1)",
-              backgroundColor: "rgba(227, 227, 227, 1)",
-              color: "rgba(30, 30, 30, 1)",
-              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-              fontSize: "16px",
-              fontWeight: "400",
-              lineHeight: "16px",
-            }}
-          >
-            Create character
-          </button>
+            {/* Create Button - At bottom of right column */}
+            <div className="pt-4 flex justify-end">
+              <button
+                onClick={handleSubmit}
+                disabled={!formData.name.trim()}
+                className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 disabled:opacity-50"
+                style={{
+                  borderColor: "rgba(118, 118, 118, 1)",
+                  backgroundColor: "rgba(227, 227, 227, 1)",
+                  color: "rgba(30, 30, 30, 1)",
+                  fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                }}
+              >
+                Create character
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
