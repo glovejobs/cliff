@@ -336,26 +336,26 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Generate Button - At bottom of left column */}
-            <div className="pt-4">
-              <button
-                onClick={handleGenerateCharacter}
-                className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start"
-                style={{
-                  borderColor: "rgba(118, 118, 118, 1)",
-                  backgroundColor: "rgba(227, 227, 227, 1)",
-                  color: "rgba(30, 30, 30, 1)",
-                  fontFamily:
-                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "16px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                }}
-              >
-                Bring me to life!
-              </button>
+              {/* Generate Button - Inside scrollable area at the bottom */}
+              <div className="pt-4">
+                <button
+                  onClick={handleGenerateCharacter}
+                  className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start"
+                  style={{
+                    borderColor: "rgba(118, 118, 118, 1)",
+                    backgroundColor: "rgba(227, 227, 227, 1)",
+                    color: "rgba(30, 30, 30, 1)",
+                    fontFamily:
+                      "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    fontWeight: "400",
+                    lineHeight: "16px",
+                  }}
+                >
+                  Bring me to life!
+                </button>
+              </div>
             </div>
           </div>
 
