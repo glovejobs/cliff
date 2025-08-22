@@ -1150,7 +1150,10 @@ const TV = () => {
                   </svg>
 
                   {/* Navigation Dots - positioned as per user's adjustments */}
-                  <div className="group relative z-20" style={{ marginTop: "-22px" }}>
+                  <div
+                    className="group relative z-20"
+                    style={{ marginTop: "-22px" }}
+                  >
                     <button
                       onClick={handlePrevVideo}
                       className="absolute left-[8.5px] w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
@@ -1166,7 +1169,10 @@ const TV = () => {
                     </div>
                   </div>
 
-                  <div className="group relative z-20" style={{ marginTop: "-22px" }}>
+                  <div
+                    className="group relative z-20"
+                    style={{ marginTop: "-22px" }}
+                  >
                     <button
                       onClick={handleNextVideo}
                       className="absolute w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
