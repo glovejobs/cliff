@@ -234,10 +234,8 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Generate Button - Same spacing as other form elements */}
-            <div>
+              {/* Generate Button - Same spacing as other form elements */}
               <button
                 onClick={handleGenerateSet}
                 className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start"
