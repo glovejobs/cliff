@@ -301,7 +301,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                           color: "rgba(179, 179, 179, 1)",
                           fontFamily:
                             "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                          minHeight: "160px"
+                          minHeight: "200px"
                         }}
                       />
                       <div className="flex justify-between items-end mt-auto w-full">
