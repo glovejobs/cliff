@@ -378,7 +378,7 @@ const TV = () => {
       >
         <div className="flex flex-col h-full w-full max-w-[1320px]">
           {/* Video Player Content */}
-          <div className="flex-1 flex flex-col gap-3 min-h-0">
+          <div className="flex-1 flex flex-col gap-6 min-h-0">
             {/* Video Player Area */}
             <div className="flex items-center gap-3 flex-1 w-full min-h-0 relative z-10">
               {/* Left Frame (Previous) */}
@@ -479,7 +479,7 @@ const TV = () => {
             {/* Controls Section - Enhanced Remote Design */}
             <div
               className="flex items-center justify-center gap-4 flex-shrink-0 w-full relative z-50"
-              style={{ margin: "-63px 0 45px" }}
+              style={{ margin: "-0 0 28px" }}
             >
               {/* Enhanced Remote Control */}
               <div
@@ -989,9 +989,9 @@ const TV = () => {
                 </div>
 
                 {/* Enhanced Center Display */}
-                <div className="relative w-[200px] h-[200px]">
+                <div className="relative w-[150px] h-[150px]">
                   {/* Inner Content Circle - moved before SVG */}
-                  <div className="w-[200px] h-[200px] rounded-full absolute left-0 top-0 overflow-hidden flex">
+                  <div className="w-[150px] h-[150px] rounded-full absolute left-0 top-0 overflow-hidden flex">
                     {/* Image Background */}
                     <img
                       src={videos[framePositions.center].thumbnail}
@@ -1039,8 +1039,8 @@ const TV = () => {
 
                   {/* Outer Ring with Exact Figma Styling */}
                   <svg
-                    width="200"
-                    height="200"
+                    width="150"
+                    height="150"
                     viewBox="0 0 135 135"
                     fill="none"
                     className="absolute inset-0"
