@@ -282,7 +282,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   className="flex flex-col p-2 gap-2.5 w-full rounded-2xl"
                   style={{
                     backgroundColor: "rgba(0, 0, 0, 0.5)",
-                    minHeight: "250px"
+                    minHeight: "300px"
                   }}
                 >
                   <div className="flex flex-col gap-2 w-full flex-1">
