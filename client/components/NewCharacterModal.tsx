@@ -85,8 +85,8 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
           {/* Left Side - Scrollable Form */}
           <div className="flex flex-col flex-1 min-h-0 max-h-full overflow-hidden">
             <div
-              className="flex flex-col gap-4 overflow-y-auto pr-4 scrollbar-none flex-1"
-              style={{ maxHeight: "calc(80vh - 160px)" }}
+              className="flex flex-col gap-3 overflow-y-auto pr-4 scrollbar-none flex-1"
+              style={{ maxHeight: "calc(80vh - 140px)" }}
             >
               {/* Name Field */}
               <div className="flex flex-col gap-1 w-full">
