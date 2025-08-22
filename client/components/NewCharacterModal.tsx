@@ -339,10 +339,10 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
           </div>
 
           {/* Right Side - Preview and CTA */}
-          <div className="flex flex-col flex-1">
+          <div className="flex flex-col flex-1 h-full">
             {/* Preview */}
             <div
-              className="flex flex-col justify-center items-center h-[565px] rounded-2xl relative"
+              className="flex flex-col justify-center items-center flex-1 rounded-2xl relative"
               style={{ backgroundColor: "#232424" }}
             >
               {isGenerating ? (
