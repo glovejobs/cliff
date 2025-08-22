@@ -220,7 +220,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
               </div>
 
               {/* Description Field */}
-              <div className="flex flex-col gap-1 w-full">
+              <div className="flex flex-col gap-2 w-full">
                 <label
                   className="text-base font-normal leading-6 w-full"
                   style={{
@@ -264,7 +264,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
               </div>
 
               {/* Appearance Field */}
-              <div className="flex flex-col gap-1 w-full">
+              <div className="flex flex-col gap-2 w-full">
                 <label
                   className="text-base font-normal leading-6"
                   style={{
