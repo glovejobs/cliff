@@ -246,7 +246,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                       color: "rgba(179, 179, 179, 1)",
                       fontFamily:
                         "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                      minHeight: "130px"
+                      minHeight: "130px",
                     }}
                   />
                 </div>
@@ -279,7 +279,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   className="flex flex-col p-2 gap-2.5 w-full rounded-2xl"
                   style={{
                     backgroundColor: "rgba(0, 0, 0, 0.5)",
-                    minHeight: "300px"
+                    minHeight: "300px",
                   }}
                 >
                   <div className="flex flex-col gap-2 w-full flex-1">
@@ -298,7 +298,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                           color: "rgba(179, 179, 179, 1)",
                           fontFamily:
                             "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                          minHeight: "200px"
+                          minHeight: "200px",
                         }}
                       />
                       <div className="flex justify-between items-end mt-auto w-full">
