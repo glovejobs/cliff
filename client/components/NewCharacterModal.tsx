@@ -86,7 +86,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
           <div className="flex flex-col flex-1 min-h-0">
             <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-none flex-1">
               {/* Name Field */}
-              <div className="flex flex-col gap-1 w-full">
+              <div className="flex flex-col gap-2 w-full">
                 <label
                   className="text-base font-normal leading-6 w-full"
                   style={{
