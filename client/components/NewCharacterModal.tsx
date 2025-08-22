@@ -56,7 +56,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div
-        className="w-[1116px] h-[80vh] p-6 flex flex-col gap-10 rounded-2xl"
+        className="w-[1116px] h-[80vh] p-6 flex flex-col gap-10 rounded-2xl overflow-hidden"
         style={{ backgroundColor: "#171717" }}
       >
         {/* Header */}
