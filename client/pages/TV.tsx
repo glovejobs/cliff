@@ -1150,10 +1150,10 @@ const TV = () => {
                   </svg>
 
                   {/* Navigation Dots - positioned as per user's adjustments */}
-                  <div className="group relative z-20">
+                  <div className="group relative z-20" style={{ marginTop: "-22px" }}>
                     <button
                       onClick={handlePrevVideo}
-                      className="absolute left-[13.5px] w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                      className="absolute left-[8.5px] w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
                       style={{
                         top: "96px",
                         filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
@@ -1166,12 +1166,13 @@ const TV = () => {
                     </div>
                   </div>
 
-                  <div className="group relative z-20">
+                  <div className="group relative z-20" style={{ marginTop: "-22px" }}>
                     <button
                       onClick={handleNextVideo}
-                      className="absolute right-[13.5px] w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
+                      className="absolute w-[4px] h-[4px] bg-white rounded-full shadow-sm hover:bg-gray-200 transition-colors"
                       style={{
                         top: "96px",
+                        left: "138.5px",
                         filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
                         boxShadow:
                           "inset 0 0 1px rgba(163, 163, 163, 0.65), inset 0 0 0.5px rgba(0, 0, 0, 0.25)",
