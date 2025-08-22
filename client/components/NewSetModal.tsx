@@ -80,7 +80,7 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
         <div className="flex justify-center items-stretch gap-12 flex-1 w-full min-h-0">
           {/* Left Column - Forms + Generate Button */}
           <div className="flex flex-col flex-1">
-            <div className="flex flex-col gap-12 flex-1">
+            <div className="flex flex-col gap-6 flex-1">
               {/* Name Field */}
               <div className="flex flex-col gap-2 w-full">
                 <label
@@ -113,7 +113,7 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
               </div>
 
               {/* Ambient Sound Field */}
-              <div className="flex flex-col gap-2.5 w-full">
+              <div className="flex flex-col gap-0 w-full">
                 <div className="flex flex-col gap-2 w-full">
                   <label
                     className="text-base font-normal leading-6 w-full"
@@ -152,17 +152,17 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                       <option value="none">None / Silence</option>
                     </select>
                   </div>
+                  <ChevronDown
+                    size={16}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"
+                    style={{ color: "#F3F3F3" }}
+                    strokeWidth={1.6}
+                  />
                 </div>
-                <ChevronDown
-                  size={16}
-                  className="relative -mt-8 ml-auto mr-4 pointer-events-none"
-                  style={{ color: "#F3F3F3" }}
-                  strokeWidth={1.6}
-                />
               </div>
 
               {/* Environment Description Field - Updated to match appearance field */}
-              <div className="flex flex-col gap-1 w-full">
+              <div className="flex flex-col gap-2 w-full">
                 <label
                   className="text-base font-normal leading-6"
                   style={{
