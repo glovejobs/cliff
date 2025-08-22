@@ -81,10 +81,10 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
         </div>
 
         {/* Content */}
-        <div className="flex justify-center items-start gap-12 flex-1 w-full overflow-hidden">
+        <div className="flex justify-center items-start gap-12 flex-1 w-full min-h-0">
           {/* Left Side - Scrollable Form */}
-          <div className="flex flex-col flex-1 overflow-hidden">
-            <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-none">
+          <div className="flex flex-col flex-1 min-h-0">
+            <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-none h-full">
               {/* Name Field */}
               <div className="flex flex-col gap-2 w-full">
                 <label
