@@ -76,10 +76,10 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
           </div>
         </div>
 
-        {/* Content */}
-        <div className="flex flex-col flex-1 w-full">
-          <div className="flex justify-center items-start gap-12 flex-1 w-full">
-            {/* Left Side - Form */}
+        {/* Content - 2 Column Layout */}
+        <div className="flex justify-center items-stretch gap-12 flex-1 w-full min-h-0">
+          {/* Left Column - Forms + Generate Button */}
+          <div className="flex flex-col flex-1">
             <div className="flex flex-col gap-6 flex-1">
               {/* Name Field */}
               <div className="flex flex-col gap-2 w-full">
@@ -161,8 +161,8 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                 />
               </div>
 
-              {/* Environment Description Field */}
-              <div className="flex flex-col gap-2 w-full">
+              {/* Environment Description Field - Updated to match appearance field */}
+              <div className="flex flex-col gap-1 w-full">
                 <label
                   className="text-base font-normal leading-6"
                   style={{
@@ -175,11 +175,14 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                 </label>
                 <div
                   className="flex flex-col p-2 gap-2.5 w-full rounded-2xl"
-                  style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                  style={{
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    minHeight: "300px",
+                  }}
                 >
-                  <div className="flex flex-col h-[189px] gap-2 w-full">
+                  <div className="flex flex-col gap-2 w-full flex-1">
                     <div
-                      className="flex flex-col min-w-[240px] min-h-[80px] px-4 py-3 flex-1 w-full rounded-lg"
+                      className="flex flex-col min-w-[240px] px-4 py-3 flex-1 w-full rounded-lg"
                       style={{ backgroundColor: "#232424" }}
                     >
                       <textarea
@@ -193,10 +196,11 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                           color: "rgba(179, 179, 179, 1)",
                           fontFamily:
                             "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                          minHeight: "200px",
                         }}
                       />
-                      <div className="flex justify-between items-end flex-1 w-full">
-                        <div className="flex items-center gap-1.5 w-[374px]">
+                      <div className="flex justify-between items-end mt-auto w-full">
+                        <div className="flex items-center gap-1.5">
                           <button className="flex items-center justify-center p-2 gap-2 rounded-lg hover:bg-brand-primary transition-colors">
                             <Plus
                               size={16}
@@ -230,8 +234,10 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Generate Button */}
+            {/* Generate Button - At bottom of left column */}
+            <div className="pt-4">
               <button
                 onClick={handleGenerateSet}
                 className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start"
@@ -249,10 +255,13 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                 Bring set to life!
               </button>
             </div>
+          </div>
 
-            {/* Right Side - Preview */}
+          {/* Right Column - Preview + Create Button */}
+          <div className="flex flex-col flex-1 h-full">
+            {/* Preview */}
             <div
-              className="flex flex-col justify-center items-center h-[565px] flex-1 rounded-2xl relative"
+              className="flex flex-col justify-center items-center flex-1 rounded-2xl relative"
               style={{ backgroundColor: "#232424" }}
             >
               {isGenerating ? (
@@ -286,27 +295,27 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
                 </div>
               )}
             </div>
-          </div>
-        </div>
 
-        {/* Footer */}
-        <div className="flex justify-end items-center gap-3 w-full">
-          <button
-            onClick={handleSubmit}
-            disabled={!formData.name.trim()}
-            className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 disabled:opacity-50"
-            style={{
-              borderColor: "rgba(118, 118, 118, 1)",
-              backgroundColor: "rgba(227, 227, 227, 1)",
-              color: "rgba(30, 30, 30, 1)",
-              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-              fontSize: "16px",
-              fontWeight: "400",
-              lineHeight: "16px",
-            }}
-          >
-            Create set
-          </button>
+            {/* Create Button - At bottom of right column */}
+            <div className="pt-4 flex justify-end">
+              <button
+                onClick={handleSubmit}
+                disabled={!formData.name.trim()}
+                className="flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 disabled:opacity-50"
+                style={{
+                  borderColor: "rgba(118, 118, 118, 1)",
+                  backgroundColor: "rgba(227, 227, 227, 1)",
+                  color: "rgba(30, 30, 30, 1)",
+                  fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                }}
+              >
+                Create set
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
