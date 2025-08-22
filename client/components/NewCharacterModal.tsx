@@ -336,10 +336,28 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   </div>
                 </div>
               </div>
+
+              {/* Generate Button - moved to left side as last form element */}
+              <button
+                onClick={handleGenerateCharacter}
+                className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start mt-2"
+                style={{
+                  borderColor: "rgba(118, 118, 118, 1)",
+                  backgroundColor: "rgba(227, 227, 227, 1)",
+                  color: "rgba(30, 30, 30, 1)",
+                  fontFamily:
+                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                }}
+              >
+                Bring me to life!
+              </button>
             </div>
           </div>
 
-          {/* Right Side - Preview and CTA */}
+          {/* Right Side - Preview Only */}
           <div className="flex flex-col flex-1 h-full">
             {/* Preview */}
             <div
@@ -376,26 +394,6 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   </div>
                 </div>
               )}
-            </div>
-
-            {/* CTA Button with 24px spacing */}
-            <div className="mt-6">
-              <button
-                onClick={handleGenerateCharacter}
-                className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90"
-                style={{
-                  borderColor: "rgba(118, 118, 118, 1)",
-                  backgroundColor: "rgba(227, 227, 227, 1)",
-                  color: "rgba(30, 30, 30, 1)",
-                  fontFamily:
-                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "16px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                }}
-              >
-                Bring me to life!
-              </button>
             </div>
           </div>
         </div>
