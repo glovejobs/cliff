@@ -249,7 +249,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                       color: "rgba(179, 179, 179, 1)",
                       fontFamily:
                         "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                      minHeight: "100px"
+                      minHeight: "130px"
                     }}
                   />
                 </div>
