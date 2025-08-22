@@ -130,7 +130,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
 
               {/* Gender and Voice Row */}
               <div className="flex items-start gap-6 w-full">
-                <div className="flex flex-col gap-2.5 flex-1">
+                <div className="flex flex-col gap-0 flex-1">
                   <div className="flex flex-col gap-2 w-full">
                     <label
                       className="text-base font-normal leading-6 w-full"
@@ -164,14 +164,14 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                         <option value="non-binary">Non-binary</option>
                         <option value="other">Other</option>
                       </select>
+                      <ChevronDown
+                        size={16}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"
+                        style={{ color: "#F3F3F3" }}
+                        strokeWidth={1.6}
+                      />
                     </div>
                   </div>
-                  <ChevronDown
-                    size={16}
-                    className="relative -mt-8 ml-auto mr-4 pointer-events-none"
-                    style={{ color: "#F3F3F3" }}
-                    strokeWidth={1.6}
-                  />
                 </div>
 
                 <div className="flex flex-col gap-2.5 flex-1">
