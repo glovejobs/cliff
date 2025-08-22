@@ -81,10 +81,10 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
         </div>
 
         {/* Content */}
-        <div className="flex flex-col flex-1 w-full">
-          <div className="flex justify-center items-start gap-12 flex-1 w-full">
-            {/* Left Side - Form */}
-            <div className="flex flex-col gap-6 flex-1">
+        <div className="flex justify-center items-start gap-12 flex-1 w-full overflow-hidden">
+          {/* Left Side - Scrollable Form */}
+          <div className="flex flex-col flex-1 overflow-hidden">
+            <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-none">
               {/* Name Field */}
               <div className="flex flex-col gap-2 w-full">
                 <label
@@ -241,7 +241,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                     onChange={(e) =>
                       handleInputChange("description", e.target.value)
                     }
-                    className="flex-1 bg-transparent border-0 outline-none resize-none text-base font-normal leading-6"
+                    className="flex-1 bg-transparent border-0 outline-none resize-none text-base font-normal leading-6 scrollbar-none"
                     style={{
                       color: "rgba(179, 179, 179, 1)",
                       fontFamily:
@@ -262,7 +262,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                 </div>
               </div>
 
-              {/* Appearance Field */}
+              {/* Appearance Field with 205px minimum height */}
               <div className="flex flex-col gap-2 w-full">
                 <label
                   className="text-base font-normal leading-6"
@@ -276,11 +276,14 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                 </label>
                 <div
                   className="flex flex-col p-2 gap-2.5 w-full rounded-2xl"
-                  style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                  style={{ 
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    minHeight: "205px"
+                  }}
                 >
-                  <div className="flex flex-col h-[189px] gap-2 w-full">
+                  <div className="flex flex-col gap-2 w-full flex-1">
                     <div
-                      className="flex flex-col min-w-[240px] min-h-[80px] px-4 py-3 flex-1 w-full rounded-lg"
+                      className="flex flex-col min-w-[240px] px-4 py-3 flex-1 w-full rounded-lg"
                       style={{ backgroundColor: "#232424" }}
                     >
                       <textarea
@@ -294,10 +297,11 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                           color: "rgba(179, 179, 179, 1)",
                           fontFamily:
                             "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                          minHeight: "120px"
                         }}
                       />
-                      <div className="flex justify-between items-end flex-1 w-full">
-                        <div className="flex items-center gap-1.5 w-[374px]">
+                      <div className="flex justify-between items-end mt-auto w-full">
+                        <div className="flex items-center gap-1.5">
                           <button className="flex items-center justify-center p-2 gap-2 rounded-lg hover:bg-brand-primary transition-colors">
                             <Plus
                               size={16}
@@ -331,29 +335,14 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   </div>
                 </div>
               </div>
-
-              {/* Generate Button */}
-              <button
-                onClick={handleGenerateCharacter}
-                className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90 self-start"
-                style={{
-                  borderColor: "rgba(118, 118, 118, 1)",
-                  backgroundColor: "rgba(227, 227, 227, 1)",
-                  color: "rgba(30, 30, 30, 1)",
-                  fontFamily:
-                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "16px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                }}
-              >
-                Bring me to life!
-              </button>
             </div>
+          </div>
 
-            {/* Right Side - Preview */}
+          {/* Right Side - Preview and CTA */}
+          <div className="flex flex-col flex-1">
+            {/* Preview */}
             <div
-              className="flex flex-col justify-center items-center h-[565px] flex-1 rounded-2xl relative"
+              className="flex flex-col justify-center items-center h-[565px] rounded-2xl relative"
               style={{ backgroundColor: "#232424" }}
             >
               {isGenerating ? (
@@ -386,6 +375,26 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   </div>
                 </div>
               )}
+            </div>
+
+            {/* CTA Button with 24px spacing */}
+            <div className="mt-6">
+              <button
+                onClick={handleGenerateCharacter}
+                className="inline-flex items-center justify-center p-3 gap-2 rounded-lg border transition-colors hover:bg-opacity-90"
+                style={{
+                  borderColor: "rgba(118, 118, 118, 1)",
+                  backgroundColor: "rgba(227, 227, 227, 1)",
+                  color: "rgba(30, 30, 30, 1)",
+                  fontFamily:
+                    "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                }}
+              >
+                Bring me to life!
+              </button>
             </div>
           </div>
         </div>
