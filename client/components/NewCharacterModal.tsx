@@ -84,7 +84,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
         <div className="flex justify-center items-stretch gap-12 flex-1 w-full min-h-0">
           {/* Left Column - Forms + Generate Button */}
           <div className="flex flex-col flex-1 min-h-0">
-            <div className="flex flex-col gap-3 overflow-y-auto pr-4 scrollbar-none flex-1">
+            <div className="flex flex-col gap-12 overflow-y-auto pr-4 scrollbar-none flex-1">
               {/* Name Field */}
               <div className="flex flex-col gap-1 w-full">
                 <label

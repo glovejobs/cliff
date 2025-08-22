@@ -80,7 +80,7 @@ const NewSetModal: React.FC<NewSetModalProps> = ({
         <div className="flex justify-center items-stretch gap-12 flex-1 w-full min-h-0">
           {/* Left Column - Forms + Generate Button */}
           <div className="flex flex-col flex-1">
-            <div className="flex flex-col gap-6 flex-1">
+            <div className="flex flex-col gap-12 flex-1">
               {/* Name Field */}
               <div className="flex flex-col gap-2 w-full">
                 <label
