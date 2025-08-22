@@ -232,7 +232,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                   Describe the character
                 </label>
                 <div
-                  className="flex items-start min-w-[240px] min-h-[80px] px-4 py-3 w-full rounded-lg"
+                  className="flex items-start min-w-[240px] min-h-[120px] px-4 py-3 w-full rounded-lg"
                   style={{ backgroundColor: "#232424" }}
                 >
                   <textarea
@@ -246,6 +246,7 @@ const NewCharacterModal: React.FC<NewCharacterModalProps> = ({
                       color: "rgba(179, 179, 179, 1)",
                       fontFamily:
                         "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                      minHeight: "100px"
                     }}
                   />
                 </div>
