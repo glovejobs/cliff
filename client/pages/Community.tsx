@@ -39,7 +39,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
   return (
     <aside className="fixed left-0 top-0 h-full w-[252px] bg-transparent flex flex-col py-7 pb-3 px-6 z-50">
       {/* Logo */}
-      <div className="flex items-center gap-2 mb-10 ml-4">
+      <div className="flex items-center gap-2 mb-10">
         <div className="flex items-center justify-center w-10 h-10 bg-white rounded-full">
           <svg
             width="27"
