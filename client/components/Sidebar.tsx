@@ -30,9 +30,9 @@ const Sidebar = ({ activeItem: propActiveItem }: SidebarProps) => {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-20 bg-transparent flex flex-col items-center py-7 pb-3 z-50">
+    <aside className="fixed left-0 top-0 h-full w-20 bg-transparent flex flex-col items-center z-50">
       {/* Logo */}
-      <div className="flex items-center justify-center w-10 h-10 bg-white rounded-full mb-10">
+      <div className="flex items-center justify-center w-10 h-10 bg-white rounded-full mt-7 mb-10">
         <svg
           width="27"
           height="27"
