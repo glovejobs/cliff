@@ -352,7 +352,7 @@ const Community = () => {
       </div>
 
       {/* Main Scrollable Content */}
-      <main className="ml-[252px] px-6 min-h-screen" style={{ paddingTop: '138px' }}>
+      <main className="ml-[192px] px-6 min-h-screen" style={{ paddingTop: '138px' }}>
         <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 138px)' }}>
           <div className="flex flex-col items-center gap-12 flex-1">
           
