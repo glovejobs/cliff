@@ -1,5 +1,5 @@
-import { Tv, Layers, Image, Globe, User, MapPin } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Tv, Layers, Image, Globe, User, MapPin } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 interface SidebarProps {
   activeItem?: string;
@@ -13,20 +13,25 @@ const Sidebar = ({ activeItem: propActiveItem }: SidebarProps) => {
     if (propActiveItem) return propActiveItem;
 
     const path = location.pathname;
-    if (path === '/tv') return 'tv';
-    if (path === '/') return 'explore';
-    return 'explore';
+    if (path === "/tv") return "tv";
+    if (path === "/") return "explore";
+    return "explore";
   };
 
   const activeItem = getActiveItem();
 
   const menuItems = [
-    { id: 'tv', icon: Tv, tooltip: 'TV', path: '/tv' },
-    { id: 'explore', icon: Layers, tooltip: 'Explore', path: '/' },
-    { id: 'library', icon: Image, tooltip: 'Library', path: '/library' },
-    { id: 'community', icon: Globe, tooltip: 'Community', path: '/community' },
-    { id: 'characters', icon: User, tooltip: 'Characters', path: '/characters' },
-    { id: 'sets', icon: MapPin, tooltip: 'Sets', path: '/sets' },
+    { id: "tv", icon: Tv, tooltip: "TV", path: "/tv" },
+    { id: "explore", icon: Layers, tooltip: "Explore", path: "/" },
+    { id: "library", icon: Image, tooltip: "Library", path: "/library" },
+    { id: "community", icon: Globe, tooltip: "Community", path: "/community" },
+    {
+      id: "characters",
+      icon: User,
+      tooltip: "Characters",
+      path: "/characters",
+    },
+    { id: "sets", icon: MapPin, tooltip: "Sets", path: "/sets" },
   ];
 
   return (
@@ -70,10 +75,7 @@ const Sidebar = ({ activeItem: propActiveItem }: SidebarProps) => {
                 to={item.path}
                 className={`
                   flex items-center justify-center px-4 py-3 rounded-lg transition-all duration-200
-                  ${isActive
-                    ? 'bg-nav-hover'
-                    : 'hover:bg-nav-hover'
-                  }
+                  ${isActive ? "bg-nav-hover" : "hover:bg-nav-hover"}
                 `}
                 style={{ opacity }}
               >
