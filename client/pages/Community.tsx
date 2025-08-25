@@ -121,7 +121,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
               <Link
                 key={item.id}
                 to={item.path}
-                className="flex items-center h-[46px] px-4 py-3 rounded-lg transition-all duration-200 hover:bg-nav-hover opacity-30"
+                className="flex items-center h-[46px] pt-3 pr-4 pb-3 pl-[26px] rounded-lg transition-all duration-200 hover:bg-nav-hover opacity-30"
               >
                 <span className="text-text-primary text-base font-normal leading-5 flex-1 ml-6">
                   {item.label}
