@@ -1,7 +1,6 @@
-import { Globe } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Tv, Layers, Image, Globe, User, MapPin } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { ScrollableContainer } from '../components/ui/scrollable-container';
-import { Sidebar } from '../components/Sidebar';
 
 const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
   const location = useLocation();
@@ -294,51 +293,11 @@ const Community = () => {
 
   return (
     <div className="min-h-screen bg-app-bg relative">
-      {/* Standard Sidebar */}
-      <Sidebar activeItem="community" />
-
-      {/* Community Menu */}
-      <aside className="fixed left-20 top-0 h-full w-[172px] bg-transparent flex flex-col py-7 pb-3 px-6 z-40">
-        <div className="pt-3 mb-10"></div> {/* Spacer to align with main content */}
-
-        <nav className="flex flex-col gap-1">
-          {/* Community Section */}
-          <div className="flex flex-col">
-            <Link
-              to="/community"
-              className="flex items-center gap-3 h-[46px] pl-4 pr-4 py-3 rounded-lg transition-all duration-200 bg-nav-hover"
-            >
-              <Globe size={20} className="text-text-primary" />
-              <span className="text-text-primary text-base font-normal leading-relaxed flex-1">
-                Community
-              </span>
-            </Link>
-
-            {/* Community Submenu */}
-            <div className="ml-6 mt-1 flex flex-col gap-1">
-              {[
-                { id: 'general', label: 'General', path: '/community/general' },
-                { id: 'announcements', label: 'Announcements', path: '/community/announcements' },
-                { id: 'rules', label: 'Rules', path: '/community/rules' },
-                { id: 'create', label: 'Create', path: '/community/create' },
-              ].map((item) => (
-                <Link
-                  key={item.id}
-                  to={item.path}
-                  className="flex items-center h-[36px] px-3 py-2 rounded-lg hover:bg-nav-hover transition-all duration-200"
-                >
-                  <span className="text-text-primary text-base font-normal leading-relaxed flex-1 ml-6">
-                    {item.label}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </nav>
-      </aside>
+      {/* Expanded Sidebar */}
+      <ExpandedSidebar activeItem="community" />
 
       {/* Fixed Header Section */}
-      <div className="fixed top-0 left-[192px] right-0 z-30 bg-app-bg px-6">
+      <div className="fixed top-0 left-[252px] right-0 z-40 bg-app-bg px-6">
         <div className="pt-6 pb-4">
           <div className="flex flex-col justify-center items-start gap-2.5 max-w-[600px] w-full mx-auto">
             <h1 className="text-text-primary text-3xl font-normal leading-tight w-full text-center">
@@ -352,7 +311,7 @@ const Community = () => {
       </div>
 
       {/* Main Scrollable Content */}
-      <main className="ml-[192px] px-6 min-h-screen" style={{ paddingTop: '138px' }}>
+      <main className="ml-[252px] px-6 min-h-screen" style={{ paddingTop: '138px' }}>
         <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 138px)' }}>
           <div className="flex flex-col items-center gap-12 flex-1">
           
