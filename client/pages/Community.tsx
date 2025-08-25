@@ -80,7 +80,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
               key={item.id}
               to={item.path}
               className={`
-                flex items-center gap-3 h-[46px] pl-2 pr-4 py-3 rounded-lg transition-all duration-200
+                flex items-center gap-3 h-[46px] pl-4 pr-4 py-3 rounded-lg transition-all duration-200
                 ${isActive ? 'bg-nav-hover' : 'hover:bg-nav-hover'}
               `}
               style={{ opacity }}
