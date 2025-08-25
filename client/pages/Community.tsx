@@ -98,7 +98,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
           <Link
             to="/community"
             className={`
-              flex items-center gap-3 h-[46px] px-4 py-3 rounded-lg transition-all duration-200
+              flex items-center gap-3 h-[46px] pl-[15px] pr-4 py-3 rounded-lg transition-all duration-200
               ${currentActiveItem === 'community' ? 'bg-nav-hover' : 'hover:bg-nav-hover'}
             `}
           >
