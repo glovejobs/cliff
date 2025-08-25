@@ -1,5 +1,5 @@
-import { Tv, Layers, Image, Globe, User, MapPin } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { ScrollableContainer } from '../components/ui/scrollable-container';
 import { Sidebar } from '../components/Sidebar';
 
