@@ -90,7 +90,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
               style={{ opacity }}
             >
               <Icon size={20} className="text-text-primary" />
-              <span className="text-text-primary text-base font-normal leading-relaxed flex-1">
+              <span className="text-text-primary text-base font-normal leading-5 flex-1">
                 {item.label}
               </span>
             </Link>
@@ -107,7 +107,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
             `}
           >
             <Globe size={20} className="text-text-primary" />
-            <span className="text-text-primary text-base font-normal leading-relaxed flex-1">
+            <span className="text-text-primary text-base font-normal leading-5 flex-1">
               Community
             </span>
           </Link>
@@ -123,7 +123,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
                 to={item.path}
                 className="flex items-center h-[46px] px-4 py-3 rounded-lg transition-all duration-200 hover:bg-nav-hover opacity-30"
               >
-                <span className="text-text-primary text-base font-normal leading-relaxed flex-1 ml-6">
+                <span className="text-text-primary text-base font-normal leading-5 flex-1 ml-6">
                   {item.label}
                 </span>
               </Link>
@@ -148,7 +148,7 @@ const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
               style={{ opacity }}
             >
               <Icon size={20} className="text-text-primary" />
-              <span className="text-text-primary text-base font-normal leading-relaxed flex-1">
+              <span className="text-text-primary text-base font-normal leading-5 flex-1">
                 {item.label}
               </span>
             </Link>
