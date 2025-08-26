@@ -75,6 +75,7 @@ interface SavedCharacter {
 const Characters = () => {
   const [showNewCharacterModal, setShowNewCharacterModal] = useState(false);
   const [savedCharacters, setSavedCharacters] = useState<SavedCharacter[]>([]);
+  const [bookmarkedCharacterImages, setBookmarkedCharacterImages] = useState<Set<string>>(new Set());
 
   const handleNewCharacterClick = () => {
     setShowNewCharacterModal(true);
@@ -95,6 +96,7 @@ const Characters = () => {
       name: `Saved Character ${savedCharacters.length + 1}`, // Generate a name
     };
     setSavedCharacters(prev => [...prev, newCharacter]);
+    setBookmarkedCharacterImages(prev => new Set([...prev, cardData.image]));
   };
   const communityCharacters = [
     {
@@ -230,15 +232,17 @@ const Characters = () => {
                     Explore community characters
                   </h2>
                   <div className="flex flex-wrap gap-6 w-full">
-                    {communityCharacters.map((character, index) => (
-                      <CommunityCard
-                        key={index}
-                        image={character.image}
-                        likes={character.likes}
-                        type="character"
-                        onBookmark={handleBookmarkCharacter}
-                      />
-                    ))}
+                    {communityCharacters
+                      .filter(character => !bookmarkedCharacterImages.has(character.image))
+                      .map((character, index) => (
+                        <CommunityCard
+                          key={index}
+                          image={character.image}
+                          likes={character.likes}
+                          type="character"
+                          onBookmark={handleBookmarkCharacter}
+                        />
+                      ))}
                   </div>
                 </div>
 
