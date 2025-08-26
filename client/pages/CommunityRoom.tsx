@@ -213,7 +213,7 @@ const CommunityRoom = () => {
         <div className="pt-6 flex flex-col h-full">
           {/* Header */}
           <div className="flex items-start gap-4 mb-10">
-            <Button asChild size="default" variant="default">
+            <Button asChild size="default" variant="ghost" className="hover:bg-nav-hover">
               <Link to="/community">
                 <ArrowLeft size={16} />
                 Lobby
