@@ -117,8 +117,25 @@ const Sets = () => {
                         <div className="text-text-primary text-sm font-normal leading-[140%]">
                           Sahara Desert
                         </div>
+
+                    {/* Saved sets */}
+                    {savedSets.map((savedSet, index) => (
+                      <div key={`saved-${index}`} className="flex w-[265px] h-[200px] relative rounded-2xl bg-nav-bg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group">
+                        <img
+                          src={savedSet.image}
+                          alt={savedSet.name}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <div className="absolute bottom-3 left-3 right-3">
+                          <div className="text-text-primary text-sm font-normal leading-[140%]">
+                            {savedSet.name}
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    ))}
+                  </div>
+                </div>
                   </div>
                 </div>
 
