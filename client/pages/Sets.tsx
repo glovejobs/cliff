@@ -146,6 +146,7 @@ const Sets = () => {
                         image={src}
                         likes={89}
                         type="set"
+                        onBookmark={handleBookmarkSet}
                       />
                     ))}
                   </div>
