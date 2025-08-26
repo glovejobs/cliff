@@ -227,6 +227,7 @@ const Characters = () => {
                         image={character.image}
                         likes={character.likes}
                         type="character"
+                        onBookmark={handleBookmarkCharacter}
                       />
                     ))}
                   </div>
