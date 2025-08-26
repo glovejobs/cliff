@@ -166,6 +166,7 @@ interface RoomRowProps {
   members: string[];
   activityImages: string[];
   isHighlighted?: boolean;
+  roomId: string;
 }
 
 const RoomRow = ({
