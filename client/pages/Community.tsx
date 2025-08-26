@@ -248,6 +248,7 @@ const Community = () => {
 
   const rooms = [
     {
+      roomId: "general",
       name: "General",
       description: "Connect, share ideas, and chat about everything AI video.",
       owner: "Official",
@@ -267,6 +268,7 @@ const Community = () => {
       isHighlighted: true,
     },
     {
+      roomId: "announcements",
       name: "Announcements",
       description:
         "Stay updated with the latest news, features, and community highlights.",
@@ -286,6 +288,7 @@ const Community = () => {
       isHighlighted: true,
     },
     {
+      roomId: "rules",
       name: "Rules",
       description:
         "Guidelines to keep our space respectful, creative, and constructive.",
@@ -303,6 +306,7 @@ const Community = () => {
       ],
     },
     {
+      roomId: "create",
       name: "Create",
       description:
         "Drop your prompts, scenes, or concepts. This is your creative playground.",
