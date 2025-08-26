@@ -1,3 +1,4 @@
+import React from "react";
 import "./global.css";
 
 import { Toaster } from "@/components/ui/toaster";
@@ -10,6 +11,7 @@ import Index from "./pages/Index";
 import TV from "./pages/TV";
 import Library from "./pages/Library";
 import Community from "./pages/Community";
+import CommunityRoom from "./pages/CommunityRoom";
 import Characters from "./pages/Characters";
 import Sets from "./pages/Sets";
 import NotFound from "./pages/NotFound";
@@ -27,10 +29,7 @@ const App = () => (
           <Route path="/tv" element={<TV />} />
           <Route path="/library" element={<Library />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/community/general" element={<Community />} />
-          <Route path="/community/announcements" element={<Community />} />
-          <Route path="/community/rules" element={<Community />} />
-          <Route path="/community/create" element={<Community />} />
+          <Route path="/community/:roomId" element={<CommunityRoom />} />
           <Route path="/characters" element={<Characters />} />
           <Route path="/sets" element={<Sets />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
