@@ -165,6 +165,7 @@ const ExpandedSidebar = ({ activeRoom }: { activeRoom?: string }) => {
 
 const CommunityRoom = () => {
   const { roomId } = useParams();
+  const [messageInput, setMessageInput] = useState('');
   
   const roomData = {
     create: {
