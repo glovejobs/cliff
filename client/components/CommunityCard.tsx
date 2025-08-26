@@ -49,7 +49,7 @@ const CommunityCard = ({
       </div>
 
       {/* Default State - Only likes */}
-      <div className="relative z-10 flex justify-end items-end w-full group-hover:opacity-0 transition-opacity duration-200 linear">
+      <div className="absolute bottom-3 left-3 right-3 z-10 flex justify-end items-end w-full group-hover:opacity-0 transition-opacity duration-200 linear">
         <div className="flex items-center gap-1 p-0.5 rounded-lg">
           <Heart size={12} className="text-[#F5F5F5]" strokeWidth={1.2} />
           <span className="text-[#F5F5F5] text-[11px] font-normal leading-4 tracking-[0.5px]" style={{fontFamily: 'Roboto, -apple-system, Roboto, Helvetica, sans-serif'}}>
@@ -59,7 +59,7 @@ const CommunityCard = ({
       </div>
 
       {/* Hover State - Profile and likes */}
-      <div className="relative z-10 flex justify-between items-end w-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 linear">
+      <div className="absolute bottom-3 left-3 right-3 z-10 flex justify-between items-end w-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 linear">
         {/* Profile Section */}
         <div className="flex items-center gap-[6.5px] rounded-[4.3px]">
           <div className="flex items-center justify-center w-[22.6px] h-[22.6px] rounded-full overflow-hidden">
