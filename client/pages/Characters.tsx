@@ -88,6 +88,14 @@ const Characters = () => {
     console.log("Creating character:", characterData);
     // Handle character creation logic here
   };
+
+  const handleBookmarkCharacter = (cardData: { image: string; likes: number; type: "character" | "set" }) => {
+    const newCharacter: SavedCharacter = {
+      ...cardData,
+      name: `Saved Character ${savedCharacters.length + 1}`, // Generate a name
+    };
+    setSavedCharacters(prev => [...prev, newCharacter]);
+  };
   const communityCharacters = [
     {
       image:
