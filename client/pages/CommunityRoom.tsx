@@ -214,12 +214,11 @@ const CommunityRoom = () => {
               </p>
             </div>
 
-            <Link
-              to="/community"
-              className="flex items-center gap-2 px-3 py-3 rounded-lg border border-brand-primary bg-brand-primary text-brand-text"
-            >
-              <span className="text-base font-normal">Lobby</span>
-            </Link>
+            <Button asChild size="default" variant="default" className="opacity-0 pointer-events-none">
+              <Link to="/community">
+                Lobby
+              </Link>
+            </Button>
           </div>
 
           {/* Content Area */}
