@@ -119,6 +119,8 @@ const Sets = () => {
                         <div className="text-text-primary text-sm font-normal leading-[140%]">
                           Sahara Desert
                         </div>
+                      </div>
+                    </div>
 
                     {/* Saved sets */}
                     {savedSets.map((savedSet, index) => (
@@ -136,8 +138,6 @@ const Sets = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
-                </div>
                   </div>
                 </div>
 
