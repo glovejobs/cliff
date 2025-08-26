@@ -102,7 +102,7 @@ const MediaCard = ({
             </div>
 
             <button
-              className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal hover:bg-opacity-90 transition-colors"
+              className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal transition-colors hover:bg-opacity-90"
               style={{
                 fontFamily:
                   "Inter, -apple-system, Roboto, Helvetica, sans-serif",
@@ -113,7 +113,7 @@ const MediaCard = ({
             </button>
 
             <button
-              className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors"
+              className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal transition-colors hover:bg-opacity-90"
               style={{
                 fontFamily:
                   "Inter, -apple-system, Roboto, Helvetica, sans-serif",
