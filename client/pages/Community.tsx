@@ -176,10 +176,12 @@ const RoomRow = ({
   members,
   activityImages,
   isHighlighted = false,
+  roomId,
 }: RoomRowProps) => {
   return (
-    <div
-      className={`flex items-center h-20 ${isHighlighted ? "bg-nav-hover" : ""} rounded-lg`}
+    <Link
+      to={`/community/${roomId}`}
+      className={`flex items-center h-20 ${isHighlighted ? "bg-nav-hover" : ""} rounded-lg transition-all duration-200 hover:bg-opacity-80 cursor-pointer`}
     >
       {/* Room */}
       <div className="flex flex-col justify-center px-2.5 w-[360px] h-full border-r-2 border-brand-primary">
@@ -232,7 +234,7 @@ const RoomRow = ({
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
