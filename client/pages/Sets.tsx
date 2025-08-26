@@ -28,6 +28,14 @@ const Sets = () => {
     console.log("Creating set:", setData);
     // Handle set creation logic here
   };
+
+  const handleBookmarkSet = (cardData: { image: string; likes: number; type: "character" | "set" }) => {
+    const newSet: SavedSet = {
+      ...cardData,
+      name: `Saved Set ${savedSets.length + 1}`, // Generate a name
+    };
+    setSavedSets(prev => [...prev, newSet]);
+  };
   return (
     <div className="min-h-screen bg-app-bg relative">
       {/* Sidebar */}
