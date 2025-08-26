@@ -65,8 +65,16 @@ const CharacterCard = ({
   );
 };
 
+interface SavedCharacter {
+  image: string;
+  likes: number;
+  type: "character" | "set";
+  name?: string;
+}
+
 const Characters = () => {
   const [showNewCharacterModal, setShowNewCharacterModal] = useState(false);
+  const [savedCharacters, setSavedCharacters] = useState<SavedCharacter[]>([]);
 
   const handleNewCharacterClick = () => {
     setShowNewCharacterModal(true);
