@@ -258,12 +258,14 @@ const CommunityRoom = () => {
                 {/* Tags and Actions */}
                 <div className="flex items-center justify-between w-full max-w-[525px]">
                   <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-1 px-2 py-1 rounded-lg bg-brand-hover">
-                      <div className="w-4 h-2 border border-text-neutral-tertiary rounded-sm"></div>
-                      <span className="text-text-brand-tertiary text-xs font-medium">16:9</span>
+                    <div className="flex items-center gap-1 px-1 py-1 rounded-lg bg-brand-hover">
+                      <div className="flex items-center justify-center w-5 h-5 relative">
+                        <div className="w-4 h-[9px] border border-text-neutral-tertiary rounded-sm"></div>
+                      </div>
+                      <span className="text-text-brand-tertiary text-xs font-medium tracking-wide">16:9</span>
                     </div>
-                    <div className="px-2 py-1 rounded-lg bg-brand-hover">
-                      <span className="text-text-brand-tertiary text-xs font-medium">Scene 1</span>
+                    <div className="flex items-center px-1 py-1 h-7 rounded-lg bg-brand-hover">
+                      <span className="text-text-brand-tertiary text-xs font-medium tracking-wide">Scene 1</span>
                     </div>
                   </div>
 
