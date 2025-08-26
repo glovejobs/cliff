@@ -198,13 +198,12 @@ const CommunityRoom = () => {
         <div className="pt-6">
           {/* Header */}
           <div className="flex items-start gap-4 mb-10">
-            <Link
-              to="/community"
-              className="flex items-center gap-2 px-3 py-3 rounded-lg border border-brand-primary bg-brand-primary text-brand-text transition-all duration-200 hover:bg-brand-hover"
-            >
-              <ArrowLeft size={16} />
-              <span className="text-base font-normal">Lobby</span>
-            </Link>
+            <Button asChild size="default" variant="default">
+              <Link to="/community">
+                <ArrowLeft size={16} />
+                Lobby
+              </Link>
+            </Button>
             
             <div className="flex flex-col flex-1">
               <h1 className="text-text-primary text-2xl font-bold leading-tight text-center">
