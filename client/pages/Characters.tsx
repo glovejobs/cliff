@@ -206,10 +206,11 @@ const Characters = () => {
                   </h2>
                   <div className="flex flex-wrap gap-6 w-full">
                     {communityCharacters.map((character, index) => (
-                      <CharacterCard
+                      <CommunityCard
                         key={index}
                         image={character.image}
                         likes={character.likes}
+                        type="character"
                       />
                     ))}
                   </div>
