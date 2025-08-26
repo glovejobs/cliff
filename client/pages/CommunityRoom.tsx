@@ -276,7 +276,7 @@ const CommunityRoom = () => {
               </div>
 
               {/* Description */}
-              <p className="text-text-primary text-sm font-bold leading-5 line-clamp-3 max-w-[525px]">
+              <p className="text-text-primary text-sm font-normal leading-5 line-clamp-3 max-w-[525px]">
                 A gritty urban rooftop at dusk, moments after a failed heist.
                 One camera drone silently hovers overhead, unnoticed by the
                 characters. Two masked figures argue over a betrayal, but their
