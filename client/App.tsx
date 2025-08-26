@@ -29,10 +29,7 @@ const App = () => (
           <Route path="/tv" element={<TV />} />
           <Route path="/library" element={<Library />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/community/general" element={<Community />} />
-          <Route path="/community/announcements" element={<Community />} />
-          <Route path="/community/rules" element={<Community />} />
-          <Route path="/community/create" element={<Community />} />
+          <Route path="/community/:roomId" element={<CommunityRoom />} />
           <Route path="/characters" element={<Characters />} />
           <Route path="/sets" element={<Sets />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
