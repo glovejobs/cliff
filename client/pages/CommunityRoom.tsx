@@ -213,12 +213,21 @@ const CommunityRoom = () => {
         <div className="pt-6 flex flex-col h-full">
           {/* Header */}
           <div className="flex items-start gap-4 mb-10">
-            <Button asChild size="default" variant="ghost" className="hover:bg-nav-hover">
-              <Link to="/community">
-                <ArrowLeft size={16} />
-                Lobby
-              </Link>
-            </Button>
+            <Link
+              to="/community"
+              className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal hover:bg-opacity-90 transition-colors"
+              style={{
+                fontFamily:
+                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+              }}
+            >
+              <ArrowLeft
+                size={16}
+                className="text-text-primary"
+                strokeWidth={1.6}
+              />
+              Lobby
+            </Link>
 
             <div className="flex flex-col flex-1">
               <h1 className="text-text-primary text-2xl font-bold leading-tight text-center">
