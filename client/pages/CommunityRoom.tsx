@@ -194,8 +194,8 @@ const CommunityRoom = () => {
       <ExpandedSidebar activeRoom={roomId} />
 
       {/* Main Content */}
-      <main className="ml-[252px] px-6 min-h-screen">
-        <div className="pt-6">
+      <main className="ml-[252px] px-6 h-screen flex flex-col">
+        <div className="pt-6 flex flex-col h-full">
           {/* Header */}
           <div className="flex items-start gap-4 mb-10">
             <Button asChild size="default" variant="default">
@@ -222,8 +222,7 @@ const CommunityRoom = () => {
           </div>
 
           {/* Content Area */}
-          <ScrollableContainer className="h-[calc(100vh-200px)]">
-            <div className="flex flex-col justify-end items-start gap-6 h-full">
+          <div className="flex-1 flex flex-col justify-end items-start gap-6 mb-6">
               {/* User Profile and Content */}
               <div className="flex flex-col gap-3">
                 {/* User Info */}
@@ -270,32 +269,33 @@ const CommunityRoom = () => {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Button size="sm" variant="default" className="text-xs">
+                    <button className="flex items-center justify-center gap-2 px-2 py-2 bg-[#2C2C2C] text-[#F5F5F5] rounded-lg text-[11px] font-medium leading-4 tracking-[0.5px] hover:bg-[#2C2C2C]/90 transition-colors">
                       Next scene
-                    </Button>
-                    <Button size="sm" variant="default" className="text-xs">
+                    </button>
+                    <button className="flex items-center justify-center gap-2 px-2 py-2 bg-[#2C2C2C] text-[#F5F5F5] rounded-lg text-[11px] font-medium leading-4 tracking-[0.5px] hover:bg-[#2C2C2C]/90 transition-colors">
                       Redo
-                    </Button>
-                    <Button size="sm" variant="default" className="text-xs">
-                      <Download size={16} />
+                    </button>
+                    <button className="flex items-center justify-center gap-2 px-2 py-2 bg-[#2C2C2C] text-[#F5F5F5] rounded-lg text-[11px] font-medium leading-4 tracking-[0.5px] hover:bg-[#2C2C2C]/90 transition-colors">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10M4.66667 6.66667L8 10M8 10L11.3333 6.66667M8 10V2" stroke="#F5F5F5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                       Download
-                    </Button>
-                    <Button size="sm" variant="outline" className="text-xs border-text-neutral-tertiary bg-surface-neutral text-text-dark hover:bg-surface-neutral/80">
+                    </button>
+                    <button className="flex items-center justify-center gap-2 px-2 py-2 bg-[#E3E3E3] text-[#1E1E1E] rounded-lg text-[12px] font-medium leading-[18px] border border-[#767676] hover:bg-[#E3E3E3]/80 transition-colors">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.28387 8.51866L7.85167 7.08646C7.65647 6.89126 7.55887 6.79366 7.45353 6.74146C7.2532 6.64217 7.018 6.64217 6.8176 6.74146C6.71233 6.79366 6.61471 6.89126 6.41949 7.08646C6.22425 7.28172 6.12664 7.37932 6.07446 7.48459C5.97518 7.68499 5.97518 7.92019 6.07446 8.12052C6.12664 8.22586 6.22425 8.32346 6.41949 8.51866L7.85167 9.95086M9.28387 8.51866L13.5805 12.8153C13.7757 13.0105 13.8733 13.1081 13.9255 13.2135C14.0248 13.4138 14.0248 13.649 13.9255 13.8494C13.8733 13.9547 13.7757 14.0523 13.5805 14.2475C13.3853 14.4427 13.2877 14.5403 13.1824 14.5925C12.982 14.6918 12.7468 14.6918 12.5465 14.5925C12.4411 14.5403 12.3435 14.4427 12.1483 14.2475L7.85167 9.95086M9.28387 8.51866L7.85167 9.95086" stroke="#2C2C2C" strokeWidth="1.3125" strokeLinecap="round" strokeLinejoin="round"/>
                         <path d="M11.3333 1.33301L11.5299 1.86407C11.7875 2.56045 11.9164 2.90864 12.1704 3.16264C12.4244 3.41664 12.7725 3.54548 13.4689 3.80316L14 3.99967L13.4689 4.19619C12.7725 4.45387 12.4244 4.58271 12.1704 4.83671C11.9164 5.09071 11.7875 5.43889 11.5299 6.13527L11.3333 6.66634L11.1368 6.13527C10.8791 5.4389 10.7503 5.09071 10.4963 4.83671C10.2423 4.58271 9.89412 4.45387 9.19772 4.19619L8.66666 3.99967L9.19772 3.80316C9.89412 3.54548 10.2423 3.41664 10.4963 3.16264C10.7503 2.90864 10.8791 2.56045 11.1368 1.86407L11.3333 1.33301Z" stroke="#2C2C2C" strokeWidth="1.3125" strokeLinejoin="round"/>
                         <path d="M4 2.66699L4.14739 3.06529C4.34065 3.58757 4.43728 3.84872 4.62778 4.03922C4.81827 4.22971 5.07942 4.32635 5.6017 4.51961L6 4.66699L5.6017 4.81438C5.07942 5.00764 4.81827 5.10427 4.62777 5.29477C4.43728 5.48527 4.34065 5.74641 4.14739 6.26869L4 6.66699L3.85261 6.26869C3.65935 5.74641 3.56272 5.48527 3.37222 5.29477C3.18173 5.10427 2.92058 5.00764 2.3983 4.81438L2 4.66699L2.3983 4.51961C2.92058 4.32635 3.18173 4.22971 3.37222 4.03921C3.56272 3.84872 3.65935 3.58757 3.85261 3.06529L4 2.66699Z" stroke="#2C2C2C" strokeWidth="1.3125" strokeLinejoin="round"/>
                       </svg>
                       Remix
-                    </Button>
+                    </button>
                   </div>
                 </div>
               </div>
 
-            </div>
-          </ScrollableContainer>
+          </div>
 
-          {/* Message Input - Fixed at bottom with 24px padding */}
+          {/* Message Input - Fixed at bottom */}
           <div className="w-full pb-6">
             <div className="bg-nav-hover rounded-lg p-4 relative">
               <textarea
