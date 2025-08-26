@@ -292,24 +292,36 @@ const CommunityRoom = () => {
                 </div>
               </div>
 
-              {/* Message Input */}
-              <div className="w-full h-[93px] flex flex-col gap-2">
-                <div className="flex-1 bg-nav-hover rounded-lg p-4 min-h-[80px] relative">
-                  <span className="text-text-default-tertiary text-base font-normal">Message #Create</span>
-                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <button className="p-2 rounded-lg hover:bg-nav-bg transition-colors">
-                        <Plus size={16} className="text-text-primary" />
-                      </button>
-                    </div>
-                    <button className="p-2 rounded-lg hover:bg-nav-bg transition-colors">
-                      <ArrowUp size={16} className="text-text-primary" />
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
           </ScrollableContainer>
+
+          {/* Message Input - Fixed at bottom with 24px padding */}
+          <div className="w-full pb-6">
+            <div className="bg-nav-hover rounded-lg p-4 relative">
+              <textarea
+                placeholder="Message #Create"
+                value={messageInput}
+                onChange={(e) => setMessageInput(e.target.value)}
+                className="w-full bg-transparent border-0 outline-none resize-none text-base font-normal text-text-primary placeholder:text-text-default-tertiary min-h-[60px] pr-12"
+                style={{
+                  fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                }}
+              />
+              <div className="absolute bottom-4 right-4 flex items-center gap-2">
+                <Button size="icon" variant="ghost" className="h-8 w-8 hover:bg-nav-bg">
+                  <Plus size={16} className="text-text-primary" />
+                </Button>
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="h-8 w-8 hover:bg-nav-bg"
+                  disabled={!messageInput.trim()}
+                >
+                  <ArrowUp size={16} className="text-text-primary" />
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
