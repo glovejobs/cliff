@@ -83,7 +83,7 @@ const MediaCard = ({
         </div>
 
         {/* Description */}
-        <p className="text-text-secondary text-sm font-bold leading-5 line-clamp-3">
+        <p className="text-text-secondary text-sm font-normal leading-5 line-clamp-3">
           {description}
         </p>
 
@@ -202,12 +202,12 @@ const Library = () => {
                 {/* Sort Controls */}
                 <div className="flex items-center gap-3 w-full">
                   <div className="flex items-center gap-2">
-                    <span className="text-text-primary text-base font-bold leading-relaxed">
+                    <span className="text-text-primary text-base font-medium leading-relaxed">
                       Sort by
                     </span>
                   </div>
                   <div className="flex items-center gap-1 flex-1">
-                    <span className="text-text-secondary text-sm font-bold leading-none">
+                    <span className="text-text-secondary text-sm font-normal leading-none">
                       Date updated
                     </span>
                     <ChevronDown
