@@ -182,17 +182,17 @@ const RoomRow = ({
     >
       {/* Room */}
       <div className="flex flex-col justify-center px-2.5 w-[360px] h-full border-r-2 border-brand-primary">
-        <h3 className="text-text-primary text-sm font-bold leading-5">
+        <h3 className="text-text-primary text-sm font-medium leading-5">
           {name}
         </h3>
-        <p className="text-text-secondary text-sm font-bold leading-5 line-clamp-2">
+        <p className="text-text-secondary text-sm font-extralight leading-5 line-clamp-2">
           {description}
         </p>
       </div>
 
       {/* Owner */}
       <div className="flex justify-center items-center px-2.5 w-[109px] h-full border-r-2 border-brand-primary">
-        <span className="text-text-primary text-sm font-bold leading-5 text-center">
+        <span className="text-text-primary text-sm font-medium leading-5 text-center">
           {owner}
         </span>
       </div>
@@ -372,22 +372,22 @@ const Community = () => {
                 {/* Table Header */}
                 <div className="flex items-center h-10 mb-2">
                   <div className="flex justify-center items-center px-2.5 w-[360px] h-full">
-                    <span className="text-text-secondary text-sm font-bold leading-5 w-full">
+                    <span className="text-text-secondary text-sm font-medium leading-5 w-full">
                       Room
                     </span>
                   </div>
                   <div className="flex justify-center items-center px-2.5 w-[109px] h-full">
-                    <span className="text-text-secondary text-sm font-bold leading-5 text-center">
+                    <span className="text-text-secondary text-sm font-medium leading-5 text-center">
                       Owner
                     </span>
                   </div>
                   <div className="flex justify-center items-center px-2.5 w-[228px] h-full">
-                    <span className="text-text-secondary text-sm font-bold leading-5 text-center">
+                    <span className="text-text-secondary text-sm font-medium leading-5 text-center">
                       Active
                     </span>
                   </div>
                   <div className="flex justify-center items-center px-2.5 flex-1 h-full">
-                    <span className="text-text-secondary text-sm font-bold leading-5">
+                    <span className="text-text-secondary text-sm font-medium leading-5">
                       Activity
                     </span>
                   </div>
