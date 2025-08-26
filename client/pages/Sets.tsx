@@ -15,7 +15,9 @@ interface SavedSet {
 const Sets = () => {
   const [showNewSetModal, setShowNewSetModal] = useState(false);
   const [savedSets, setSavedSets] = useState<SavedSet[]>([]);
-  const [bookmarkedSetImages, setBookmarkedSetImages] = useState<Set<string>>(new Set());
+  const [bookmarkedSetImages, setBookmarkedSetImages] = useState<Set<string>>(
+    new Set(),
+  );
 
   const handleNewSetClick = () => {
     setShowNewSetModal(true);
@@ -30,13 +32,17 @@ const Sets = () => {
     // Handle set creation logic here
   };
 
-  const handleBookmarkSet = (cardData: { image: string; likes: number; type: "character" | "set" }) => {
+  const handleBookmarkSet = (cardData: {
+    image: string;
+    likes: number;
+    type: "character" | "set";
+  }) => {
     const newSet: SavedSet = {
       ...cardData,
       name: `Saved Set ${savedSets.length + 1}`, // Generate a name
     };
-    setSavedSets(prev => [...prev, newSet]);
-    setBookmarkedSetImages(prev => new Set([...prev, cardData.image]));
+    setSavedSets((prev) => [...prev, newSet]);
+    setBookmarkedSetImages((prev) => new Set([...prev, cardData.image]));
   };
   return (
     <div className="min-h-screen bg-app-bg relative">
@@ -124,7 +130,10 @@ const Sets = () => {
 
                     {/* Saved sets */}
                     {savedSets.map((savedSet, index) => (
-                      <div key={`saved-${index}`} className="flex w-[265px] h-[200px] relative rounded-2xl bg-nav-bg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group">
+                      <div
+                        key={`saved-${index}`}
+                        className="flex w-[265px] h-[200px] relative rounded-2xl bg-nav-bg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group"
+                      >
                         <img
                           src={savedSet.image}
                           alt={savedSet.name}
@@ -160,7 +169,7 @@ const Sets = () => {
                       "https://images.unsplash.com/photo-1541600383005-565c949cf552?w=530&h=200&fit=crop&crop=center",
                       "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=426&h=200&fit=crop&crop=center",
                     ]
-                      .filter(src => !bookmarkedSetImages.has(src))
+                      .filter((src) => !bookmarkedSetImages.has(src))
                       .map((src, index) => (
                         <CommunityCard
                           key={index}

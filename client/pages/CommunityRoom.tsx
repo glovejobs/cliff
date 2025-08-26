@@ -296,12 +296,24 @@ const CommunityRoom = () => {
                     <div className="flex items-center justify-center w-5 h-5 relative">
                       <div className="w-4 h-[9px] border-[1.67px] border-[#767676] rounded-sm"></div>
                     </div>
-                    <span className="text-[#757575] text-[11px] font-medium leading-4 tracking-[0.5px]" style={{fontFamily: 'Roboto, -apple-system, Roboto, Helvetica, sans-serif'}}>
+                    <span
+                      className="text-[#757575] text-[11px] font-medium leading-4 tracking-[0.5px]"
+                      style={{
+                        fontFamily:
+                          "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
+                      }}
+                    >
                       16:9
                     </span>
                   </div>
                   <div className="flex items-center px-1 py-1 h-7 rounded-lg bg-[#1E1E1E]">
-                    <span className="text-[#757575] text-[11px] font-medium leading-4 tracking-[0.5px]" style={{fontFamily: 'Roboto, -apple-system, Roboto, Helvetica, sans-serif'}}>
+                    <span
+                      className="text-[#757575] text-[11px] font-medium leading-4 tracking-[0.5px]"
+                      style={{
+                        fontFamily:
+                          "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
+                      }}
+                    >
                       Scene 1
                     </span>
                   </div>

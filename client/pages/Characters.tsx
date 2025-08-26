@@ -75,7 +75,9 @@ interface SavedCharacter {
 const Characters = () => {
   const [showNewCharacterModal, setShowNewCharacterModal] = useState(false);
   const [savedCharacters, setSavedCharacters] = useState<SavedCharacter[]>([]);
-  const [bookmarkedCharacterImages, setBookmarkedCharacterImages] = useState<Set<string>>(new Set());
+  const [bookmarkedCharacterImages, setBookmarkedCharacterImages] = useState<
+    Set<string>
+  >(new Set());
 
   const handleNewCharacterClick = () => {
     setShowNewCharacterModal(true);
@@ -90,13 +92,17 @@ const Characters = () => {
     // Handle character creation logic here
   };
 
-  const handleBookmarkCharacter = (cardData: { image: string; likes: number; type: "character" | "set" }) => {
+  const handleBookmarkCharacter = (cardData: {
+    image: string;
+    likes: number;
+    type: "character" | "set";
+  }) => {
     const newCharacter: SavedCharacter = {
       ...cardData,
       name: `Saved Character ${savedCharacters.length + 1}`, // Generate a name
     };
-    setSavedCharacters(prev => [...prev, newCharacter]);
-    setBookmarkedCharacterImages(prev => new Set([...prev, cardData.image]));
+    setSavedCharacters((prev) => [...prev, newCharacter]);
+    setBookmarkedCharacterImages((prev) => new Set([...prev, cardData.image]));
   };
   const communityCharacters = [
     {
@@ -159,7 +165,10 @@ const Characters = () => {
       {/* Fixed Header */}
       <div className="fixed top-0 left-20 right-0 z-40 bg-app-bg px-6">
         <div className="max-w-[1320px] mx-auto pt-6 pb-4">
-          <Header currentPage="characters" onNewCharacterClick={handleNewCharacterClick} />
+          <Header
+            currentPage="characters"
+            onNewCharacterClick={handleNewCharacterClick}
+          />
         </div>
       </div>
 
@@ -191,7 +200,11 @@ const Characters = () => {
                     Your characters
                   </h2>
                   <div className="flex items-start gap-6 w-full">
-                    <CharacterCard isNewCharacter={true} image="" onClick={handleNewCharacterClick} />
+                    <CharacterCard
+                      isNewCharacter={true}
+                      image=""
+                      onClick={handleNewCharacterClick}
+                    />
                     <CharacterCard
                       image="https://api.builder.io/api/v1/image/assets/TEMP/864cb8656c43905cf5fa13e4a63eaa625a8daeb4?width=388"
                       name="David Burton"
@@ -233,7 +246,10 @@ const Characters = () => {
                   </h2>
                   <div className="flex flex-wrap gap-6 w-full">
                     {communityCharacters
-                      .filter(character => !bookmarkedCharacterImages.has(character.image))
+                      .filter(
+                        (character) =>
+                          !bookmarkedCharacterImages.has(character.image),
+                      )
                       .map((character, index) => (
                         <CommunityCard
                           key={index}
