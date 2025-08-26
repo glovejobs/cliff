@@ -15,6 +15,7 @@ interface SavedSet {
 const Sets = () => {
   const [showNewSetModal, setShowNewSetModal] = useState(false);
   const [savedSets, setSavedSets] = useState<SavedSet[]>([]);
+  const [bookmarkedSetImages, setBookmarkedSetImages] = useState<Set<string>>(new Set());
 
   const handleNewSetClick = () => {
     setShowNewSetModal(true);
@@ -35,6 +36,7 @@ const Sets = () => {
       name: `Saved Set ${savedSets.length + 1}`, // Generate a name
     };
     setSavedSets(prev => [...prev, newSet]);
+    setBookmarkedSetImages(prev => new Set([...prev, cardData.image]));
   };
   return (
     <div className="min-h-screen bg-app-bg relative">
@@ -157,15 +159,17 @@ const Sets = () => {
                       "https://images.unsplash.com/photo-1504870712357-65ea720d6078?w=530&h=200&fit=crop&crop=center",
                       "https://images.unsplash.com/photo-1541600383005-565c949cf552?w=530&h=200&fit=crop&crop=center",
                       "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=426&h=200&fit=crop&crop=center",
-                    ].map((src, index) => (
-                      <CommunityCard
-                        key={index}
-                        image={src}
-                        likes={89}
-                        type="set"
-                        onBookmark={handleBookmarkSet}
-                      />
-                    ))}
+                    ]
+                      .filter(src => !bookmarkedSetImages.has(src))
+                      .map((src, index) => (
+                        <CommunityCard
+                          key={index}
+                          image={src}
+                          likes={89}
+                          type="set"
+                          onBookmark={handleBookmarkSet}
+                        />
+                      ))}
                   </div>
                 </div>
               </div>

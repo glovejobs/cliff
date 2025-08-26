@@ -49,8 +49,7 @@ const CommunityCard = ({
       </div>
 
       {/* Default State - Only likes */}
-      <div className="relative z-10 flex justify-between items-end w-full group-hover:opacity-0 transition-opacity duration-200 linear">
-        <div></div>
+      <div className="relative z-10 flex justify-end items-end w-full group-hover:opacity-0 transition-opacity duration-200 linear">
         <div className="flex items-center gap-1 p-0.5 rounded-lg">
           <Heart size={12} className="text-[#F5F5F5]" strokeWidth={1.2} />
           <span className="text-[#F5F5F5] text-[11px] font-normal leading-4 tracking-[0.5px]" style={{fontFamily: 'Roboto, -apple-system, Roboto, Helvetica, sans-serif'}}>
