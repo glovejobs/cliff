@@ -403,7 +403,7 @@ const Community = () => {
                       owner={room.owner}
                       members={room.members}
                       activityImages={room.activityImages}
-                      isHighlighted={room.isHighlighted}
+                      isHighlighted={index % 2 === 0}
                     />
                   ))}
                 </div>
