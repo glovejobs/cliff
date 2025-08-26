@@ -212,6 +212,15 @@ const Characters = () => {
                         name="Emma Rodriguez"
                       />
                     </div>
+
+                    {/* Saved characters */}
+                    {savedCharacters.map((savedCharacter, index) => (
+                      <CharacterCard
+                        key={`saved-${index}`}
+                        image={savedCharacter.image}
+                        name={savedCharacter.name}
+                      />
+                    ))}
                   </div>
                 </div>
 
