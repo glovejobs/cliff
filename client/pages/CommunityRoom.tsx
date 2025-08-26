@@ -238,14 +238,11 @@ const CommunityRoom = () => {
               </p>
             </div>
 
-            <Button
-              asChild
-              size="default"
-              variant="default"
-              className="opacity-0 pointer-events-none"
-            >
-              <Link to="/community">Lobby</Link>
-            </Button>
+            <div className="opacity-0 pointer-events-none">
+              <div className="flex items-center gap-2 px-3 h-10 text-base">
+                Lobby
+              </div>
+            </div>
           </div>
 
           {/* Content Area */}
