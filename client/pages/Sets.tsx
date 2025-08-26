@@ -5,8 +5,16 @@ import NewSetModal from "../components/NewSetModal";
 import CommunityCard from "../components/CommunityCard";
 import { ScrollableContainer } from "../components/ui/scrollable-container";
 
+interface SavedSet {
+  image: string;
+  likes: number;
+  type: "character" | "set";
+  name?: string;
+}
+
 const Sets = () => {
   const [showNewSetModal, setShowNewSetModal] = useState(false);
+  const [savedSets, setSavedSets] = useState<SavedSet[]>([]);
 
   const handleNewSetClick = () => {
     setShowNewSetModal(true);
