@@ -125,49 +125,12 @@ const Sets = () => {
                       "https://images.unsplash.com/photo-1541600383005-565c949cf552?w=530&h=200&fit=crop&crop=center",
                       "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=426&h=200&fit=crop&crop=center",
                     ].map((src, index) => (
-                      <div
+                      <CommunityCard
                         key={index}
-                        className="flex h-[200px] min-w-[194.4px] max-w-[265px] relative rounded-2xl bg-nav-bg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group flex-1"
-                      >
-                        <img
-                          src={src}
-                          alt={`Community set ${index + 1}`}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.currentTarget.src = `https://via.placeholder.com/400x200/2a2a2a/ffffff?text=Set+${index + 1}`;
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                        <div className="absolute bottom-3 right-3">
-                          <div className="flex justify-end items-center gap-1 p-0.5 rounded-lg">
-                            <svg
-                              width="12"
-                              height="12"
-                              viewBox="0 0 12 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <g clipPath="url(#clip0_heart)">
-                                <path
-                                  d="M10.4201 2.30494C10.1647 2.04944 9.86147 1.84676 9.52774 1.70848C9.19401 1.5702 8.8363 1.49902 8.47506 1.49902C8.11382 1.49902 7.75611 1.5702 7.42238 1.70848C7.08865 1.84676 6.78544 2.04944 6.53006 2.30494L6.00006 2.83494L5.47006 2.30494C4.95421 1.78909 4.25458 1.49929 3.52506 1.49929C2.79554 1.49929 2.09591 1.78909 1.58006 2.30494C1.06421 2.82078 0.774414 3.52042 0.774414 4.24994C0.774414 4.97945 1.06421 5.67909 1.58006 6.19494L6.00006 10.6149L10.4201 6.19494C10.6756 5.93956 10.8782 5.63634 11.0165 5.30261C11.1548 4.96888 11.226 4.61118 11.226 4.24994C11.226 3.88869 11.1548 3.53099 11.0165 3.19726C10.8782 2.86353 10.6756 2.56031 10.4201 2.30494Z"
-                                  stroke="#F5F5F5"
-                                  strokeWidth="1.2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_heart">
-                                  <rect width="12" height="12" fill="white" />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                            <span className="text-text-primary text-[11px] font-normal leading-4 tracking-[0.5px]">
-                              89
-                            </span>
-                          </div>
-                        </div>
-                      </div>
+                        image={src}
+                        likes={89}
+                        type="set"
+                      />
                     ))}
                   </div>
                 </div>
