@@ -405,6 +405,7 @@ const Community = () => {
                   {rooms.map((room, index) => (
                     <RoomRow
                       key={index}
+                      roomId={room.roomId}
                       name={room.name}
                       description={room.description}
                       owner={room.owner}
