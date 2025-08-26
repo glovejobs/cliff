@@ -1,6 +1,8 @@
 import { Tv, Layers, Image, Globe, User, MapPin, ArrowLeft, Download, Plus, ArrowUp } from 'lucide-react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { ScrollableContainer } from "../components/ui/scrollable-container";
+import { Button } from "../components/ui/button";
+import { useState } from 'react';
 
 const ExpandedSidebar = ({ activeRoom }: { activeRoom?: string }) => {
   const location = useLocation();
