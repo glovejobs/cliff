@@ -101,25 +101,13 @@ const MediaCard = ({
               </span>
             </div>
 
-            <button
-              className="flex items-center gap-2 bg-surface-neutral border border-border-neutral rounded-lg px-3 h-10 text-text-dark text-base font-normal transition-colors hover:bg-opacity-90"
-              style={{
-                fontFamily:
-                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-              }}
-            >
-              <Play size={16} className="text-text-dark" strokeWidth={1.6} />
+            <button className="flex items-center justify-center gap-2 px-2 py-2 bg-[#E3E3E3] text-[#1E1E1E] rounded-lg text-[12px] font-medium leading-[18px] border border-[#767676] hover:bg-[#E3E3E3]/80 transition-colors">
+              <Play size={16} className="text-[#1E1E1E]" strokeWidth={1.6} />
               Watch video
             </button>
 
-            <button
-              className="flex items-center gap-2 bg-brand-primary border border-brand-primary rounded-lg px-3 h-10 text-brand-text text-base font-normal transition-colors hover:bg-opacity-90"
-              style={{
-                fontFamily:
-                  "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-              }}
-            >
-              <Edit size={16} className="text-text-primary" strokeWidth={1.6} />
+            <button className="flex items-center justify-center gap-2 px-2 py-2 bg-[#2C2C2C] text-[#F5F5F5] rounded-lg text-[11px] font-medium leading-4 tracking-[0.5px] hover:bg-[#2C2C2C]/90 transition-colors">
+              <Edit size={16} className="text-[#F5F5F5]" strokeWidth={1.6} />
               Edit
             </button>
           </div>
