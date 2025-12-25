@@ -129,4 +129,14 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
   }
+
+  /* Custom scrollbar utilities */
+  .scrollbar-none {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 }
