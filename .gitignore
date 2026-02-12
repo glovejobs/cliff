@@ -24,4 +24,34 @@ dist-ssr
 *.sw?
 
 .config/
-!.env
+
+# SECURITY: Environment variables and secrets
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.test
+*.env
+*.env.*
+
+# SECURITY: Common secret files
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+.secrets
+config/secrets.json
+config/keys.json
+
+# SECURITY: Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# SECURITY: Backup files that might contain sensitive data
+*.backup
+*.bak
+*.dump
