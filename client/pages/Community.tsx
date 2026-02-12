@@ -1,5 +1,6 @@
 import { Tv, Layers, Image, Globe, User, MapPin } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { ScrollableContainer } from '../components/ui/scrollable-container';
 
 const ExpandedSidebar = ({ activeItem }: { activeItem?: string }) => {
   const location = useLocation();
@@ -294,12 +295,11 @@ const Community = () => {
     <div className="min-h-screen bg-app-bg relative">
       {/* Expanded Sidebar */}
       <ExpandedSidebar activeItem="community" />
-      
-      {/* Main Content */}
-      <main className="ml-[252px] px-6 pt-3 pb-6 min-h-screen">
-        <div className="flex flex-col items-center gap-12 flex-1">
-          {/* Header Section */}
-          <div className="flex flex-col justify-center items-start gap-2.5 max-w-[600px] w-full">
+
+      {/* Fixed Header Section */}
+      <div className="fixed top-0 left-[252px] right-0 z-40 bg-app-bg px-6">
+        <div className="pt-6 pb-4">
+          <div className="flex flex-col justify-center items-start gap-2.5 max-w-[600px] w-full mx-auto">
             <h1 className="text-text-primary text-3xl font-normal leading-tight w-full text-center">
               Rooms
             </h1>
@@ -307,6 +307,13 @@ const Community = () => {
               A space to create and collaborate on prompts and video generations
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* Main Scrollable Content */}
+      <main className="ml-[252px] px-6 min-h-screen" style={{ paddingTop: '138px' }}>
+        <ScrollableContainer className="h-screen" style={{ height: 'calc(100vh - 138px)' }}>
+          <div className="flex flex-col items-center gap-12 flex-1">
           
           {/* Content */}
           <div className="flex flex-col gap-6 flex-1 w-full">
@@ -367,7 +374,8 @@ const Community = () => {
             {/* Spacer */}
             <div className="h-6"></div>
           </div>
-        </div>
+          </div>
+        </ScrollableContainer>
       </main>
     </div>
   );
